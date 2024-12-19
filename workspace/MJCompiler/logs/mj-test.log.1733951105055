@@ -1,0 +1,72 @@
+INFO  21:32:50,011 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  21:32:50,160 - #2 program
+INFO  21:32:50,160 - #52 Keske
+INFO  21:32:50,161 - #9 const
+INFO  21:32:50,164 - #52 int
+INFO  21:32:50,165 - #52 pi
+INFO  21:32:50,166 - #21 =
+INFO  21:32:50,167 - #50 3
+INFO  21:32:50,167 - #38 ,
+INFO  21:32:50,172 - #52 pi
+INFO  21:32:50,172 - #21 =
+INFO  21:32:50,173 - #50 33
+INFO  21:32:50,173 - #37 ;
+INFO  21:32:50,174 - #43 {
+INFO  21:32:50,177 - #5 void
+INFO  21:32:50,178 - #52 main
+INFO  21:32:50,180 - #39 (
+INFO  21:32:50,181 - #40 )
+INFO  21:32:50,183 - #43 {
+INFO  21:32:50,187 - #44 }
+INFO  21:32:50,189 - #44 }
+INFO  21:32:50,195 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        ConstantN(
+         3
+        ) [ConstantN]
+      ) [ConDecl]
+      ConDeclMoreComma(
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+        ConDecl(
+         pi
+          ConstantN(
+           33
+          ) [ConstantN]
+        ) [ConDecl]
+      ) [ConDeclMoreComma]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  21:32:50,197 - ===================================
+ERROR 21:32:50,248 - Dvostruka definicija konstante: pi na liniji 3
+INFO  21:32:50,249 - ===================================
+ERROR 21:32:50,251 - Parsiranje NIJE uspesno zavrseno!

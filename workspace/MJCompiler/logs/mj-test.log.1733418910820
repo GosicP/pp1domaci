@@ -1,0 +1,80 @@
+INFO  18:14:40,398 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  18:14:40,434 - #2 program
+INFO  18:14:40,435 - #47 MJProgram
+INFO  18:14:40,435 - #9 const
+INFO  18:14:40,437 - #47 int
+INFO  18:14:40,438 - #47 x
+INFO  18:14:40,440 - #21 =
+INFO  18:14:40,440 - #45 5
+INFO  18:14:40,441 - #38 ,
+INFO  18:14:40,445 - #47 y
+INFO  18:14:40,445 - #21 =
+INFO  18:14:40,445 - #45 10
+INFO  18:14:40,445 - #37 ;
+INFO  18:14:40,446 - #9 const
+INFO  18:14:40,448 - #47 char
+INFO  18:14:40,448 - #47 a
+INFO  18:14:40,448 - #21 =
+INFO  18:14:40,449 - #48 A
+INFO  18:14:40,449 - #38 ,
+INFO  18:14:40,450 - #47 b
+INFO  18:14:40,450 - #21 =
+INFO  18:14:40,450 - #48 B
+INFO  18:14:40,451 - #37 ;
+INFO  18:14:40,452 - #43 {
+INFO  18:14:40,453 - #44 }
+INFO  18:14:40,463 - Program(
+ MJProgram
+  ConVarDeclListCon(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         x
+          ConstantN(
+           5
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           y
+            ConstantN(
+             10
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    ConDecList(
+      Type(
+       char
+      ) [Type]
+      ConDecl(
+       a
+        ConstantC(
+         A
+        ) [ConstantC]
+      ) [ConDecl]
+      ConDeclMoreComma(
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+        ConDecl(
+         b
+          ConstantC(
+           B
+          ) [ConstantC]
+        ) [ConDecl]
+      ) [ConDeclMoreComma]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclListDerived1(
+  ) [MethodDeclListDerived1]
+) [Program]
+INFO  18:14:40,464 - ===================================
+INFO  18:14:40,465 - Parsiranje uspesno zavrseno!

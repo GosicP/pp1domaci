@@ -1,0 +1,77 @@
+INFO  21:04:45,199 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  21:04:45,340 - #2 program
+INFO  21:04:45,341 - #52 Keske
+INFO  21:04:45,342 - #9 const
+INFO  21:04:45,344 - #52 int
+INFO  21:04:45,344 - #52 pi
+INFO  21:04:45,347 - #21 =
+INFO  21:04:45,347 - #50 3
+INFO  21:04:45,348 - #37 ;
+INFO  21:04:45,352 - #52 char
+INFO  21:04:45,355 - #52 carr
+INFO  21:04:45,356 - #41 [
+INFO  21:04:45,356 - #42 ]
+INFO  21:04:45,356 - #37 ;
+INFO  21:04:45,362 - #43 {
+INFO  21:04:45,367 - #5 void
+INFO  21:04:45,369 - #52 main
+INFO  21:04:45,371 - #39 (
+INFO  21:04:45,372 - #40 )
+INFO  21:04:45,374 - #43 {
+INFO  21:04:45,378 - #44 }
+INFO  21:04:45,381 - #44 }
+INFO  21:04:45,388 - Program(
+ Keske
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+       carr
+        ArraySquarePresent(
+        ) [ArraySquarePresent]
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  21:04:45,391 - ===================================
+INFO  21:04:45,421 - Hello program na liniji 1
+INFO  21:04:45,421 - ===================================
+INFO  21:04:45,423 - Parsiranje uspesno zavrseno!

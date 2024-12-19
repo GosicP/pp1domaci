@@ -1,0 +1,60 @@
+INFO  20:49:04,302 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  20:49:04,445 - #2 program
+INFO  20:49:04,446 - #52 Keske
+INFO  20:49:04,446 - #9 const
+INFO  20:49:04,450 - #52 vyte
+INFO  20:49:04,451 - #52 pi
+INFO  20:49:04,453 - #21 =
+INFO  20:49:04,454 - #50 3
+INFO  20:49:04,454 - #37 ;
+INFO  20:49:04,459 - #43 {
+INFO  20:49:04,461 - #5 void
+INFO  20:49:04,463 - #52 main
+INFO  20:49:04,465 - #39 (
+INFO  20:49:04,465 - #40 )
+INFO  20:49:04,466 - #43 {
+INFO  20:49:04,469 - #44 }
+INFO  20:49:04,471 - #44 }
+INFO  20:49:04,477 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      Type(
+       vyte
+      ) [Type]
+      ConDecl(
+       pi
+        ConstantN(
+         3
+        ) [ConstantN]
+      ) [ConDecl]
+      ConDeclMoreEpsilon(
+      ) [ConDeclMoreEpsilon]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  20:49:04,479 - ===================================
+ERROR 20:49:04,499 - Nepostojeci tip podatka: vyte na liniji 3
+INFO  20:49:04,500 - ===================================
+ERROR 20:49:04,501 - Parsiranje NIJE uspesno zavrseno!

@@ -1,0 +1,76 @@
+INFO  20:29:46,732 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  20:29:46,863 - #2 program
+INFO  20:29:46,863 - #52 Keske
+INFO  20:29:46,864 - #9 const
+INFO  20:29:46,866 - #52 int
+INFO  20:29:46,866 - #52 pi
+INFO  20:29:46,869 - #21 =
+INFO  20:29:46,870 - #50 3
+INFO  20:29:46,870 - #37 ;
+INFO  20:29:46,874 - #52 char
+INFO  20:29:46,876 - #52 carr
+INFO  20:29:46,876 - #41 [
+INFO  20:29:46,877 - #42 ]
+INFO  20:29:46,877 - #37 ;
+INFO  20:29:46,882 - #43 {
+INFO  20:29:46,886 - #5 void
+INFO  20:29:46,888 - #52 main
+INFO  20:29:46,890 - #39 (
+INFO  20:29:46,891 - #40 )
+INFO  20:29:46,893 - #43 {
+INFO  20:29:46,898 - #44 }
+INFO  20:29:46,899 - #44 }
+INFO  20:29:46,904 - Program(
+ Keske
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+       carr
+        ArraySquarePresent(
+        ) [ArraySquarePresent]
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  20:29:46,906 - ===================================
+INFO  20:29:46,930 - ===================================
+INFO  20:29:46,934 - Parsiranje uspesno zavrseno!

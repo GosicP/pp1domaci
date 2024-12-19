@@ -1,0 +1,80 @@
+INFO  18:16:13,017 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  18:16:13,076 - #2 program
+INFO  18:16:13,076 - #47 MJProgram
+INFO  18:16:13,077 - #9 const
+INFO  18:16:13,079 - #47 int
+INFO  18:16:13,080 - #47 x
+INFO  18:16:13,082 - #21 =
+INFO  18:16:13,083 - #45 5
+INFO  18:16:13,084 - #38 ,
+INFO  18:16:13,088 - #47 y
+INFO  18:16:13,089 - #21 =
+INFO  18:16:13,089 - #45 10
+INFO  18:16:13,089 - #37 ;
+INFO  18:16:13,090 - #47 int
+INFO  18:16:13,093 - #47 a
+INFO  18:16:13,094 - #38 ,
+INFO  18:16:13,099 - #47 b
+INFO  18:16:13,099 - #41 [
+INFO  18:16:13,099 - #42 ]
+INFO  18:16:13,100 - #38 ,
+INFO  18:16:13,102 - #47 c
+INFO  18:16:13,103 - #37 ;
+INFO  18:16:13,103 - #43 {
+INFO  18:16:13,110 - #44 }
+INFO  18:16:13,117 - Program(
+ MJProgram
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         x
+          ConstantN(
+           5
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           y
+            ConstantN(
+             10
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       int
+      ) [Type]
+      VarDecl(
+       a
+        ArraySquareEpsilon(
+        ) [ArraySquareEpsilon]
+        VarDeclMoreWithSquares(
+          VarDeclMoreWithSquares(
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+           b
+            ArraySquarePresent(
+            ) [ArraySquarePresent]
+          ) [VarDeclMoreWithSquares]
+         c
+          ArraySquareEpsilon(
+          ) [ArraySquareEpsilon]
+        ) [VarDeclMoreWithSquares]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclListDerived1(
+  ) [MethodDeclListDerived1]
+) [Program]
+INFO  18:16:13,119 - ===================================
+INFO  18:16:13,120 - Parsiranje uspesno zavrseno!

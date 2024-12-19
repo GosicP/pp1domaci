@@ -1,0 +1,59 @@
+INFO  20:48:06,497 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  20:48:06,657 - #2 program
+INFO  20:48:06,658 - #52 Keske
+INFO  20:48:06,658 - #9 const
+INFO  20:48:06,662 - #52 int
+INFO  20:48:06,663 - #52 pi
+INFO  20:48:06,665 - #21 =
+INFO  20:48:06,665 - #50 3
+INFO  20:48:06,666 - #37 ;
+INFO  20:48:06,670 - #43 {
+INFO  20:48:06,673 - #5 void
+INFO  20:48:06,674 - #52 main
+INFO  20:48:06,676 - #39 (
+INFO  20:48:06,677 - #40 )
+INFO  20:48:06,678 - #43 {
+INFO  20:48:06,681 - #44 }
+INFO  20:48:06,684 - #44 }
+INFO  20:48:06,690 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        ConstantN(
+         3
+        ) [ConstantN]
+      ) [ConDecl]
+      ConDeclMoreEpsilon(
+      ) [ConDeclMoreEpsilon]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  20:48:06,692 - ===================================
+INFO  20:48:06,718 - ===================================
+INFO  20:48:06,720 - Parsiranje uspesno zavrseno!

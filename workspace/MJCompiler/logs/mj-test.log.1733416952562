@@ -1,0 +1,36 @@
+INFO  16:08:25,250 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  16:08:25,287 - #2 program
+INFO  16:08:25,288 - #47 MJProgram
+INFO  16:08:25,288 - #47 int
+INFO  16:08:25,290 - #47 x
+INFO  16:08:25,292 - #38 ,
+INFO  16:08:25,294 - #47 y
+INFO  16:08:25,295 - #41 [
+INFO  16:08:25,295 - #42 ]
+INFO  16:08:25,295 - #37 ;
+INFO  16:08:25,296 - #43 {
+INFO  16:08:25,299 - #44 }
+INFO  16:08:25,305 - Program(
+ MJProgram
+  ConVarDeclListVar(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    VarDeclList(
+      Type(
+       int
+      ) [Type]
+      VarDeclNoBraces(
+       x
+        VarDeclMoreWithBraces(
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+         y
+        ) [VarDeclMoreWithBraces]
+      ) [VarDeclNoBraces]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclListDerived1(
+  ) [MethodDeclListDerived1]
+) [Program]
+INFO  16:08:25,307 - ===================================
+INFO  16:08:25,307 - Parsiranje uspesno zavrseno!

@@ -1,0 +1,41 @@
+INFO  21:45:36,103 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  21:45:36,152 - #2 program
+INFO  21:45:36,153 - #47 MJProgram
+INFO  21:45:36,153 - #43 {
+INFO  21:45:36,156 - #5 void
+INFO  21:45:36,158 - #47 greet
+INFO  21:45:36,161 - #39 (
+INFO  21:45:36,162 - #47 String
+INFO  21:45:36,163 - #47 name
+INFO  21:45:36,165 - #40 )
+INFO  21:45:36,173 - #43 {
+INFO  21:45:36,175 - #44 }
+INFO  21:45:36,175 - #44 }
+INFO  21:45:36,182 - Program(
+ MJProgram
+  ConVarDeclListEpsilon(
+  ) [ConVarDeclListEpsilon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodTypeVoid(
+      ) [MethodTypeVoid]
+     greet
+      FormParsPresent(
+        Type(
+         String
+        ) [Type]
+       name
+        ArraySquareEpsilon(
+        ) [ArraySquareEpsilon]
+        FormParsMoreEpsilon(
+        ) [FormParsMoreEpsilon]
+      ) [FormParsPresent]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  21:45:36,184 - ===================================
+INFO  21:45:36,185 - Parsiranje uspesno zavrseno!

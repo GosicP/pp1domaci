@@ -1,0 +1,100 @@
+INFO  22:30:27,335 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  22:30:27,399 - #2 program
+INFO  22:30:27,399 - #52 Keske
+INFO  22:30:27,399 - #9 const
+INFO  22:30:27,401 - #52 int
+INFO  22:30:27,401 - #52 pi
+INFO  22:30:27,402 - #21 =
+INFO  22:30:27,402 - #50 3
+INFO  22:30:27,402 - #38 ,
+INFO  22:30:27,404 - #52 g
+INFO  22:30:27,404 - #21 =
+INFO  22:30:27,404 - #50 11
+INFO  22:30:27,404 - #37 ;
+INFO  22:30:27,404 - #52 char
+INFO  22:30:27,406 - #52 x
+INFO  22:30:27,406 - #38 ,
+INFO  22:30:27,408 - #52 y
+INFO  22:30:27,408 - #41 [
+INFO  22:30:27,409 - #42 ]
+INFO  22:30:27,409 - #37 ;
+INFO  22:30:27,409 - #43 {
+INFO  22:30:27,411 - #5 void
+INFO  22:30:27,412 - #52 main
+INFO  22:30:27,414 - #39 (
+INFO  22:30:27,414 - #40 )
+INFO  22:30:27,415 - #43 {
+INFO  22:30:27,416 - #44 }
+INFO  22:30:27,417 - #44 }
+INFO  22:30:27,420 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           g
+            ConstantN(
+             11
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+        Type(
+         x
+        ) [Type]
+        ArraySquareEpsilon(
+        ) [ArraySquareEpsilon]
+        VarDeclMoreWithSquares(
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+         y
+          ArraySquarePresent(
+          ) [ArraySquarePresent]
+        ) [VarDeclMoreWithSquares]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  22:30:27,420 - ===================================
+ERROR 22:30:27,440 - Nepostojeci tip podatka: x na liniji 4
+INFO  22:30:27,441 - ===================================
+ERROR 22:30:27,441 - Parsiranje NIJE uspesno zavrseno!

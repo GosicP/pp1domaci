@@ -1,0 +1,80 @@
+INFO  22:57:33,111 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  22:57:33,285 - #2 program
+INFO  22:57:33,286 - #52 Keske
+INFO  22:57:33,287 - #9 const
+INFO  22:57:33,295 - #52 int
+INFO  22:57:33,296 - #52 pi
+INFO  22:57:33,298 - #21 =
+INFO  22:57:33,300 - #50 3
+INFO  22:57:33,300 - #37 ;
+INFO  22:57:33,308 - #52 char
+INFO  22:57:33,311 - #52 carr
+INFO  22:57:33,312 - #41 [
+INFO  22:57:33,312 - #42 ]
+INFO  22:57:33,312 - #37 ;
+INFO  22:57:33,317 - #43 {
+INFO  22:57:33,324 - #5 void
+INFO  22:57:33,327 - #52 main
+INFO  22:57:33,329 - #39 (
+INFO  22:57:33,330 - #40 )
+INFO  22:57:33,332 - #43 {
+INFO  22:57:33,336 - #44 }
+INFO  22:57:33,339 - #44 }
+INFO  22:57:33,348 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+       carr
+        ArraySquarePresent(
+        ) [ArraySquarePresent]
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  22:57:33,350 - ===================================
+INFO  22:57:33,387 - Hello world na liniji 1
+INFO  22:57:33,392 - Hello world na liniji 1
+INFO  22:57:33,392 - ===================================
+INFO  22:57:33,398 - Parsiranje uspesno zavrseno!

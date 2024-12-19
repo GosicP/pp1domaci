@@ -1,0 +1,78 @@
+INFO  20:15:43,856 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  20:15:44,101 - #2 program
+INFO  20:15:44,101 - #52 Keske
+INFO  20:15:44,102 - #9 const
+INFO  20:15:44,106 - #52 int
+INFO  20:15:44,107 - #52 pi
+INFO  20:15:44,109 - #21 =
+INFO  20:15:44,109 - #50 3
+INFO  20:15:44,110 - #37 ;
+INFO  20:15:44,113 - #52 char
+INFO  20:15:44,116 - #52 carr
+INFO  20:15:44,116 - #41 [
+INFO  20:15:44,116 - #42 ]
+INFO  20:15:44,117 - #37 ;
+INFO  20:15:44,121 - #43 {
+INFO  20:15:44,125 - #5 void
+INFO  20:15:44,127 - #52 main
+INFO  20:15:44,129 - #39 (
+INFO  20:15:44,129 - #40 )
+INFO  20:15:44,131 - #43 {
+INFO  20:15:44,134 - #44 }
+INFO  20:15:44,136 - #44 }
+INFO  20:15:44,143 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      VarDecl(
+       carr
+        ArraySquarePresent(
+        ) [ArraySquarePresent]
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  20:15:44,146 - ===================================
+INFO  20:15:44,178 - ===================================
+INFO  20:15:44,179 - Parsiranje uspesno zavrseno!

@@ -1,0 +1,72 @@
+INFO  22:23:52,694 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  22:23:52,821 - #2 program
+INFO  22:23:52,821 - #52 Keske
+INFO  22:23:52,822 - #9 const
+INFO  22:23:52,825 - #52 int
+INFO  22:23:52,825 - #52 pi
+INFO  22:23:52,827 - #21 =
+INFO  22:23:52,827 - #51 0
+INFO  22:23:52,828 - #38 ,
+INFO  22:23:52,832 - #52 g
+INFO  22:23:52,832 - #21 =
+INFO  22:23:52,832 - #50 11
+INFO  22:23:52,832 - #37 ;
+INFO  22:23:52,833 - #43 {
+INFO  22:23:52,835 - #5 void
+INFO  22:23:52,837 - #52 main
+INFO  22:23:52,839 - #39 (
+INFO  22:23:52,840 - #40 )
+INFO  22:23:52,841 - #43 {
+INFO  22:23:52,845 - #44 }
+INFO  22:23:52,847 - #44 }
+INFO  22:23:52,852 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        ConstantB(
+         0
+        ) [ConstantB]
+      ) [ConDecl]
+      ConDeclMoreComma(
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+        ConDecl(
+         g
+          ConstantN(
+           11
+          ) [ConstantN]
+        ) [ConDecl]
+      ) [ConDeclMoreComma]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  22:23:52,853 - ===================================
+ERROR 22:23:52,881 - Neadekvatna dodela konstanti: pi na liniji 3
+INFO  22:23:52,882 - ===================================
+ERROR 22:23:52,885 - Parsiranje NIJE uspesno zavrseno!

@@ -1,0 +1,152 @@
+INFO  00:02:26,785 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  00:02:26,936 - #2 program
+INFO  00:02:26,937 - #52 Keske
+INFO  00:02:26,937 - #9 const
+INFO  00:02:26,942 - #52 int
+INFO  00:02:26,943 - #52 pi
+INFO  00:02:26,945 - #21 =
+INFO  00:02:26,946 - #50 3
+INFO  00:02:26,946 - #38 ,
+INFO  00:02:26,950 - #52 g
+INFO  00:02:26,950 - #21 =
+INFO  00:02:26,951 - #50 11
+INFO  00:02:26,951 - #37 ;
+INFO  00:02:26,952 - #52 char
+INFO  00:02:26,954 - #52 x
+INFO  00:02:26,955 - #38 ,
+INFO  00:02:26,958 - #52 y
+INFO  00:02:26,958 - #41 [
+INFO  00:02:26,958 - #42 ]
+INFO  00:02:26,959 - #37 ;
+INFO  00:02:26,960 - #43 {
+INFO  00:02:26,963 - #5 void
+INFO  00:02:26,966 - #52 mainz
+INFO  00:02:26,969 - #39 (
+INFO  00:02:26,971 - #40 )
+INFO  00:02:26,974 - #52 int
+INFO  00:02:26,979 - #52 a
+INFO  00:02:26,980 - #38 ,
+INFO  00:02:26,980 - #52 b
+INFO  00:02:26,982 - #41 [
+INFO  00:02:26,982 - #42 ]
+INFO  00:02:26,984 - #37 ;
+INFO  00:02:26,984 - #52 int
+INFO  00:02:26,985 - #52 x
+INFO  00:02:26,986 - #37 ;
+INFO  00:02:26,986 - #52 int
+INFO  00:02:26,986 - #52 eol
+INFO  00:02:26,987 - #37 ;
+INFO  00:02:26,988 - #43 {
+INFO  00:02:26,988 - #44 }
+INFO  00:02:26,991 - #44 }
+INFO  00:02:27,001 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           g
+            ConstantN(
+             11
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+        MethodName(
+         mainz
+        ) [MethodName]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarList(
+            MethodDeclVarEpsilon(
+            ) [MethodDeclVarEpsilon]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              ArraySquareIdent(
+               a
+              ) [ArraySquareIdent]
+              VarDeclMoreWithSquares(
+                VarDeclMoreEpsilon(
+                ) [VarDeclMoreEpsilon]
+                ArraySquarePresent(
+                 b
+                ) [ArraySquarePresent]
+              ) [VarDeclMoreWithSquares]
+            ) [VarDeclList]
+          ) [MethodDeclVarList]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            ArraySquareIdent(
+             x
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          ArraySquareIdent(
+           eol
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  00:02:27,005 - ===================================
+ERROR 00:02:27,044 - Program nema main metodu na liniji 1
+INFO  00:02:27,045 - ===================================
+ERROR 00:02:27,047 - Parsiranje NIJE uspesno zavrseno!

@@ -1,0 +1,167 @@
+INFO  23:59:54,734 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  23:59:54,884 - #2 program
+INFO  23:59:54,885 - #52 Keske
+INFO  23:59:54,885 - #9 const
+INFO  23:59:54,889 - #52 int
+INFO  23:59:54,889 - #52 pi
+INFO  23:59:54,891 - #21 =
+INFO  23:59:54,891 - #50 3
+INFO  23:59:54,891 - #38 ,
+INFO  23:59:54,895 - #52 g
+INFO  23:59:54,895 - #21 =
+INFO  23:59:54,895 - #50 11
+INFO  23:59:54,896 - #37 ;
+INFO  23:59:54,896 - #52 char
+INFO  23:59:54,900 - #52 x
+INFO  23:59:54,900 - #38 ,
+INFO  23:59:54,902 - #52 y
+INFO  23:59:54,903 - #41 [
+INFO  23:59:54,903 - #42 ]
+INFO  23:59:54,903 - #37 ;
+INFO  23:59:54,904 - #52 int
+INFO  23:59:54,907 - #52 eol
+INFO  23:59:54,907 - #37 ;
+INFO  23:59:54,909 - #43 {
+INFO  23:59:54,909 - #5 void
+INFO  23:59:54,911 - #52 main
+INFO  23:59:54,912 - #39 (
+INFO  23:59:54,915 - #40 )
+INFO  23:59:54,917 - #52 int
+INFO  23:59:54,922 - #52 a
+INFO  23:59:54,923 - #38 ,
+INFO  23:59:54,923 - #52 b
+INFO  23:59:54,923 - #41 [
+INFO  23:59:54,924 - #42 ]
+INFO  23:59:54,924 - #37 ;
+INFO  23:59:54,924 - #52 int
+INFO  23:59:54,925 - #52 x
+INFO  23:59:54,925 - #37 ;
+INFO  23:59:54,926 - #52 int
+INFO  23:59:54,926 - #52 eol
+INFO  23:59:54,926 - #37 ;
+INFO  23:59:54,927 - #43 {
+INFO  23:59:54,927 - #44 }
+INFO  23:59:54,930 - #44 }
+INFO  23:59:54,939 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListVar(
+      ConVarDeclListCon(
+        ConVarDeclListEpsilon(
+        ) [ConVarDeclListEpsilon]
+        ConDecList(
+          Type(
+           int
+          ) [Type]
+          ConDecl(
+           pi
+            ConstantN(
+             3
+            ) [ConstantN]
+          ) [ConDecl]
+          ConDeclMoreComma(
+            ConDeclMoreEpsilon(
+            ) [ConDeclMoreEpsilon]
+            ConDecl(
+             g
+              ConstantN(
+               11
+              ) [ConstantN]
+            ) [ConDecl]
+          ) [ConDeclMoreComma]
+        ) [ConDecList]
+      ) [ConVarDeclListCon]
+      VarDeclList(
+        Type(
+         char
+        ) [Type]
+        ArraySquareIdent(
+         x
+        ) [ArraySquareIdent]
+        VarDeclMoreWithSquares(
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+          ArraySquarePresent(
+           y
+          ) [ArraySquarePresent]
+        ) [VarDeclMoreWithSquares]
+      ) [VarDeclList]
+    ) [ConVarDeclListVar]
+    VarDeclList(
+      Type(
+       int
+      ) [Type]
+      ArraySquareIdent(
+       eol
+      ) [ArraySquareIdent]
+      VarDeclMoreEpsilon(
+      ) [VarDeclMoreEpsilon]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+        MethodName(
+         main
+        ) [MethodName]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarList(
+            MethodDeclVarEpsilon(
+            ) [MethodDeclVarEpsilon]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              ArraySquareIdent(
+               a
+              ) [ArraySquareIdent]
+              VarDeclMoreWithSquares(
+                VarDeclMoreEpsilon(
+                ) [VarDeclMoreEpsilon]
+                ArraySquarePresent(
+                 b
+                ) [ArraySquarePresent]
+              ) [VarDeclMoreWithSquares]
+            ) [VarDeclList]
+          ) [MethodDeclVarList]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            ArraySquareIdent(
+             x
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          ArraySquareIdent(
+           eol
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  23:59:54,942 - ===================================
+ERROR 23:59:54,980 - Dvostruka definicija promenljive: eol na liniji 6
+INFO  23:59:54,981 - ===================================
+ERROR 23:59:54,983 - Parsiranje NIJE uspesno zavrseno!

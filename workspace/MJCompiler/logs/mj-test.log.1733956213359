@@ -1,0 +1,95 @@
+INFO  23:29:30,096 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  23:29:30,303 - #2 program
+INFO  23:29:30,303 - #52 Keske
+INFO  23:29:30,304 - #9 const
+INFO  23:29:30,308 - #52 int
+INFO  23:29:30,308 - #52 pi
+INFO  23:29:30,310 - #21 =
+INFO  23:29:30,311 - #50 3
+INFO  23:29:30,311 - #38 ,
+INFO  23:29:30,315 - #52 g
+INFO  23:29:30,315 - #21 =
+INFO  23:29:30,315 - #50 11
+INFO  23:29:30,316 - #37 ;
+INFO  23:29:30,317 - #52 char
+INFO  23:29:30,321 - #52 x
+INFO  23:29:30,321 - #38 ,
+INFO  23:29:30,324 - #52 y
+INFO  23:29:30,324 - #41 [
+INFO  23:29:30,324 - #42 ]
+INFO  23:29:30,325 - #37 ;
+INFO  23:29:30,326 - #43 {
+INFO  23:29:30,328 - #5 void
+INFO  23:29:30,330 - #52 main
+INFO  23:29:30,334 - #39 (
+INFO  23:29:30,334 - #40 )
+INFO  23:29:30,336 - #43 {
+INFO  23:29:30,341 - #44 }
+INFO  23:29:30,343 - #44 }
+INFO  23:29:30,350 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           g
+            ConstantN(
+             11
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  23:29:30,351 - ===================================
+INFO  23:29:30,386 - ===================================
+INFO  23:29:30,388 - Parsiranje uspesno zavrseno!

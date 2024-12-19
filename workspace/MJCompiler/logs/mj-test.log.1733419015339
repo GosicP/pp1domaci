@@ -1,0 +1,82 @@
+INFO  18:16:30,751 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  18:16:30,784 - #2 program
+INFO  18:16:30,784 - #47 MJProgram
+INFO  18:16:30,785 - #9 const
+INFO  18:16:30,787 - #47 int
+INFO  18:16:30,787 - #47 x
+INFO  18:16:30,788 - #21 =
+INFO  18:16:30,789 - #45 5
+INFO  18:16:30,789 - #37 ;
+INFO  18:16:30,793 - #9 const
+INFO  18:16:30,795 - #47 char
+INFO  18:16:30,795 - #47 ch
+INFO  18:16:30,795 - #21 =
+INFO  18:16:30,796 - #48 A
+INFO  18:16:30,796 - #37 ;
+INFO  18:16:30,796 - #47 int
+INFO  18:16:30,796 - #47 y
+INFO  18:16:30,797 - #41 [
+INFO  18:16:30,797 - #42 ]
+INFO  18:16:30,797 - #38 ,
+INFO  18:16:30,801 - #47 z
+INFO  18:16:30,802 - #37 ;
+INFO  18:16:30,804 - #43 {
+INFO  18:16:30,810 - #44 }
+INFO  18:16:30,816 - Program(
+ MJProgram
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListCon(
+        ConVarDeclListEpsilon(
+        ) [ConVarDeclListEpsilon]
+        ConDecList(
+          Type(
+           int
+          ) [Type]
+          ConDecl(
+           x
+            ConstantN(
+             5
+            ) [ConstantN]
+          ) [ConDecl]
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+        ) [ConDecList]
+      ) [ConVarDeclListCon]
+      ConDecList(
+        Type(
+         char
+        ) [Type]
+        ConDecl(
+         ch
+          ConstantC(
+           A
+          ) [ConstantC]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       int
+      ) [Type]
+      VarDecl(
+       y
+        ArraySquarePresent(
+        ) [ArraySquarePresent]
+        VarDeclMoreWithSquares(
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+         z
+          ArraySquareEpsilon(
+          ) [ArraySquareEpsilon]
+        ) [VarDeclMoreWithSquares]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclListDerived1(
+  ) [MethodDeclListDerived1]
+) [Program]
+INFO  18:16:30,817 - ===================================
+INFO  18:16:30,817 - Parsiranje uspesno zavrseno!

@@ -1,0 +1,99 @@
+INFO  21:49:11,736 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  21:49:11,784 - #2 program
+INFO  21:49:11,785 - #47 MJProgram
+INFO  21:49:11,785 - #43 {
+INFO  21:49:11,787 - #47 int
+INFO  21:49:11,789 - #47 large
+INFO  21:49:11,791 - #39 (
+INFO  21:49:11,792 - #47 int
+INFO  21:49:11,792 - #47 a
+INFO  21:49:11,792 - #38 ,
+INFO  21:49:11,796 - #47 int
+INFO  21:49:11,797 - #47 b
+INFO  21:49:11,797 - #38 ,
+INFO  21:49:11,798 - #47 int
+INFO  21:49:11,802 - #47 c
+INFO  21:49:11,802 - #38 ,
+INFO  21:49:11,803 - #47 int
+INFO  21:49:11,803 - #47 d
+INFO  21:49:11,803 - #38 ,
+INFO  21:49:11,804 - #47 int
+INFO  21:49:11,804 - #47 e
+INFO  21:49:11,804 - #38 ,
+INFO  21:49:11,805 - #47 int
+INFO  21:49:11,806 - #47 f
+INFO  21:49:11,807 - #40 )
+INFO  21:49:11,808 - #43 {
+INFO  21:49:11,810 - #44 }
+INFO  21:49:11,810 - #44 }
+INFO  21:49:11,818 - Program(
+ MJProgram
+  ConVarDeclListEpsilon(
+  ) [ConVarDeclListEpsilon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodNonVoid(
+        Type(
+         int
+        ) [Type]
+      ) [MethodNonVoid]
+     large
+      FormParsPresent(
+        Type(
+         int
+        ) [Type]
+       a
+        ArraySquareEpsilon(
+        ) [ArraySquareEpsilon]
+        FormParsMoreSquares(
+          FormParsMoreSquares(
+            FormParsMoreSquares(
+              FormParsMoreSquares(
+                FormParsMoreSquares(
+                  FormParsMoreEpsilon(
+                  ) [FormParsMoreEpsilon]
+                  Type(
+                   int
+                  ) [Type]
+                 b
+                  ArraySquareEpsilon(
+                  ) [ArraySquareEpsilon]
+                ) [FormParsMoreSquares]
+                Type(
+                 int
+                ) [Type]
+               c
+                ArraySquareEpsilon(
+                ) [ArraySquareEpsilon]
+              ) [FormParsMoreSquares]
+              Type(
+               int
+              ) [Type]
+             d
+              ArraySquareEpsilon(
+              ) [ArraySquareEpsilon]
+            ) [FormParsMoreSquares]
+            Type(
+             int
+            ) [Type]
+           e
+            ArraySquareEpsilon(
+            ) [ArraySquareEpsilon]
+          ) [FormParsMoreSquares]
+          Type(
+           int
+          ) [Type]
+         f
+          ArraySquareEpsilon(
+          ) [ArraySquareEpsilon]
+        ) [FormParsMoreSquares]
+      ) [FormParsPresent]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  21:49:11,820 - ===================================
+INFO  21:49:11,821 - Parsiranje uspesno zavrseno!

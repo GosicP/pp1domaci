@@ -1,0 +1,58 @@
+INFO  20:46:12,370 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  20:46:12,518 - #2 program
+INFO  20:46:12,519 - #52 Keske
+INFO  20:46:12,520 - #9 const
+INFO  20:46:12,524 - #52 int
+INFO  20:46:12,524 - #52 pi
+INFO  20:46:12,526 - #21 =
+INFO  20:46:12,527 - #50 3
+INFO  20:46:12,527 - #37 ;
+INFO  20:46:12,531 - #43 {
+INFO  20:46:12,534 - #5 void
+INFO  20:46:12,535 - #52 main
+INFO  20:46:12,537 - #39 (
+INFO  20:46:12,538 - #40 )
+INFO  20:46:12,539 - #43 {
+INFO  20:46:12,543 - #44 }
+INFO  20:46:12,545 - #44 }
+INFO  20:46:12,551 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        ConstantN(
+         3
+        ) [ConstantN]
+      ) [ConDecl]
+      ConDeclMoreEpsilon(
+      ) [ConDeclMoreEpsilon]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  20:46:12,552 - ===================================
+INFO  20:46:12,576 - ===================================

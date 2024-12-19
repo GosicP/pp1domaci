@@ -1,0 +1,151 @@
+INFO  00:02:17,257 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  00:02:17,407 - #2 program
+INFO  00:02:17,408 - #52 Keske
+INFO  00:02:17,408 - #9 const
+INFO  00:02:17,412 - #52 int
+INFO  00:02:17,412 - #52 pi
+INFO  00:02:17,414 - #21 =
+INFO  00:02:17,415 - #50 3
+INFO  00:02:17,415 - #38 ,
+INFO  00:02:17,420 - #52 g
+INFO  00:02:17,420 - #21 =
+INFO  00:02:17,420 - #50 11
+INFO  00:02:17,421 - #37 ;
+INFO  00:02:17,421 - #52 char
+INFO  00:02:17,423 - #52 x
+INFO  00:02:17,424 - #38 ,
+INFO  00:02:17,426 - #52 y
+INFO  00:02:17,426 - #41 [
+INFO  00:02:17,426 - #42 ]
+INFO  00:02:17,426 - #37 ;
+INFO  00:02:17,427 - #43 {
+INFO  00:02:17,429 - #5 void
+INFO  00:02:17,431 - #52 main
+INFO  00:02:17,435 - #39 (
+INFO  00:02:17,437 - #40 )
+INFO  00:02:17,439 - #52 int
+INFO  00:02:17,443 - #52 a
+INFO  00:02:17,443 - #38 ,
+INFO  00:02:17,443 - #52 b
+INFO  00:02:17,444 - #41 [
+INFO  00:02:17,444 - #42 ]
+INFO  00:02:17,445 - #37 ;
+INFO  00:02:17,445 - #52 int
+INFO  00:02:17,446 - #52 x
+INFO  00:02:17,447 - #37 ;
+INFO  00:02:17,447 - #52 int
+INFO  00:02:17,447 - #52 eol
+INFO  00:02:17,448 - #37 ;
+INFO  00:02:17,448 - #43 {
+INFO  00:02:17,448 - #44 }
+INFO  00:02:17,451 - #44 }
+INFO  00:02:17,457 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           g
+            ConstantN(
+             11
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+        MethodName(
+         main
+        ) [MethodName]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarList(
+            MethodDeclVarEpsilon(
+            ) [MethodDeclVarEpsilon]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              ArraySquareIdent(
+               a
+              ) [ArraySquareIdent]
+              VarDeclMoreWithSquares(
+                VarDeclMoreEpsilon(
+                ) [VarDeclMoreEpsilon]
+                ArraySquarePresent(
+                 b
+                ) [ArraySquarePresent]
+              ) [VarDeclMoreWithSquares]
+            ) [VarDeclList]
+          ) [MethodDeclVarList]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            ArraySquareIdent(
+             x
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          ArraySquareIdent(
+           eol
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  00:02:17,460 - ===================================
+INFO  00:02:17,487 - ===================================
+INFO  00:02:17,489 - Parsiranje uspesno zavrseno!

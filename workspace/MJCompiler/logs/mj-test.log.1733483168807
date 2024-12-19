@@ -1,0 +1,198 @@
+INFO  21:49:51,858 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  21:49:51,897 - #2 program
+INFO  21:49:51,898 - #47 MJProgram
+INFO  21:49:51,898 - #9 const
+INFO  21:49:51,900 - #47 int
+INFO  21:49:51,900 - #47 x
+INFO  21:49:51,902 - #21 =
+INFO  21:49:51,902 - #45 5
+INFO  21:49:51,903 - #38 ,
+INFO  21:49:51,906 - #47 y
+INFO  21:49:51,907 - #21 =
+INFO  21:49:51,907 - #45 10
+INFO  21:49:51,908 - #37 ;
+INFO  21:49:51,909 - #9 const
+INFO  21:49:51,911 - #47 char
+INFO  21:49:51,912 - #47 a
+INFO  21:49:51,912 - #21 =
+INFO  21:49:51,912 - #48 A
+INFO  21:49:51,913 - #38 ,
+INFO  21:49:51,913 - #47 b
+INFO  21:49:51,914 - #21 =
+INFO  21:49:51,914 - #48 B
+INFO  21:49:51,914 - #37 ;
+INFO  21:49:51,916 - #47 int
+INFO  21:49:51,916 - #47 p
+INFO  21:49:51,916 - #38 ,
+INFO  21:49:51,922 - #47 q
+INFO  21:49:51,922 - #41 [
+INFO  21:49:51,923 - #42 ]
+INFO  21:49:51,923 - #38 ,
+INFO  21:49:51,925 - #47 r
+INFO  21:49:51,925 - #37 ;
+INFO  21:49:51,926 - #43 {
+INFO  21:49:51,930 - #47 int
+INFO  21:49:51,932 - #47 large
+INFO  21:49:51,932 - #39 (
+INFO  21:49:51,933 - #47 int
+INFO  21:49:51,933 - #47 a
+INFO  21:49:51,933 - #38 ,
+INFO  21:49:51,935 - #47 int
+INFO  21:49:51,935 - #47 b
+INFO  21:49:51,935 - #38 ,
+INFO  21:49:51,936 - #47 int
+INFO  21:49:51,936 - #47 c
+INFO  21:49:51,937 - #38 ,
+INFO  21:49:51,937 - #47 int
+INFO  21:49:51,937 - #47 d
+INFO  21:49:51,938 - #38 ,
+INFO  21:49:51,938 - #47 int
+INFO  21:49:51,938 - #47 e
+INFO  21:49:51,938 - #38 ,
+INFO  21:49:51,939 - #47 int
+INFO  21:49:51,939 - #47 f
+INFO  21:49:51,939 - #40 )
+INFO  21:49:51,940 - #43 {
+INFO  21:49:51,941 - #44 }
+INFO  21:49:51,942 - #44 }
+INFO  21:49:51,949 - Program(
+ MJProgram
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListCon(
+        ConVarDeclListEpsilon(
+        ) [ConVarDeclListEpsilon]
+        ConDecList(
+          Type(
+           int
+          ) [Type]
+          ConDecl(
+           x
+            ConstantN(
+             5
+            ) [ConstantN]
+          ) [ConDecl]
+          ConDeclMoreComma(
+            ConDeclMoreEpsilon(
+            ) [ConDeclMoreEpsilon]
+            ConDecl(
+             y
+              ConstantN(
+               10
+              ) [ConstantN]
+            ) [ConDecl]
+          ) [ConDeclMoreComma]
+        ) [ConDecList]
+      ) [ConVarDeclListCon]
+      ConDecList(
+        Type(
+         char
+        ) [Type]
+        ConDecl(
+         a
+          ConstantC(
+           A
+          ) [ConstantC]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           b
+            ConstantC(
+             B
+            ) [ConstantC]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       int
+      ) [Type]
+      VarDecl(
+       p
+        ArraySquareEpsilon(
+        ) [ArraySquareEpsilon]
+        VarDeclMoreWithSquares(
+          VarDeclMoreWithSquares(
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+           q
+            ArraySquarePresent(
+            ) [ArraySquarePresent]
+          ) [VarDeclMoreWithSquares]
+         r
+          ArraySquareEpsilon(
+          ) [ArraySquareEpsilon]
+        ) [VarDeclMoreWithSquares]
+      ) [VarDecl]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodNonVoid(
+        Type(
+         int
+        ) [Type]
+      ) [MethodNonVoid]
+     large
+      FormParsPresent(
+        Type(
+         int
+        ) [Type]
+       a
+        ArraySquareEpsilon(
+        ) [ArraySquareEpsilon]
+        FormParsMoreSquares(
+          FormParsMoreSquares(
+            FormParsMoreSquares(
+              FormParsMoreSquares(
+                FormParsMoreSquares(
+                  FormParsMoreEpsilon(
+                  ) [FormParsMoreEpsilon]
+                  Type(
+                   int
+                  ) [Type]
+                 b
+                  ArraySquareEpsilon(
+                  ) [ArraySquareEpsilon]
+                ) [FormParsMoreSquares]
+                Type(
+                 int
+                ) [Type]
+               c
+                ArraySquareEpsilon(
+                ) [ArraySquareEpsilon]
+              ) [FormParsMoreSquares]
+              Type(
+               int
+              ) [Type]
+             d
+              ArraySquareEpsilon(
+              ) [ArraySquareEpsilon]
+            ) [FormParsMoreSquares]
+            Type(
+             int
+            ) [Type]
+           e
+            ArraySquareEpsilon(
+            ) [ArraySquareEpsilon]
+          ) [FormParsMoreSquares]
+          Type(
+           int
+          ) [Type]
+         f
+          ArraySquareEpsilon(
+          ) [ArraySquareEpsilon]
+        ) [FormParsMoreSquares]
+      ) [FormParsPresent]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  21:49:51,950 - ===================================
+INFO  21:49:51,951 - Parsiranje uspesno zavrseno!

@@ -1,0 +1,137 @@
+INFO  23:47:45,968 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  23:47:46,115 - #2 program
+INFO  23:47:46,116 - #52 Keske
+INFO  23:47:46,116 - #9 const
+INFO  23:47:46,119 - #52 int
+INFO  23:47:46,119 - #52 pi
+INFO  23:47:46,121 - #21 =
+INFO  23:47:46,122 - #50 3
+INFO  23:47:46,122 - #38 ,
+INFO  23:47:46,126 - #52 g
+INFO  23:47:46,126 - #21 =
+INFO  23:47:46,126 - #50 11
+INFO  23:47:46,126 - #37 ;
+INFO  23:47:46,127 - #52 char
+INFO  23:47:46,129 - #52 x
+INFO  23:47:46,129 - #38 ,
+INFO  23:47:46,132 - #52 y
+INFO  23:47:46,132 - #41 [
+INFO  23:47:46,132 - #42 ]
+INFO  23:47:46,132 - #37 ;
+INFO  23:47:46,133 - #43 {
+INFO  23:47:46,136 - #5 void
+INFO  23:47:46,138 - #52 main
+INFO  23:47:46,140 - #39 (
+INFO  23:47:46,142 - #40 )
+INFO  23:47:46,144 - #52 int
+INFO  23:47:46,148 - #52 a
+INFO  23:47:46,148 - #38 ,
+INFO  23:47:46,148 - #52 b
+INFO  23:47:46,148 - #41 [
+INFO  23:47:46,149 - #42 ]
+INFO  23:47:46,149 - #37 ;
+INFO  23:47:46,150 - #52 int
+INFO  23:47:46,150 - #52 x
+INFO  23:47:46,150 - #37 ;
+INFO  23:47:46,151 - #43 {
+INFO  23:47:46,151 - #44 }
+INFO  23:47:46,153 - #44 }
+INFO  23:47:46,159 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreComma(
+          ConDeclMoreEpsilon(
+          ) [ConDeclMoreEpsilon]
+          ConDecl(
+           g
+            ConstantN(
+             11
+            ) [ConstantN]
+          ) [ConDecl]
+        ) [ConDeclMoreComma]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      Type(
+       char
+      ) [Type]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+        MethodName(
+         main
+        ) [MethodName]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarEpsilon(
+          ) [MethodDeclVarEpsilon]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            ArraySquareIdent(
+             a
+            ) [ArraySquareIdent]
+            VarDeclMoreWithSquares(
+              VarDeclMoreEpsilon(
+              ) [VarDeclMoreEpsilon]
+              ArraySquarePresent(
+               b
+              ) [ArraySquarePresent]
+            ) [VarDeclMoreWithSquares]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          ArraySquareIdent(
+           x
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  23:47:46,160 - ===================================
+ERROR 23:47:46,195 - Dvostruka definicija promenljive: x na liniji 8
+INFO  23:47:46,195 - ===================================
+ERROR 23:47:46,197 - Parsiranje NIJE uspesno zavrseno!

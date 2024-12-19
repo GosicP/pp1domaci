@@ -1,0 +1,60 @@
+INFO  20:49:32,176 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  20:49:32,299 - #2 program
+INFO  20:49:32,300 - #52 Keske
+INFO  20:49:32,301 - #9 const
+INFO  20:49:32,304 - #52 Keske
+INFO  20:49:32,304 - #52 pi
+INFO  20:49:32,306 - #21 =
+INFO  20:49:32,307 - #50 3
+INFO  20:49:32,307 - #37 ;
+INFO  20:49:32,309 - #43 {
+INFO  20:49:32,312 - #5 void
+INFO  20:49:32,314 - #52 main
+INFO  20:49:32,314 - #39 (
+INFO  20:49:32,314 - #40 )
+INFO  20:49:32,317 - #43 {
+INFO  20:49:32,319 - #44 }
+INFO  20:49:32,322 - #44 }
+INFO  20:49:32,326 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      Type(
+       Keske
+      ) [Type]
+      ConDecl(
+       pi
+        ConstantN(
+         3
+        ) [ConstantN]
+      ) [ConDecl]
+      ConDeclMoreEpsilon(
+      ) [ConDeclMoreEpsilon]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeVoid(
+        ) [MethodTypeVoid]
+       main
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListEpsilon(
+      ) [StatementListEpsilon]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  20:49:32,328 - ===================================
+ERROR 20:49:32,353 - Neadekvatan tip podatka: Keske na liniji 3
+INFO  20:49:32,354 - ===================================
+ERROR 20:49:32,356 - Parsiranje NIJE uspesno zavrseno!

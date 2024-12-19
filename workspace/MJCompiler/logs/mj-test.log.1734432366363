@@ -1,0 +1,376 @@
+INFO  11:46:00,153 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  11:46:00,339 - #2 program
+INFO  11:46:00,341 - #52 Keske
+INFO  11:46:00,341 - #9 const
+INFO  11:46:00,345 - #52 int
+INFO  11:46:00,345 - #52 pi
+INFO  11:46:00,346 - #21 =
+INFO  11:46:00,347 - #50 3
+INFO  11:46:00,347 - #38 ,
+INFO  11:46:00,352 - #52 g
+INFO  11:46:00,352 - #21 =
+INFO  11:46:00,353 - #50 11
+INFO  11:46:00,353 - #37 ;
+INFO  11:46:00,354 - #52 char
+INFO  11:46:00,357 - #52 x
+INFO  11:46:00,358 - #38 ,
+INFO  11:46:00,360 - #52 y
+INFO  11:46:00,360 - #41 [
+INFO  11:46:00,361 - #42 ]
+INFO  11:46:00,361 - #37 ;
+INFO  11:46:00,362 - #52 int
+INFO  11:46:00,364 - #52 niz
+INFO  11:46:00,364 - #41 [
+INFO  11:46:00,366 - #42 ]
+INFO  11:46:00,366 - #37 ;
+INFO  11:46:00,366 - #9 const
+INFO  11:46:00,367 - #52 bool
+INFO  11:46:00,367 - #52 t
+INFO  11:46:00,368 - #21 =
+INFO  11:46:00,368 - #51 1
+INFO  11:46:00,369 - #37 ;
+INFO  11:46:00,370 - #43 {
+INFO  11:46:00,370 - #5 void
+INFO  11:46:00,373 - #52 main
+INFO  11:46:00,374 - #39 (
+INFO  11:46:00,374 - #40 )
+INFO  11:46:00,377 - #52 int
+INFO  11:46:00,381 - #52 a
+INFO  11:46:00,382 - #38 ,
+INFO  11:46:00,382 - #52 c
+INFO  11:46:00,382 - #38 ,
+INFO  11:46:00,383 - #52 b
+INFO  11:46:00,383 - #41 [
+INFO  11:46:00,383 - #42 ]
+INFO  11:46:00,384 - #37 ;
+INFO  11:46:00,384 - #52 int
+INFO  11:46:00,385 - #52 x
+INFO  11:46:00,385 - #41 [
+INFO  11:46:00,385 - #42 ]
+INFO  11:46:00,386 - #38 ,
+INFO  11:46:00,386 - #52 y
+INFO  11:46:00,387 - #37 ;
+INFO  11:46:00,391 - #52 char
+INFO  11:46:00,391 - #52 eol
+INFO  11:46:00,392 - #37 ;
+INFO  11:46:00,393 - #43 {
+INFO  11:46:00,393 - #3 print
+INFO  11:46:00,397 - #39 (
+INFO  11:46:00,398 - #52 x
+INFO  11:46:00,400 - #41 [
+INFO  11:46:00,402 - #50 5
+INFO  11:46:00,402 - #42 ]
+INFO  11:46:00,412 - #40 )
+INFO  11:46:00,414 - #37 ;
+INFO  11:46:00,414 - #52 a
+INFO  11:46:00,415 - #21 =
+INFO  11:46:00,416 - #50 3
+INFO  11:46:00,419 - #19 +
+INFO  11:46:00,420 - #52 b
+INFO  11:46:00,425 - #41 [
+INFO  11:46:00,425 - #50 2
+INFO  11:46:00,425 - #42 ]
+INFO  11:46:00,426 - #22 *
+INFO  11:46:00,426 - #50 2
+INFO  11:46:00,429 - #37 ;
+INFO  11:46:00,430 - #12 read
+INFO  11:46:00,431 - #39 (
+INFO  11:46:00,431 - #52 x
+INFO  11:46:00,431 - #41 [
+INFO  11:46:00,431 - #50 2
+INFO  11:46:00,431 - #42 ]
+INFO  11:46:00,432 - #40 )
+INFO  11:46:00,432 - #37 ;
+INFO  11:46:00,432 - #44 }
+INFO  11:46:00,432 - #52 int
+INFO  11:46:00,435 - #52 func1
+INFO  11:46:00,436 - #39 (
+INFO  11:46:00,436 - #40 )
+INFO  11:46:00,436 - #52 int
+INFO  11:46:00,437 - #52 x
+INFO  11:46:00,439 - #38 ,
+INFO  11:46:00,439 - #52 y
+INFO  11:46:00,440 - #41 [
+INFO  11:46:00,441 - #42 ]
+INFO  11:46:00,441 - #37 ;
+INFO  11:46:00,442 - #43 {
+INFO  11:46:00,442 - #4 return
+INFO  11:46:00,443 - #53 x
+INFO  11:46:00,443 - #37 ;
+INFO  11:46:00,444 - #44 }
+INFO  11:46:00,445 - #44 }
+INFO  11:46:00,452 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListVar(
+      ConVarDeclListVar(
+        ConVarDeclListCon(
+          ConVarDeclListEpsilon(
+          ) [ConVarDeclListEpsilon]
+          ConDecList(
+            TypeIdent(
+             int
+            ) [TypeIdent]
+            ConDecl(
+             pi
+              ConstantN(
+               3
+              ) [ConstantN]
+            ) [ConDecl]
+            ConDeclMoreComma(
+              ConDeclMoreEpsilon(
+              ) [ConDeclMoreEpsilon]
+              ConDecl(
+               g
+                ConstantN(
+                 11
+                ) [ConstantN]
+              ) [ConDecl]
+            ) [ConDeclMoreComma]
+          ) [ConDecList]
+        ) [ConVarDeclListCon]
+        VarDeclList(
+          TypeIdent(
+           char
+          ) [TypeIdent]
+          ArraySquareIdent(
+           x
+          ) [ArraySquareIdent]
+          VarDeclMoreWithSquares(
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+            ArraySquarePresent(
+             y
+            ) [ArraySquarePresent]
+          ) [VarDeclMoreWithSquares]
+        ) [VarDeclList]
+      ) [ConVarDeclListVar]
+      VarDeclList(
+        TypeIdent(
+         int
+        ) [TypeIdent]
+        ArraySquarePresent(
+         niz
+        ) [ArraySquarePresent]
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+      ) [VarDeclList]
+    ) [ConVarDeclListVar]
+    ConDecList(
+      TypeIdent(
+       bool
+      ) [TypeIdent]
+      ConDecl(
+       t
+        ConstantB(
+         1
+        ) [ConstantB]
+      ) [ConDecl]
+      ConDeclMoreEpsilon(
+      ) [ConDeclMoreEpsilon]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclAppend(
+      MethodDeclEpsilon(
+      ) [MethodDeclEpsilon]
+      MethodDecl(
+        MethodSignature(
+          MethodTypeAndNameVoid(
+           main
+          ) [MethodTypeAndNameVoid]
+          FormParsEpsilon(
+          ) [FormParsEpsilon]
+        ) [MethodSignature]
+        MethodDeclVarList(
+          MethodDeclVarList(
+            MethodDeclVarList(
+              MethodDeclVarEpsilon(
+              ) [MethodDeclVarEpsilon]
+              VarDeclList(
+                TypeIdent(
+                 int
+                ) [TypeIdent]
+                ArraySquareIdent(
+                 a
+                ) [ArraySquareIdent]
+                VarDeclMoreWithSquares(
+                  VarDeclMoreWithSquares(
+                    VarDeclMoreEpsilon(
+                    ) [VarDeclMoreEpsilon]
+                    ArraySquareIdent(
+                     c
+                    ) [ArraySquareIdent]
+                  ) [VarDeclMoreWithSquares]
+                  ArraySquarePresent(
+                   b
+                  ) [ArraySquarePresent]
+                ) [VarDeclMoreWithSquares]
+              ) [VarDeclList]
+            ) [MethodDeclVarList]
+            VarDeclList(
+              TypeIdent(
+               int
+              ) [TypeIdent]
+              ArraySquarePresent(
+               x
+              ) [ArraySquarePresent]
+              VarDeclMoreWithSquares(
+                VarDeclMoreEpsilon(
+                ) [VarDeclMoreEpsilon]
+                ArraySquareIdent(
+                 y
+                ) [ArraySquareIdent]
+              ) [VarDeclMoreWithSquares]
+            ) [VarDeclList]
+          ) [MethodDeclVarList]
+          VarDeclList(
+            TypeIdent(
+             char
+            ) [TypeIdent]
+            ArraySquareIdent(
+             eol
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        StatementListMultipleStatements(
+          StatementListMultipleStatements(
+            StatementListMultipleStatements(
+              StatementListEpsilon(
+              ) [StatementListEpsilon]
+              StatementPrintExpr(
+                ExprSingleTerm(
+                  TermFactor(
+                    FactorDesignator(
+                      DesignatorListArray(
+                        DesignatorIdent(
+                         x
+                        ) [DesignatorIdent]
+                        ExprSingleTerm(
+                          TermFactor(
+                            FactorNum(
+                             5
+                            ) [FactorNum]
+                          ) [TermFactor]
+                        ) [ExprSingleTerm]
+                      ) [DesignatorListArray]
+                    ) [FactorDesignator]
+                  ) [TermFactor]
+                ) [ExprSingleTerm]
+              ) [StatementPrintExpr]
+            ) [StatementListMultipleStatements]
+            StatementWithDesignator(
+              DesignatorStatementAssign(
+                DesignatorIdent(
+                 a
+                ) [DesignatorIdent]
+                AssignOp(
+                ) [AssignOp]
+                ExprMultipleTerm(
+                  ExprSingleTerm(
+                    TermFactor(
+                      FactorNum(
+                       3
+                      ) [FactorNum]
+                    ) [TermFactor]
+                  ) [ExprSingleTerm]
+                  AddopAdd(
+                  ) [AddopAdd]
+                  TermMul(
+                    TermFactor(
+                      FactorDesignator(
+                        DesignatorListArray(
+                          DesignatorIdent(
+                           b
+                          ) [DesignatorIdent]
+                          ExprSingleTerm(
+                            TermFactor(
+                              FactorNum(
+                               2
+                              ) [FactorNum]
+                            ) [TermFactor]
+                          ) [ExprSingleTerm]
+                        ) [DesignatorListArray]
+                      ) [FactorDesignator]
+                    ) [TermFactor]
+                    MulopMultiply(
+                    ) [MulopMultiply]
+                    FactorNum(
+                     2
+                    ) [FactorNum]
+                  ) [TermMul]
+                ) [ExprMultipleTerm]
+              ) [DesignatorStatementAssign]
+            ) [StatementWithDesignator]
+          ) [StatementListMultipleStatements]
+          StatementRead(
+            DesignatorListArray(
+              DesignatorIdent(
+               x
+              ) [DesignatorIdent]
+              ExprSingleTerm(
+                TermFactor(
+                  FactorNum(
+                   2
+                  ) [FactorNum]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [DesignatorListArray]
+          ) [StatementRead]
+        ) [StatementListMultipleStatements]
+      ) [MethodDecl]
+    ) [MethodDeclAppend]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameNonVoid(
+          TypeIdent(
+           int
+          ) [TypeIdent]
+         func1
+        ) [MethodTypeAndNameNonVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarEpsilon(
+        ) [MethodDeclVarEpsilon]
+        VarDeclList(
+          TypeIdent(
+           int
+          ) [TypeIdent]
+          ArraySquareIdent(
+           x
+          ) [ArraySquareIdent]
+          VarDeclMoreWithSquares(
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+            ArraySquarePresent(
+             y
+            ) [ArraySquarePresent]
+          ) [VarDeclMoreWithSquares]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListEpsilon(
+        ) [StatementListEpsilon]
+        StatementReturnExpr(
+          ExprSingleTerm(
+            TermFactor(
+              FactorChar(
+               x
+              ) [FactorChar]
+            ) [TermFactor]
+          ) [ExprSingleTerm]
+        ) [StatementReturnExpr]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  11:46:00,457 - ===================================
+ERROR 11:46:00,530 - Tip returna se ne poklapa sa tipom metode func1 na liniji 41
+INFO  11:46:00,531 - ===================================
+ERROR 11:46:00,534 - Parsiranje NIJE uspesno zavrseno!
