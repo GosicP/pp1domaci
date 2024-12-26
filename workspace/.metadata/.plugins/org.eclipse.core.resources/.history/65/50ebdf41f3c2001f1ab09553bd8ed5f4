@@ -1,0 +1,112 @@
+program Keske
+
+const int pi = 3, g = 11;
+
+char x, y[];
+int niz[];
+
+set s1, s2, s3;
+
+const bool t = true;
+{
+
+	int sum(int z, int d){
+		return z + d;
+	}	
+
+	int func1(int b, char c) int x, y[];{
+		return x;
+	}
+	
+	void func2(){
+	
+		//return x;
+	}
+	
+	int inkrement(int a, int b) {
+		return 2;
+	}
+	
+	bool verify(int z, bool a) {
+		print('v');
+		return false;
+	}
+    
+
+	int f1(){
+		print(arg); print(eol);
+		return arg * 2;
+	}
+	
+
+	void main() int a, c, b[]; int x[], y; char eol; int pom; int i; bool ibool; int niz2; set set0; set set1; set set2;{
+		print(x[5]);
+		
+		chr(5);
+			
+		a = 3 + b[2]*2;
+		
+		do{
+			if(i == 3)
+			{
+				i++;
+				
+			}
+			if(i == 4) break;
+			i = inkrement(i, 1);
+		} while(i < 10);
+		
+		if(true || ibool && a<2) print(-4);
+		else print(4);
+		
+		a = func1(x[2], eol);
+		
+		//x(a);
+		
+		//g = 3;
+		
+		//a = b;
+		
+		//a = b+3;
+		
+		//a = 3 + b[2]*2;
+		//x = 3;
+		x = new int[2];
+		//x = a;
+		
+		//x[3] = x[4];
+		//x = null;
+		
+		//x++;
+		//x[2]--;
+		
+		//pi--;
+		//a++;
+		//eol--;
+		
+		set0 = set1 union set2;
+		
+		read(x[2]);
+		
+		s1 = new set[5]; s2 = new set[5]; s3 = new set[10];
+		
+		print(niz2);
+		print(eol);
+		print(i);
+		print(set1);
+		print(-4);
+		print(sum(sum(niz[0], niz[1]), niz[2]));
+		print('v');
+		
+		verify(inkrement(c, c), true);
+		
+		i = f1 map niz; // 1 2 3 
+		
+	}
+	
+	
+	
+
+
+
+}

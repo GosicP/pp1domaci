@@ -54,7 +54,6 @@ import java_cup.runtime.Symbol;
 "continue" 	{ return new_symbol(sym.CONTINUE, yytext()); }
 "for" 		{ return new_symbol(sym.FOR, yytext()); }
 "static" 	{ return new_symbol(sym.STATIC, yytext()); }
-"set"		{ return new_symbol(sym.SET, yytext()); }
 "union"      { return new_symbol(sym.UNION, yytext()); }
 "do"         { return new_symbol(sym.DO, yytext()); }
 "while"      { return new_symbol(sym.WHILE, yytext()); }

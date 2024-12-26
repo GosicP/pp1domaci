@@ -28,8 +28,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 	private int constant;
 	private Struct constantType;
 	private Struct boolType = Tab.find("bool").getType();
+	private Struct setType = Tab.find("set").getType();
 	private Obj mainMethod;
 	private Obj currentMethod;
+	
+	private int doWhileCounter;
 	
 	private Stack<List<Struct>> actualParamsStack = new Stack<>();
 	
@@ -83,6 +86,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(ProgramName programName) {
 		currentProgram = Tab.insert(Obj.Prog, programName.getI1(), Tab.noType);
 		Tab.openScope();
+		//System.out.println("AAAAAAAAAAAAAA");
 	}
 	
 	@Override
@@ -90,7 +94,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		Tab.chainLocalSymbols(currentProgram);
 		Tab.closeScope(); 
 		currentProgram = null;
-		
+		//System.out.println("AAAAAAAAAAAAAA");
 		if(mainMethod == null || mainMethod.getLevel() > 0) {
 			report_error("Program nema adekvatnu main metodu", program);
 		}
@@ -105,6 +109,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			if(constantType.assignableTo(currentType)) {
 				conObj = Tab.insert(Obj.Con, conDecl.getI1(), currentType);
 				conObj.setAdr(constant);
+				report_info("Deklarisana konstanta " + conDecl.getI1(), conDecl);
 			}else {
 				report_error("Neadekvatna dodela konstanti: " + conDecl.getI1(), conDecl);
 			}
@@ -142,6 +147,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		
 		if(varObj == null || varObj == Tab.noObj) {
 			varObj = Tab.insert(Obj.Var, arraySquareIdent.getI1(), currentType);
+			report_info("Deklarisana promenljiva: " + arraySquareIdent.getI1(), arraySquareIdent);
 		}else {
 			report_error("Dvostruka definicija promenljive: " + arraySquareIdent.getI1(), arraySquareIdent);
 		}
@@ -158,6 +164,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		
 		if(varObj == null || varObj == Tab.noObj) {
 			varObj = Tab.insert(Obj.Var, arraySquarePresent.getI1(), new Struct(Struct.Array, currentType));
+			report_info("Deklarisan niz: " + arraySquarePresent.getI1(), arraySquarePresent);
 		}else {
 			report_error("Dvostruka definicija promenljive: " + arraySquarePresent.getI1(), arraySquarePresent);
 		}
@@ -168,6 +175,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(MethodTypeAndNameVoid methodTypeAndNameVoid) {
 		currentMethod = Tab.insert(Obj.Meth, methodTypeAndNameVoid.getI1(), Tab.noType);
+		report_info("Deklarisana metoda " + methodTypeAndNameVoid.getI1() + " tipa void:", methodTypeAndNameVoid);
 		Tab.openScope();
 		if(methodTypeAndNameVoid.getI1().equalsIgnoreCase("main")) { //main mora da nema parametre
 			//to nisi proverio!!!!!!
@@ -178,6 +186,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(MethodTypeAndNameNonVoid methodTypeAndNameNonVoid) {
 		currentMethod = Tab.insert(Obj.Meth, methodTypeAndNameNonVoid.getI2(), currentType);
+		report_info("Deklarisana metoda " + methodTypeAndNameNonVoid.getI2() + " tipa: " + currentType.getKind(), methodTypeAndNameNonVoid);
 		Tab.openScope();
 		//mora da ide provera da li metoda ima return
 	}
@@ -211,9 +220,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 			varObj = Tab.currentScope.findSymbol(formParsVarOrArrayVar.getI2());
 		}
 		
+		//System.out.println(" za metodu " + currentMethod.getName() + " dosao sam do var " );
 		if(varObj == null || varObj == Tab.noObj) {
 			varObj = Tab.insert(Obj.Var, formParsVarOrArrayVar.getI2(), currentType);
 			varObj.setFpPos(1);
+			//System.out.println(" za metodu " + currentMethod.getName() + " broj parametara je " + currentMethod.getLevel());
 			currentMethod.setLevel(currentMethod.getLevel() + 1);
 		}else {
 			report_error("Dvostruka definicija form parametra: " + formParsVarOrArrayVar.getI2(), formParsVarOrArrayVar);
@@ -228,10 +239,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 		}else {
 			varObj = Tab.currentScope.findSymbol(formParsVarOrArraySquares.getI2());
 		}
-		
+		//System.out.println(" za metodu " + currentMethod.getName() + " dosao sam do var " );
 		if(varObj == null || varObj == Tab.noObj) {
 			varObj = Tab.insert(Obj.Var, formParsVarOrArraySquares.getI2(), currentType);
 			varObj.setFpPos(1);
+			//System.out.println(" za metodu " + currentMethod.getName() + " broj parametara je " + currentMethod.getLevel());
 			currentMethod.setLevel(currentMethod.getLevel() + 1);
 		}else {
 			report_error("Dvostruka definicija form parametra: " + formParsVarOrArraySquares.getI2(), formParsVarOrArraySquares);
@@ -280,11 +292,15 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(FactorNewArray factorNewArray) {
-		if(!factorNewArray.getExpr().struct.equals(Tab.intType)) {
-			report_error("Velicina niza nije INT tipa", factorNewArray);
-			factorNewArray.struct = Tab.noType;
+		if(!(currentType.equals(setType))) {
+			if(!factorNewArray.getExpr().struct.equals(Tab.intType)) {
+				report_error("Velicina niza nije INT tipa", factorNewArray);
+				factorNewArray.struct = Tab.noType;
+			}else {
+				factorNewArray.struct = new Struct(Struct.Array, currentType);
+			}
 		}else {
-			factorNewArray.struct = new Struct(Struct.Array, currentType);
+			factorNewArray.struct = setType;
 		}
 	}
 	
@@ -327,13 +343,16 @@ public class SemAnalyzer extends VisitorAdaptor {
 		//System.out.print("Tip ovog niza je: " + arrayElem.getKind());
 		if(arrayElem.getType().getKind() != Struct.Array) {
 			report_error("Promenljiva mora biti nizovskog tipa ", designatorListArray);
+			designatorListArray.obj = new Obj(Obj.Elem, arrayElem.getName(), Tab.noType);
+			return;
 		}
 		
 		if(designatorListArray.getExpr().struct != Tab.intType) {
 			report_error("Izraz koji predstavlja indeks niza mora biti celobrojnog tipa!", designatorListArray);
-			designatorListArray.obj = Tab.noObj;
+			designatorListArray.obj = new Obj(Obj.Elem, arrayElem.getName(), Tab.noType);
+			return;
 		}
-		
+		report_info("Pristup elementu niza " + arrayElem.getName() + " tipa: " + arrayElem.getKind(), designatorListArray);
 		designatorListArray.obj = new Obj(Obj.Elem, arrayElem.getName(), arrayElem.getType().getElemType());
 	}
 	
@@ -393,6 +412,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		int kind = designatorStatementAssign.getDesignator().obj.getKind();
 		if(kind != Obj.Var && kind != Obj.Elem) {
 			report_error("Dodela u neadekvatnu promenljivu " + designatorStatementAssign.getDesignator().obj.getName(), designatorStatementAssign);
+			return;
 		}else if(!designatorStatementAssign.getExpr().struct.assignableTo(designatorStatementAssign.getDesignator().obj.getType())) {
 			report_error("Neadekvatna dodela vrednosti u promenljivu: " + designatorStatementAssign.getDesignator().obj.getName(), designatorStatementAssign);
 		}
@@ -434,6 +454,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		
 		//DOVRSI CHECK PARAMETERS
 		checkFunctionParameters(designatorObj, designatorStatementFunctionCall);
+		report_info("Poziv funkcije: " + designatorObj.getName(), designatorStatementFunctionCall);
 	}
 	
 
@@ -445,12 +466,20 @@ public class SemAnalyzer extends VisitorAdaptor {
 		
 		if(designatorObj.getKind() != Obj.Meth) {
 			report_error("Simbol " + designatorObj.getName() + " nije metoda", factorDesignatorMethod);
+			factorDesignatorMethod.struct = Tab.noType;
 			return;
 		}
 		//DOPUNI OVDE ISTIM ONIM USLOVIMA KAO ZA FUNCTION CALL
 		//DOVRSI CHECK PARAMETERS
 		
 		checkFunctionParameters(designatorObj, factorDesignatorMethod);
+		
+		//OVDE VEROVATNO MORAM I DA DEFINISEM ONE METODE KOJE SE NALAZE U TABELI SIMBOLA CHR ADD ADDALL ITD
+		// Compare them to funcObj's formals or to your known built-in method signatures
+	    // For example, if funcObj == Tab.chrObj, it must have exactly one 'int' argument
+	    // If funcObj == Tab.ordObj, it must have exactly one 'char' argument
+	    // If funcObj == Tab.lenObj, it must have exactly one 'array' argument
+	    // ...
 	}
 	
 
@@ -480,30 +509,30 @@ public class SemAnalyzer extends VisitorAdaptor {
 	}
 	
 	@Override
-	public void visit(StatementReturnExpr statementReturnExpr) {
+	public void visit(StatementReturnExpr statementr) {
 		if(currentMethod == null) {
-			report_error("Return se ne nalazi u metodi ", statementReturnExpr);
+			report_error("Return se ne nalazi u metodi ", statementr);
 		}
 	
 		Struct methodType = currentMethod.getType();
 		returnFound = true;
 		if(methodType == Tab.noType) {
-			report_error("Return sa promenljivom se nalazi u void metodi " + currentMethod.getName(), statementReturnExpr);
-		}else if(!statementReturnExpr.getExpr().struct.compatibleWith(methodType)) {
-			report_error("Tip returna se ne poklapa sa tipom metode " + currentMethod.getName(), statementReturnExpr);
+			report_error("Return sa promenljivom se nalazi u void metodi " + currentMethod.getName(), statementr);
+		}else if(!statementr.getExpr().struct.compatibleWith(methodType)) {
+			report_error("Tip returna se ne poklapa sa tipom metode " + currentMethod.getName(), statementr);
 		}
 	}
 	
 	@Override
 	public void visit(ActParsListExpr actParsListExpr) {
-		//report_info("argument funkcije " + " tipa " + actParsListExpr.getExpr().struct.getKind() + " je ocitan ", actParsListExpr);
+		report_info("argument funkcije" + " tipa " + actParsListExpr.getExpr().struct.getKind() + " je ocitan ", actParsListExpr);
 		actualParamsStack.peek().add(actParsListExpr.getExpr().struct);
 	}
 	
 	@Override
 	public void visit(ActParsListExprRecursion actParsListExprRecursion) {
 		Expr expr = actParsListExprRecursion.getExpr();
-		//report_info("argument funkcije " + " tipa " + actParsListExprRecursion.getExpr().struct.getKind() + " je ocitan ", actParsListExprRecursion);
+		report_info("argument funkcije" + " tipa " + actParsListExprRecursion.getExpr().struct.getKind() + " je ocitan ", actParsListExprRecursion);
 		actualParamsStack.peek().add(actParsListExprRecursion.getExpr().struct);
 	}
 	
@@ -514,8 +543,9 @@ public class SemAnalyzer extends VisitorAdaptor {
 		if(condFactSingleExpr.getExpr().struct != boolType) {
 			report_error("Uslov mora biti true ili false" , condFactSingleExpr);
 			condFactSingleExpr.struct = Tab.noType;
+		}else {
+			condFactSingleExpr.struct = boolType;
 		}
-		condFactSingleExpr.struct = boolType;
 	}
 	
 	@Override
@@ -544,8 +574,9 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Uslov mora biti true ili false" , condTermFact);
 			condTermFact.struct = Tab.noType;
 			return; //Sta se ovde desava ako nema return
+		}else {
+			condTermFact.struct = boolType;
 		}
-		condTermFact.struct = boolType;
 	}
 	
 	@Override
@@ -553,8 +584,9 @@ public class SemAnalyzer extends VisitorAdaptor {
 		if(condTermRecursion.getCondFact().struct != boolType || condTermRecursion.getCondTerm().struct != boolType) {
 			report_error("Prilikom koriscenja AND oba tipa moraju biti tipa bool" , condTermRecursion);
 			condTermRecursion.struct = Tab.noType;
+		}else {
+			condTermRecursion.struct = boolType;
 		}
-		condTermRecursion.struct = boolType;
 	}
 	
 	@Override
@@ -563,23 +595,25 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Uslov mora biti true ili false" , conditionCondTerm);
 			conditionCondTerm.struct = Tab.noType;
 			return; //Sta se ovde desava ako nema return
+		}else {
+			conditionCondTerm.struct = boolType;
 		}
-		conditionCondTerm.struct = boolType;
 	}
 	
 	@Override
 	public void visit(ConditionRecursion ConditionRecursion) {
 		if(ConditionRecursion.getCondition().struct != boolType || ConditionRecursion.getCondTerm().struct != boolType) {
-			report_error("Prilikom koriscenja AND oba tipa moraju biti tipa bool" , ConditionRecursion);
+			report_error("Prilikom koriscenja OR oba tipa moraju biti tipa bool" , ConditionRecursion);
 			ConditionRecursion.struct = Tab.noType;
+		}else {
+			ConditionRecursion.struct = boolType;
 		}
-		ConditionRecursion.struct = boolType;
 	}
 	
 	@Override
 	public void visit(IfCondition ifCondition) {
 		if(ifCondition.getCondition().struct != boolType) {
-			report_error("Prilikom koriscenja AND oba tipa moraju biti tipa bool" , ifCondition);
+			report_error("U conditionu if-a se ne nalazi bool" , ifCondition);
 		};
 	}
 	
@@ -589,6 +623,111 @@ public class SemAnalyzer extends VisitorAdaptor {
 		if( whileConditionsNoStatement.getCondition().struct != boolType ) {
 			report_error("Condition u while mora biti boolean ", whileConditionsNoStatement);
 		}
+	}
+	
+	@Override
+	public void visit(WhileConditionsStatement whileConditionsStatement) {
+		if( whileConditionsStatement.getCondition().struct != boolType ) {
+			report_error("Condition u while mora biti boolean ", whileConditionsStatement);
+		}
+	}
+	
+	@Override
+	public void visit(DoWhileStartDummy doWhileStartDummy) {
+		doWhileCounter++;
+	}
+	
+	@Override
+	public void visit(StatementWhile statementWhile) {
+		doWhileCounter--;
+	}
+	
+	@Override
+	public void visit(StatementBreak statementBreak) {
+		if(doWhileCounter == 0) {
+			report_error("Break je van While petlje ", statementBreak);
+		}
+	}
+	
+	@Override
+	public void visit(StatementContinue statementContinue) {
+		if(doWhileCounter == 0) {
+			report_error("Continue je van While petlje ", statementContinue);
+		}
+	}
+	
+	/* SET */
+	
+	@Override
+	public void visit(DesignatorStatementAssignop designatorStatementAssignop) {
+		Obj designatorObj0 = designatorStatementAssignop.getDesignator().obj;
+		Obj designatorObj1 = designatorStatementAssignop.getDesignator1().obj;
+		Obj designatorObj2 = designatorStatementAssignop.getDesignator2().obj;
+		
+		if(!designatorObj0.getType().equals(setType) || !designatorObj1.getType().equals(setType) || !designatorObj2.getType().equals(setType)) {
+			report_error("Neki od designatora nije tipa set ", designatorStatementAssignop);
+		}
+	}
+	
+	/* PRINT */
+	
+	@Override
+	public void visit(StatementPrintExpr statementPrintExpr) {
+		Struct exprStruct = statementPrintExpr.getExpr().struct;
+		if(!exprStruct.equals(Tab.intType) && !exprStruct.equals(Tab.charType) && !exprStruct.equals(boolType)
+				&& !exprStruct.equals(setType)) {
+			report_error("Tip expressiona mora biti int, char, bool ili set", statementPrintExpr);
+		}
+	}
+	
+	@Override
+	public void visit(StatementPrintSet statementPrintSet) {
+		Struct exprStruct = statementPrintSet.getExpr().struct;
+		if(!exprStruct.equals(Tab.intType) && !exprStruct.equals(Tab.charType) && !exprStruct.equals(boolType)
+				&& !exprStruct.equals(setType)) {
+			report_error("Tip expressiona mora biti int, char, bool ili set", statementPrintSet);
+		}
+	}
+	
+	@Override
+	public void visit(ExprDesignator exprDesignator) {
+		Obj designatorLeft = exprDesignator.getDesignator().obj;
+		Obj designatorRight = exprDesignator.getDesignator1().obj;
+		
+		Collection<Obj> formalParameters = designatorLeft.getLocalSymbols();
+		List<Obj> formalParametersList = new ArrayList<>(formalParameters);
+		if(designatorLeft.getKind() != Obj.Meth) {
+			report_error("Levi designator nije tipa metode ", exprDesignator);
+			exprDesignator.struct = Tab.noType;
+			return;
+		}else if(!designatorLeft.getType().compatibleWith(Tab.intType)){
+			report_error("Levi designator nema povratnu vrednost int ", exprDesignator);
+			exprDesignator.struct = Tab.noType;
+			return;
+		}else if(designatorLeft.getLevel() != 1) {
+			report_error("Levi designator ima razlicit broj argumenata od 1 ", exprDesignator);
+			exprDesignator.struct = Tab.noType;
+			return;
+		}else if(!formalParametersList.get(0).getType().compatibleWith(Tab.intType)) {
+			report_error("Argument levog designatora nije int ", exprDesignator);
+			exprDesignator.struct = Tab.noType;
+			return;
+		}
+		
+		//provera desnog designatora
+		
+		if(designatorRight.getType().getKind() != Struct.Array) {
+			report_error("Desni designator nije niz ", exprDesignator);
+			exprDesignator.struct = Tab.noType;
+			return;
+		}else if(designatorRight.getType().getElemType() != Tab.intType) {
+			report_error("Niz iz desnog dezignatora nije tipa int ", exprDesignator);
+			exprDesignator.struct = Tab.noType;
+			return;
+		}
+		
+		
+		exprDesignator.struct = Tab.intType;
 	}
 	
 	//FALI TI EXPRESSION DESIGNATOR POSTO GA JOS UVEK NE KAPIRAM STA TREBA DA URADI

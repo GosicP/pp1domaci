@@ -1,0 +1,97 @@
+package rs.ac.bg.etf.pp1;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+
+import java_cup.runtime.*;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
+
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.ac.bg.etf.pp1.util.Log4JUtils;
+import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
+
+public class MJParserTest {
+
+	static {
+		DOMConfigurator.configure(Log4JUtils.instance().findLoggerConfigFile());
+		Log4JUtils.instance().prepareLogFile(Logger.getRootLogger());
+	}
+	
+	public static void main(String[] args) throws Exception {
+		
+		Logger log = Logger.getLogger(MJParserTest.class);
+		
+		Reader br = null;
+		try {
+			File sourceCode = new File("test/program.mj");
+			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
+			
+			br = new BufferedReader(new FileReader(sourceCode));
+			Yylex lexer = new Yylex(br);
+			
+			MJParser p = new MJParser(lexer);
+	        Symbol s = p.parse();  //pocetak parsiranja
+	        
+	        Program prog = (Program)(s.value); 
+
+			// ispis sintaksnog stabla
+			log.info(prog.toString(""));
+			log.info("===================================");
+			
+			/* Inicijalizacija tabele simbola */
+			
+//			public static void chainLocalSymbols(Struct innerClass) {
+//				innerClass.setMembers(currentScope.getLocals());
+//			}
+//			ovo iznad je za dodavanje novog membera u klasu
+			
+//			public static Obj insert(int kind, String name, Struct type) {
+//			// create a new Object node with kind, name, type
+//			Obj newObj = new Obj(kind, name, type, 0, ((currentLevel != 0)? 1 : 0)); 
+//				
+//			za field moram da stavim current level na 2	
+			
+			Tab.init();
+			Struct boolType = new Struct(Struct.Bool);
+			Obj boolObj = Tab.insert(Obj.Type, "bool", boolType);
+			boolObj.setAdr(-1); //ovo je jer tip nema offset
+			boolObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
+			
+			Struct setType = new Struct(Struct.Class); //sava je rekao da mogu i da prosirim klasu i da stavim broj 8
+			//ali realno ne moram to da radim
+			Obj setObj = Tab.insert(Obj.Type, "set", setType);
+			setObj.setAdr(-1); //ovo je jer tip nema offset
+			setObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
+			
+			/* Semanticka analiza */
+			
+			SemAnalyzer sa = new SemAnalyzer();
+			prog.traverseBottomUp(sa);
+			
+			/* Ispis tabele simbola */
+			log.info("===================================");
+			Tab.dump();
+			
+			// ispis prepoznatih programskih konstrukcija
+			
+			if(!p.errorDetected && sa.passed()){
+				log.info("Parsiranje uspesno zavrseno!");
+			}else{
+				log.error("Parsiranje NIJE uspesno zavrseno!");
+			}
+		} 
+		finally {
+			if (br != null) try { br.close(); } catch (IOException e1) { log.error(e1.getMessage(), e1); }
+		}
+
+	}
+	
+	
+}

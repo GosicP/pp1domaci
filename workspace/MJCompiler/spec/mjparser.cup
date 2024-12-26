@@ -51,7 +51,7 @@ scan with {:
 	return s;
 :}
 
-terminal PROG, PRINT, RETURN, VOID, BREAK, CLASS, ELSE, CONST, IF, NEW, READ, RANGE, EXTENDS, CONTINUE, FOR, STATIC, SET;
+terminal PROG, PRINT, RETURN, VOID, BREAK, CLASS, ELSE, CONST, IF, NEW, READ, RANGE, EXTENDS, CONTINUE, FOR, STATIC;
 terminal PLUS, MINUS, ASSIGN, MULTIPLY, DIV, MOD, EQUALITY, INEQUALITY, GREATER, GREATEREQUAL, LESS, LESSEQUAL, AND, OR, INC, DEC;
 terminal DOUBLEDOT, DOT, SEMI, COMMA, LPAREN, RPAREN, LSQUARE, RSQUARE, LBRACE, RBRACE;
 terminal DO, WHILE, MAP, UNION, INTERFACE;
@@ -78,6 +78,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 nonterminal Unary;
 nonterminal FunctionName;
 nonterminal IfCondition;
+nonterminal DoWhileStartDummy;
 
 precedence left ELSE;
 
@@ -108,9 +109,7 @@ Constant ::= (ConstantN) NUMBER
 		(ConstantB) BOOL
 		;
 
-Type ::= (TypeIdent) IDENT
-		|
-		(TypeSet) SET;
+Type ::= (TypeIdent) IDENT;
 
 VarDeclList ::= (VarDeclList) Type ArraySquare VarDeclMore SEMI;
 
@@ -178,11 +177,13 @@ Statement ::= (StatementWithDesignator) DesignatorStatement SEMI
 			|
 			(StatementPrintSet) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
 			|
-			(StatementWhile) DO Statement WHILE LPAREN WhileConditions RPAREN SEMI
+			(StatementWhile) DO DoWhileStartDummy Statement WHILE LPAREN WhileConditions RPAREN SEMI
 			|
 			(StatementStatementRecursive) LBRACE StatementList RBRACE;
 			
 IfCondition ::= (IfCondition) IF LPAREN Condition RPAREN;
+
+DoWhileStartDummy ::= (DoWhileStartDummy) /* epsilon */;
 			
 WhileConditions ::= (WhileConditionsNoStatement) Condition
 				|

@@ -47,11 +47,53 @@ public class MJParserTest {
 			
 			/* Inicijalizacija tabele simbola */
 			
-			Tab.init();
+//			public static void chainLocalSymbols(Struct innerClass) {
+//				innerClass.setMembers(currentScope.getLocals());
+//			}
+//			ovo iznad je za dodavanje novog membera u klasu
+			
+//			public static Obj insert(int kind, String name, Struct type) {
+//			// create a new Object node with kind, name, type
+//			Obj newObj = new Obj(kind, name, type, 0, ((currentLevel != 0)? 1 : 0)); 
+//				
+//			za field moram da stavim current level na 2	
+			
+			Tab.init();			
 			Struct boolType = new Struct(Struct.Bool);
 			Obj boolObj = Tab.insert(Obj.Type, "bool", boolType);
-			boolObj.setAdr(-1);
-			boolObj.setLevel(-1);
+			boolObj.setAdr(-1); //ovo je jer tip nema offset
+			boolObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
+			
+			Struct setType = new Struct(Struct.Class); //sava je rekao da mogu i da prosirim klasu i da stavim broj 8
+			//ali realno ne moram to da radim 
+			Obj setObj = Tab.insert(Obj.Type, "set", setType);
+			setObj.setAdr(-1); //ovo je jer tip nema offset
+			setObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
+			
+			Obj addObj, addAllObj, varObj;
+			addObj = Tab.insert(Obj.Meth, "add", Tab.noType);
+			addObj.setLevel(2);
+			Tab.openScope();
+			varObj = Tab.insert(Obj.Var, "a", setType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			varObj = Tab.insert(Obj.Var, "b", Tab.intType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			Tab.chainLocalSymbols(addObj);
+			Tab.closeScope();
+			
+			addObj = Tab.insert(Obj.Meth, "addAll", Tab.noType);
+			addObj.setLevel(2);
+			Tab.openScope();
+			varObj = Tab.insert(Obj.Var, "a", setType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			varObj = Tab.insert(Obj.Var, "b", new Struct(Struct.Array, Tab.intType));
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			Tab.chainLocalSymbols(addObj);
+			Tab.closeScope();
 			
 			/* Semanticka analiza */
 			
