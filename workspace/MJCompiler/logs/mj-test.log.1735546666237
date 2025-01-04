@@ -1,0 +1,145 @@
+INFO  09:17:29,531 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  09:17:29,702 - #2 program
+INFO  09:17:29,703 - #51 Keske
+INFO  09:17:29,703 - #9 const
+INFO  09:17:29,707 - #51 int
+INFO  09:17:29,708 - #51 pi
+INFO  09:17:29,708 - #20 =
+INFO  09:17:29,709 - #49 3
+INFO  09:17:29,709 - #36 ;
+INFO  09:17:29,714 - #51 int
+INFO  09:17:29,717 - #51 x
+INFO  09:17:29,718 - #37 ,
+INFO  09:17:29,721 - #51 y
+INFO  09:17:29,721 - #40 [
+INFO  09:17:29,721 - #41 ]
+INFO  09:17:29,722 - #36 ;
+INFO  09:17:29,722 - #42 {
+INFO  09:17:29,725 - #5 void
+INFO  09:17:29,728 - #51 main
+INFO  09:17:29,729 - #38 (
+INFO  09:17:29,729 - #39 )
+INFO  09:17:29,731 - #51 int
+INFO  09:17:29,735 - #51 a
+INFO  09:17:29,736 - #37 ,
+INFO  09:17:29,736 - #51 b
+INFO  09:17:29,737 - #36 ;
+INFO  09:17:29,737 - #51 char
+INFO  09:17:29,739 - #51 carr
+INFO  09:17:29,739 - #40 [
+INFO  09:17:29,739 - #41 ]
+INFO  09:17:29,740 - #36 ;
+INFO  09:17:29,740 - #42 {
+INFO  09:17:29,740 - #3 print
+INFO  09:17:29,742 - #38 (
+INFO  09:17:29,742 - #49 1
+INFO  09:17:29,743 - #39 )
+INFO  09:17:29,745 - #36 ;
+INFO  09:17:29,746 - #43 }
+INFO  09:17:29,748 - #43 }
+INFO  09:17:29,753 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        TypeIdent(
+         int
+        ) [TypeIdent]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      TypeIdent(
+       int
+      ) [TypeIdent]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarEpsilon(
+          ) [MethodDeclVarEpsilon]
+          VarDeclList(
+            TypeIdent(
+             int
+            ) [TypeIdent]
+            ArraySquareIdent(
+             a
+            ) [ArraySquareIdent]
+            VarDeclMoreWithSquares(
+              VarDeclMoreEpsilon(
+              ) [VarDeclMoreEpsilon]
+              ArraySquareIdent(
+               b
+              ) [ArraySquareIdent]
+            ) [VarDeclMoreWithSquares]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          TypeIdent(
+           char
+          ) [TypeIdent]
+          ArraySquarePresent(
+           carr
+          ) [ArraySquarePresent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListEpsilon(
+        ) [StatementListEpsilon]
+        StatementPrintExpr(
+          ExprSingleTerm(
+            TermFactor(
+              FactorNum(
+               1
+              ) [FactorNum]
+            ) [TermFactor]
+          ) [ExprSingleTerm]
+        ) [StatementPrintExpr]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  09:17:29,756 - ===================================
+INFO  09:17:29,785 - Deklarisana konstanta pi na liniji 3
+INFO  09:17:29,786 - Deklarisana promenljiva: x na liniji 4
+INFO  09:17:29,787 - Deklarisan niz: y na liniji 4
+INFO  09:17:29,787 - Deklarisana metoda main tipa void: na liniji 8
+INFO  09:17:29,787 - Deklarisana promenljiva: a na liniji 8
+INFO  09:17:29,788 - Deklarisana promenljiva: b na liniji 8
+INFO  09:17:29,788 - Deklarisan niz: carr na liniji 8
+INFO  09:17:29,788 - ===================================
+INFO  09:17:29,801 - Generisanje uspesno zavrseno!

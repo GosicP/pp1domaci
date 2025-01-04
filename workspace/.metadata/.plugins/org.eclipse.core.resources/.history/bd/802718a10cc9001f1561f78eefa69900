@@ -1,0 +1,134 @@
+package rs.ac.bg.etf.pp1;
+
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.mj.runtime.Code;
+import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.symboltable.concepts.Struct;
+
+public class CodeGenerator extends VisitorAdaptor {
+	
+	private int mainPC;
+	
+	public int getmainPc() {
+		return this.mainPC;
+	}
+
+	/* METHOD DECLARATIONS */
+	@Override
+	public void visit(MethodTypeAndNameVoid methodTypeAndNameVoid) {
+		methodTypeAndNameVoid.obj.setAdr(Code.pc);
+		if(methodTypeAndNameVoid.getI1().equalsIgnoreCase("main")) {
+			mainPC = Code.pc;
+		}
+		
+		Code.put(Code.enter);
+		Code.put(methodTypeAndNameVoid.obj.getLevel()); //b1
+		Code.put(methodTypeAndNameVoid.obj.getLocalSymbols().size()); //b2
+	}
+	
+	@Override
+	public void visit(MethodTypeAndNameNonVoid methodTypeAndNameNonVoid) {
+		methodTypeAndNameNonVoid.obj.setAdr(Code.pc);
+		if(methodTypeAndNameNonVoid.getI2().equalsIgnoreCase("main")) {
+			mainPC = Code.pc;
+		}
+		
+		Code.put(Code.enter);
+		Code.put(methodTypeAndNameNonVoid.obj.getLevel()); //b1
+		Code.put(methodTypeAndNameNonVoid.obj.getLocalSymbols().size()); //b2
+	}
+	
+	@Override
+	public void visit(MethodDecl methodDecl) {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+	
+	/* PRINT DECL */
+	
+	@Override
+	public void visit(StatementPrintExpr statementPrintExpr) {
+		Code.loadConst(0);
+		if(statementPrintExpr.getExpr().struct.equals(Tab.charType)) {
+			Code.put(Code.bprint);
+		}else {
+			Code.put(Code.print);
+		}
+	}
+	
+	@Override
+	public void visit(ExprMultipleTerm exprMultipleTerm) {
+		if(exprMultipleTerm.getAddop() instanceof AddopAdd) {
+			Code.put(Code.add);
+		}else if(exprMultipleTerm.getAddop() instanceof AddopSubtract) {
+			Code.put(Code.sub);
+		}
+	}
+	
+	@Override
+	public void visit(TermMul termMul) {
+		if(termMul.getMulop() instanceof MulopMultiply) {
+			Code.put(Code.mul);
+		}else if(termMul.getMulop() instanceof MulopDiv) {
+			Code.put(Code.div);
+		}else if(termMul.getMulop() instanceof MulopMod) {
+			Code.put(Code.rem);
+		}
+	}
+	
+	@Override
+	public void visit(FactorNum factorNum) {
+		Code.loadConst(factorNum.getN1());
+	}
+	
+	@Override
+	public void visit(FactorChar factorChar) {
+		Code.loadConst(factorChar.getC1());
+	}
+	
+	@Override
+	public void visit(FactorBool factorBool) {
+		Code.loadConst(factorBool.getB1());
+	}
+	
+	@Override
+	public void visit(FactorDesignator factorDesignator) {
+		Code.load(factorDesignator.getDesignator().obj);
+	}
+
+	//ovo je objasnjeno gen koda 9 impl 3 na 8. minuti
+	@Override
+	public void visit(DesignatorArrayName designatorArrayName) {
+		Code.load(designatorArrayName.getDesignator().obj);
+	}
+	
+	@Override
+	public void visit(DesignatorStatementAssign designatorStatementAssign) {
+		Code.store(designatorStatementAssign.getDesignator().obj);
+	}
+	
+	//ovo radi na drugi nacin, ali mi nije jasno zasto ne moze ovako? Gen koda 9 impl 3 19:00
+	@Override
+	public void visit(ExprSingleTermMinus exprSingleTermMinus) {
+		Code.put(Code.neg);
+	}
+	
+	@Override
+	public void visit(FactorNewArray factorNewArray) {
+		Code.put(Code.newarray);
+		Type tip = factorNewArray.getType();
+		if(tip.struct.equals(Tab.charType)) {
+			Code.put(0);
+		}else {
+			Code.put(1);
+		}		
+	}
+	
+	@Override
+	public void visit(DesignatorStatementIncrement designatorStatementIncrement) {
+		Designator des = designatorStatementIncrement.getDesignator();
+		Code.load(des.obj);
+		Code.put(1);
+		Code.put(Code.add);
+	}
+}

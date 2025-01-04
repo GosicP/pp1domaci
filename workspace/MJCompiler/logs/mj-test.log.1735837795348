@@ -1,0 +1,313 @@
+INFO  18:09:24,384 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  18:09:24,549 - #2 program
+INFO  18:09:24,550 - #51 Keske
+INFO  18:09:24,550 - #9 const
+INFO  18:09:24,553 - #51 int
+INFO  18:09:24,554 - #51 pi
+INFO  18:09:24,555 - #20 =
+INFO  18:09:24,555 - #49 3
+INFO  18:09:24,555 - #36 ;
+INFO  18:09:24,558 - #51 int
+INFO  18:09:24,561 - #51 x
+INFO  18:09:24,561 - #37 ,
+INFO  18:09:24,563 - #51 y
+INFO  18:09:24,564 - #40 [
+INFO  18:09:24,564 - #41 ]
+INFO  18:09:24,564 - #36 ;
+INFO  18:09:24,565 - #42 {
+INFO  18:09:24,568 - #51 int
+INFO  18:09:24,570 - #51 f
+INFO  18:09:24,570 - #38 (
+INFO  18:09:24,571 - #39 )
+INFO  18:09:24,573 - #51 int
+INFO  18:09:24,577 - #51 x
+INFO  18:09:24,578 - #36 ;
+INFO  18:09:24,578 - #42 {
+INFO  18:09:24,579 - #51 x
+INFO  18:09:24,581 - #20 =
+INFO  18:09:24,582 - #49 5
+INFO  18:09:24,584 - #36 ;
+INFO  18:09:24,586 - #4 return
+INFO  18:09:24,587 - #51 x
+INFO  18:09:24,588 - #36 ;
+INFO  18:09:24,589 - #43 }
+INFO  18:09:24,589 - #5 void
+INFO  18:09:24,593 - #51 main
+INFO  18:09:24,594 - #38 (
+INFO  18:09:24,594 - #39 )
+INFO  18:09:24,595 - #51 int
+INFO  18:09:24,595 - #51 a
+INFO  18:09:24,596 - #37 ,
+INFO  18:09:24,596 - #51 b
+INFO  18:09:24,596 - #37 ,
+INFO  18:09:24,597 - #51 c
+INFO  18:09:24,597 - #40 [
+INFO  18:09:24,597 - #41 ]
+INFO  18:09:24,598 - #36 ;
+INFO  18:09:24,598 - #51 char
+INFO  18:09:24,598 - #51 carr
+INFO  18:09:24,599 - #40 [
+INFO  18:09:24,599 - #41 ]
+INFO  18:09:24,600 - #36 ;
+INFO  18:09:24,600 - #42 {
+INFO  18:09:24,601 - #51 a
+INFO  18:09:24,601 - #20 =
+INFO  18:09:24,601 - #51 f
+INFO  18:09:24,601 - #38 (
+INFO  18:09:24,605 - #39 )
+INFO  18:09:24,607 - #19 -
+INFO  18:09:24,608 - #49 3
+INFO  18:09:24,611 - #36 ;
+INFO  18:09:24,612 - #3 print
+INFO  18:09:24,612 - #38 (
+INFO  18:09:24,612 - #51 a
+INFO  18:09:24,613 - #39 )
+INFO  18:09:24,613 - #36 ;
+INFO  18:09:24,613 - #51 f
+INFO  18:09:24,614 - #38 (
+INFO  18:09:24,614 - #39 )
+INFO  18:09:24,615 - #36 ;
+INFO  18:09:24,615 - #51 f
+INFO  18:09:24,616 - #38 (
+INFO  18:09:24,616 - #39 )
+INFO  18:09:24,616 - #36 ;
+INFO  18:09:24,617 - #43 }
+INFO  18:09:24,617 - #43 }
+INFO  18:09:24,622 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        TypeIdent(
+         int
+        ) [TypeIdent]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      TypeIdent(
+       int
+      ) [TypeIdent]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclAppend(
+      MethodDeclEpsilon(
+      ) [MethodDeclEpsilon]
+      MethodDecl(
+        MethodSignature(
+          MethodTypeAndNameNonVoid(
+            TypeIdent(
+             int
+            ) [TypeIdent]
+           f
+          ) [MethodTypeAndNameNonVoid]
+          FormParsEpsilon(
+          ) [FormParsEpsilon]
+        ) [MethodSignature]
+        MethodDeclVarList(
+          MethodDeclVarEpsilon(
+          ) [MethodDeclVarEpsilon]
+          VarDeclList(
+            TypeIdent(
+             int
+            ) [TypeIdent]
+            ArraySquareIdent(
+             x
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        StatementListMultipleStatements(
+          StatementListMultipleStatements(
+            StatementListEpsilon(
+            ) [StatementListEpsilon]
+            StatementWithDesignator(
+              DesignatorStatementAssign(
+                DesignatorIdent(
+                 x
+                ) [DesignatorIdent]
+                AssignOp(
+                ) [AssignOp]
+                ExprSingleTerm(
+                  TermFactor(
+                    FactorNum(
+                     5
+                    ) [FactorNum]
+                  ) [TermFactor]
+                ) [ExprSingleTerm]
+              ) [DesignatorStatementAssign]
+            ) [StatementWithDesignator]
+          ) [StatementListMultipleStatements]
+          StatementReturnExpr(
+            ExprSingleTerm(
+              TermFactor(
+                FactorDesignator(
+                  DesignatorIdent(
+                   x
+                  ) [DesignatorIdent]
+                ) [FactorDesignator]
+              ) [TermFactor]
+            ) [ExprSingleTerm]
+          ) [StatementReturnExpr]
+        ) [StatementListMultipleStatements]
+      ) [MethodDecl]
+    ) [MethodDeclAppend]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarEpsilon(
+          ) [MethodDeclVarEpsilon]
+          VarDeclList(
+            TypeIdent(
+             int
+            ) [TypeIdent]
+            ArraySquareIdent(
+             a
+            ) [ArraySquareIdent]
+            VarDeclMoreWithSquares(
+              VarDeclMoreWithSquares(
+                VarDeclMoreEpsilon(
+                ) [VarDeclMoreEpsilon]
+                ArraySquareIdent(
+                 b
+                ) [ArraySquareIdent]
+              ) [VarDeclMoreWithSquares]
+              ArraySquarePresent(
+               c
+              ) [ArraySquarePresent]
+            ) [VarDeclMoreWithSquares]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          TypeIdent(
+           char
+          ) [TypeIdent]
+          ArraySquarePresent(
+           carr
+          ) [ArraySquarePresent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListMultipleStatements(
+          StatementListMultipleStatements(
+            StatementListMultipleStatements(
+              StatementListEpsilon(
+              ) [StatementListEpsilon]
+              StatementWithDesignator(
+                DesignatorStatementAssign(
+                  DesignatorIdent(
+                   a
+                  ) [DesignatorIdent]
+                  AssignOp(
+                  ) [AssignOp]
+                  ExprMultipleTerm(
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorDesignatorMethod(
+                          FunctionName(
+                            DesignatorIdent(
+                             f
+                            ) [DesignatorIdent]
+                          ) [FunctionName]
+                          ActParsEpsilon(
+                          ) [ActParsEpsilon]
+                        ) [FactorDesignatorMethod]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                    AddopSubtract(
+                    ) [AddopSubtract]
+                    TermFactor(
+                      FactorNum(
+                       3
+                      ) [FactorNum]
+                    ) [TermFactor]
+                  ) [ExprMultipleTerm]
+                ) [DesignatorStatementAssign]
+              ) [StatementWithDesignator]
+            ) [StatementListMultipleStatements]
+            StatementPrintExpr(
+              ExprSingleTerm(
+                TermFactor(
+                  FactorDesignator(
+                    DesignatorIdent(
+                     a
+                    ) [DesignatorIdent]
+                  ) [FactorDesignator]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [StatementPrintExpr]
+          ) [StatementListMultipleStatements]
+          StatementWithDesignator(
+            DesignatorStatementFunctionCall(
+              FunctionName(
+                DesignatorIdent(
+                 f
+                ) [DesignatorIdent]
+              ) [FunctionName]
+              ActParsEpsilon(
+              ) [ActParsEpsilon]
+            ) [DesignatorStatementFunctionCall]
+          ) [StatementWithDesignator]
+        ) [StatementListMultipleStatements]
+        StatementWithDesignator(
+          DesignatorStatementFunctionCall(
+            FunctionName(
+              DesignatorIdent(
+               f
+              ) [DesignatorIdent]
+            ) [FunctionName]
+            ActParsEpsilon(
+            ) [ActParsEpsilon]
+          ) [DesignatorStatementFunctionCall]
+        ) [StatementWithDesignator]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  18:09:24,625 - ===================================
+INFO  18:09:24,654 - Deklarisana konstanta pi na liniji 3
+INFO  18:09:24,655 - Deklarisana promenljiva: x na liniji 4
+INFO  18:09:24,655 - Deklarisan niz: y na liniji 4
+INFO  18:09:24,656 - Deklarisana metoda f tipa: 1 na liniji 8
+INFO  18:09:24,657 - Deklarisana promenljiva: x na liniji 8
+INFO  18:09:24,658 - Deklarisana metoda main tipa void: na liniji 14
+INFO  18:09:24,658 - Deklarisana promenljiva: a na liniji 14
+INFO  18:09:24,659 - Deklarisana promenljiva: b na liniji 14
+INFO  18:09:24,659 - Deklarisan niz: c na liniji 14
+INFO  18:09:24,660 - Deklarisan niz: carr na liniji 14
+INFO  18:09:24,661 - Poziv funkcije: f na liniji 20
+INFO  18:09:24,662 - Poziv funkcije: f na liniji 20
+INFO  18:09:24,663 - ===================================
+INFO  18:09:24,677 - Generisanje uspesno zavrseno!

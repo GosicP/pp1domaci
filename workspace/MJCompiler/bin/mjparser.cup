@@ -60,9 +60,9 @@ terminal String IDENT;
 terminal Character CHARACTER;
 terminal COLON;
 
-nonterminal Program, ConVarDeclList, ConDecList, Type, ConDecl, Constant, ConDeclMore;
+nonterminal Program, ConVarDeclList, ConDecList, ConDecl, Constant, ConDeclMore;
 nonterminal VarDeclMore, VarDecl, VarDeclList, ArraySquare;
-nonterminal MethodDeclList, MethodDecl, MethodTypeAndName, MethodDeclVar, MethodSignature;
+nonterminal MethodDeclList, MethodDecl, MethodDeclVar, MethodSignature;
 nonterminal FormPars, FormParsMore, FormParsVarOrArray;
 nonterminal Statement, StatementList;
 nonterminal DesignatorStatement, DesignatorMore;
@@ -73,12 +73,13 @@ nonterminal Addop;
 nonterminal Label;
 nonterminal ElseCondition, WhileConditions;
 nonterminal ProgramName, MethodName;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, Term, Expr, CondFact, CondTerm, Condition;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, Term, Expr, CondFact, CondTerm, CondFactList, Type, Condition;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, MethodTypeAndName, DesignatorArrayName;
 nonterminal Unary;
 nonterminal FunctionName;
 nonterminal IfCondition;
 nonterminal DoWhileStartDummy;
+nonterminal Else;
 
 precedence left ELSE;
 
@@ -192,9 +193,11 @@ WhileConditions ::= (WhileConditionsNoStatement) Condition
 				(WhileConditionsEpsilon)
 				; 
 
-ElseCondition ::= (ElseConditionExists) ELSE Statement
+ElseCondition ::= (ElseConditionExists) Else Statement
 				|
 				(ElseConditionEpsilon);
+				
+Else ::= (Else) ELSE;
 
 DesignatorStatement ::= (DesignatorStatementAssign) Designator AssignOp Expr 
 					|
@@ -210,9 +213,11 @@ FunctionName ::= (FunctionName) Designator;
 
 Designator ::= (DesignatorIdent) IDENT:identName
 			|
-			(DesignatorListDot) Designator DOT IDENT
+			(DesignatorListDot) DesignatorArrayName DOT IDENT /* Ovde bi isto trebao DesignatorArrayName ali ga ne koristim */
 			|
-			(DesignatorListArray) Designator LSQUARE Expr RSQUARE; 
+			(DesignatorListArray) DesignatorArrayName LSQUARE Expr RSQUARE; 
+			
+DesignatorArrayName ::= (DesignatorArrayName) Designator;
 			
 AssignOp ::= (AssignOp) ASSIGN;		
 
@@ -237,8 +242,6 @@ Term ::= (TermMul) Term Mulop Factor
 				|
 				(TermFactor) Factor
 				;
-				
-
 				
 Factor ::= (FactorDesignator) Designator
 			|
@@ -272,7 +275,9 @@ Condition ::= (ConditionCondTerm) CondTerm
 			|
 			(ConditionRecursion) Condition OR CondTerm;
 			
-CondTerm ::= (CondTermFact) CondFact 
+CondTerm ::= (CondTerm) CondFactList;
+		
+CondFactList ::= (CondTermFact) CondFact 
 			|
 			(CondTermRecursion) CondTerm AND CondFact;
 			

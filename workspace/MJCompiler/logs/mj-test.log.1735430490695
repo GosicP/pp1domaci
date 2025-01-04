@@ -1,0 +1,77 @@
+INFO  19:01:24,244 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  19:01:24,379 - #2 program
+INFO  19:01:24,379 - #51 Keske
+INFO  19:01:24,380 - #9 const
+INFO  19:01:24,382 - #51 int
+INFO  19:01:24,382 - #51 pi
+INFO  19:01:24,382 - #20 =
+INFO  19:01:24,383 - #49 3
+INFO  19:01:24,383 - #36 ;
+INFO  19:01:24,385 - #42 {
+INFO  19:01:24,389 - #5 void
+INFO  19:01:24,391 - #51 main
+INFO  19:01:24,391 - #38 (
+INFO  19:01:24,392 - #39 )
+INFO  19:01:24,394 - #42 {
+INFO  19:01:24,397 - #3 print
+INFO  19:01:24,398 - #38 (
+INFO  19:01:24,398 - #49 1
+INFO  19:01:24,399 - #39 )
+INFO  19:01:24,399 - #36 ;
+INFO  19:01:24,399 - #43 }
+INFO  19:01:24,400 - #43 }
+INFO  19:01:24,405 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListCon(
+    ConVarDeclListEpsilon(
+    ) [ConVarDeclListEpsilon]
+    ConDecList(
+      TypeIdent(
+       int
+      ) [TypeIdent]
+      ConDecl(
+       pi
+        ConstantN(
+         3
+        ) [ConstantN]
+      ) [ConDecl]
+      ConDeclMoreEpsilon(
+      ) [ConDeclMoreEpsilon]
+    ) [ConDecList]
+  ) [ConVarDeclListCon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListMultipleStatements(
+        StatementListEpsilon(
+        ) [StatementListEpsilon]
+        StatementPrintExpr(
+          ExprSingleTerm(
+            TermFactor(
+              FactorNum(
+               1
+              ) [FactorNum]
+            ) [TermFactor]
+          ) [ExprSingleTerm]
+        ) [StatementPrintExpr]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  19:01:24,407 - ===================================
+INFO  19:01:24,428 - Deklarisana konstanta pi na liniji 3
+INFO  19:01:24,429 - Deklarisana metoda main tipa void: na liniji 7
+INFO  19:01:24,429 - ===================================
+INFO  19:01:24,449 - Generisanje uspesno zavrseno!

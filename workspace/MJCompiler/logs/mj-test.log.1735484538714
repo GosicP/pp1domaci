@@ -1,0 +1,103 @@
+INFO  15:36:07,925 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  15:36:08,109 - #2 program
+INFO  15:36:08,110 - #51 Keske
+INFO  15:36:08,110 - #9 const
+INFO  15:36:08,113 - #51 int
+INFO  15:36:08,114 - #51 pi
+INFO  15:36:08,114 - #20 =
+INFO  15:36:08,115 - #49 3
+INFO  15:36:08,115 - #36 ;
+INFO  15:36:08,118 - #51 int
+INFO  15:36:08,121 - #51 x
+INFO  15:36:08,121 - #37 ,
+INFO  15:36:08,123 - #51 y
+INFO  15:36:08,124 - #40 [
+INFO  15:36:08,124 - #41 ]
+INFO  15:36:08,124 - #36 ;
+INFO  15:36:08,124 - #42 {
+INFO  15:36:08,126 - #5 void
+INFO  15:36:08,128 - #51 main
+INFO  15:36:08,128 - #38 (
+INFO  15:36:08,129 - #39 )
+INFO  15:36:08,130 - #42 {
+INFO  15:36:08,132 - #3 print
+INFO  15:36:08,134 - #38 (
+INFO  15:36:08,135 - #49 1
+INFO  15:36:08,135 - #39 )
+INFO  15:36:08,136 - #36 ;
+INFO  15:36:08,136 - #43 }
+INFO  15:36:08,137 - #43 }
+INFO  15:36:08,143 - Program(
+  ProgramName(
+   Keske
+  ) [ProgramName]
+  ConVarDeclListVar(
+    ConVarDeclListCon(
+      ConVarDeclListEpsilon(
+      ) [ConVarDeclListEpsilon]
+      ConDecList(
+        TypeIdent(
+         int
+        ) [TypeIdent]
+        ConDecl(
+         pi
+          ConstantN(
+           3
+          ) [ConstantN]
+        ) [ConDecl]
+        ConDeclMoreEpsilon(
+        ) [ConDeclMoreEpsilon]
+      ) [ConDecList]
+    ) [ConVarDeclListCon]
+    VarDeclList(
+      TypeIdent(
+       int
+      ) [TypeIdent]
+      ArraySquareIdent(
+       x
+      ) [ArraySquareIdent]
+      VarDeclMoreWithSquares(
+        VarDeclMoreEpsilon(
+        ) [VarDeclMoreEpsilon]
+        ArraySquarePresent(
+         y
+        ) [ArraySquarePresent]
+      ) [VarDeclMoreWithSquares]
+    ) [VarDeclList]
+  ) [ConVarDeclListVar]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarEpsilon(
+      ) [MethodDeclVarEpsilon]
+      StatementListMultipleStatements(
+        StatementListEpsilon(
+        ) [StatementListEpsilon]
+        StatementPrintExpr(
+          ExprSingleTerm(
+            TermFactor(
+              FactorNum(
+               1
+              ) [FactorNum]
+            ) [TermFactor]
+          ) [ExprSingleTerm]
+        ) [StatementPrintExpr]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  15:36:08,145 - ===================================
+INFO  15:36:08,165 - Deklarisana konstanta pi na liniji 3
+INFO  15:36:08,166 - Deklarisana promenljiva: x na liniji 4
+INFO  15:36:08,166 - Deklarisan niz: y na liniji 4
+INFO  15:36:08,172 - Deklarisana metoda main tipa void: na liniji 8
+INFO  15:36:08,173 - ===================================
+INFO  15:36:08,180 - Generisanje uspesno zavrseno!

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/11/2024 21:44:27
+// 3/0/2025 17:43:41
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -15,8 +15,8 @@ public interface Visitor {
     public void visit(StatementList StatementList);
     public void visit(Addop Addop);
     public void visit(Factor Factor);
-    public void visit(CondTerm CondTerm);
     public void visit(FormParsVarOrArray FormParsVarOrArray);
+    public void visit(CondFactList CondFactList);
     public void visit(MethodTypeAndName MethodTypeAndName);
     public void visit(Designator Designator);
     public void visit(MethodName MethodName);
@@ -51,6 +51,7 @@ public interface Visitor {
     public void visit(CondFactSingleExpr CondFactSingleExpr);
     public void visit(CondTermRecursion CondTermRecursion);
     public void visit(CondTermFact CondTermFact);
+    public void visit(CondTerm CondTerm);
     public void visit(ConditionRecursion ConditionRecursion);
     public void visit(ConditionCondTerm ConditionCondTerm);
     public void visit(Setop Setop);
@@ -78,6 +79,7 @@ public interface Visitor {
     public void visit(ActParsEpsilon ActParsEpsilon);
     public void visit(ActParsExpr ActParsExpr);
     public void visit(AssignOp AssignOp);
+    public void visit(DesignatorArrayName DesignatorArrayName);
     public void visit(DesignatorListArray DesignatorListArray);
     public void visit(DesignatorListDot DesignatorListDot);
     public void visit(DesignatorIdent DesignatorIdent);
@@ -87,6 +89,7 @@ public interface Visitor {
     public void visit(DesignatorStatementIncrement DesignatorStatementIncrement);
     public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall);
     public void visit(DesignatorStatementAssign DesignatorStatementAssign);
+    public void visit(Else Else);
     public void visit(ElseConditionEpsilon ElseConditionEpsilon);
     public void visit(ElseConditionExists ElseConditionExists);
     public void visit(WhileConditionsEpsilon WhileConditionsEpsilon);

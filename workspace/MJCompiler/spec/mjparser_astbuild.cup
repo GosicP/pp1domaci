@@ -63,7 +63,6 @@ terminal COLON;
 nonterminal Program Program;
 nonterminal ConVarDeclList ConVarDeclList;
 nonterminal ConDecList ConDecList;
-nonterminal Type Type;
 nonterminal ConDecl ConDecl;
 nonterminal Constant Constant;
 nonterminal ConDeclMore ConDeclMore;
@@ -73,7 +72,6 @@ nonterminal VarDeclList VarDeclList;
 nonterminal ArraySquare ArraySquare;
 nonterminal MethodDeclList MethodDeclList;
 nonterminal MethodDecl MethodDecl;
-nonterminal MethodTypeAndName MethodTypeAndName;
 nonterminal MethodDeclVar MethodDeclVar;
 nonterminal MethodSignature MethodSignature;
 nonterminal FormPars FormPars;
@@ -95,12 +93,13 @@ nonterminal ElseCondition ElseCondition;
 nonterminal WhileConditions WhileConditions;
 nonterminal ProgramName ProgramName;
 nonterminal MethodName MethodName;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, Term, Expr, CondFact, CondTerm, Condition;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, Term, Expr, CondFact, CondTerm, CondFactList, Type, Condition;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, MethodTypeAndName, DesignatorArrayName;
 nonterminal Unary Unary;
 nonterminal FunctionName FunctionName;
 nonterminal IfCondition IfCondition;
 nonterminal DoWhileStartDummy DoWhileStartDummy;
+nonterminal Else Else;
 
 precedence left ELSE;
 
@@ -214,9 +213,11 @@ WhileConditions ::= (WhileConditionsNoStatement) Condition:C1 {: RESULT=new Whil
 				(WhileConditionsEpsilon) {: RESULT=new WhileConditionsEpsilon(); :}
 				; 
 
-ElseCondition ::= (ElseConditionExists) ELSE Statement:S1 {: RESULT=new ElseConditionExists(S1); RESULT.setLine(S1left); :}
+ElseCondition ::= (ElseConditionExists) Else:E1 Statement:S2 {: RESULT=new ElseConditionExists(E1, S2); RESULT.setLine(E1left); :}
 				|
 				(ElseConditionEpsilon) {: RESULT=new ElseConditionEpsilon(); :};
+				
+Else ::= (Else) ELSE {: RESULT=new Else(); :};
 
 DesignatorStatement ::= (DesignatorStatementAssign) Designator:D1 AssignOp:A2 Expr:E3 {: RESULT=new DesignatorStatementAssign(D1, A2, E3); RESULT.setLine(D1left); :} 
 					|
@@ -232,9 +233,11 @@ FunctionName ::= (FunctionName) Designator:D1 {: RESULT=new FunctionName(D1); RE
 
 Designator ::= (DesignatorIdent) IDENT:identName {: RESULT=new DesignatorIdent(identName); RESULT.setLine(identNameleft); :}
 			|
-			(DesignatorListDot) Designator:D1 DOT IDENT:I2 {: RESULT=new DesignatorListDot(D1, I2); RESULT.setLine(D1left); :}
+			(DesignatorListDot) DesignatorArrayName:D1 DOT IDENT:I2 {: RESULT=new DesignatorListDot(D1, I2); RESULT.setLine(D1left); :} /* Ovde bi isto trebao DesignatorArrayName ali ga ne koristim */
 			|
-			(DesignatorListArray) Designator:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignatorListArray(D1, E2); RESULT.setLine(D1left); :}; 
+			(DesignatorListArray) DesignatorArrayName:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignatorListArray(D1, E2); RESULT.setLine(D1left); :}; 
+			
+DesignatorArrayName ::= (DesignatorArrayName) Designator:D1 {: RESULT=new DesignatorArrayName(D1); RESULT.setLine(D1left); :};
 			
 AssignOp ::= (AssignOp) ASSIGN {: RESULT=new AssignOp(); :};		
 
@@ -259,8 +262,6 @@ Term ::= (TermMul) Term:T1 Mulop:M2 Factor:F3 {: RESULT=new TermMul(T1, M2, F3);
 				|
 				(TermFactor) Factor:F1 {: RESULT=new TermFactor(F1); RESULT.setLine(F1left); :}
 				;
-				
-
 				
 Factor ::= (FactorDesignator) Designator:D1 {: RESULT=new FactorDesignator(D1); RESULT.setLine(D1left); :}
 			|
@@ -294,7 +295,9 @@ Condition ::= (ConditionCondTerm) CondTerm:C1 {: RESULT=new ConditionCondTerm(C1
 			|
 			(ConditionRecursion) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionRecursion(C1, C2); RESULT.setLine(C1left); :};
 			
-CondTerm ::= (CondTermFact) CondFact:C1 {: RESULT=new CondTermFact(C1); RESULT.setLine(C1left); :} 
+CondTerm ::= (CondTerm) CondFactList:C1 {: RESULT=new CondTerm(C1); RESULT.setLine(C1left); :};
+		
+CondFactList ::= (CondTermFact) CondFact:C1 {: RESULT=new CondTermFact(C1); RESULT.setLine(C1left); :} 
 			|
 			(CondTermRecursion) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermRecursion(C1, C2); RESULT.setLine(C1left); :};
 			

@@ -1,0 +1,274 @@
+INFO  18:00:41,301 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  18:00:41,503 - #2 program
+INFO  18:00:41,504 - #51 TestIf
+INFO  18:00:41,504 - #42 {
+INFO  18:00:41,508 - #5 void
+INFO  18:00:41,511 - #51 main
+INFO  18:00:41,511 - #38 (
+INFO  18:00:41,512 - #39 )
+INFO  18:00:41,514 - #51 int
+INFO  18:00:41,519 - #51 i
+INFO  18:00:41,521 - #36 ;
+INFO  18:00:41,523 - #42 {
+INFO  18:00:41,526 - #51 i
+INFO  18:00:41,528 - #20 =
+INFO  18:00:41,529 - #49 3
+INFO  18:00:41,532 - #36 ;
+INFO  18:00:41,533 - #10 if
+INFO  18:00:41,534 - #38 (
+INFO  18:00:41,534 - #51 i
+INFO  18:00:41,535 - #24 ==
+INFO  18:00:41,535 - #49 3
+INFO  18:00:41,540 - #39 )
+INFO  18:00:41,544 - #42 {
+INFO  18:00:41,548 - #10 if
+INFO  18:00:41,548 - #38 (
+INFO  18:00:41,549 - #51 i
+INFO  18:00:41,549 - #24 ==
+INFO  18:00:41,550 - #49 4
+INFO  18:00:41,550 - #39 )
+INFO  18:00:41,551 - #3 print
+INFO  18:00:41,551 - #38 (
+INFO  18:00:41,552 - #49 5
+INFO  18:00:41,552 - #39 )
+INFO  18:00:41,552 - #36 ;
+INFO  18:00:41,553 - #8 else
+INFO  18:00:41,553 - #3 print
+INFO  18:00:41,556 - #38 (
+INFO  18:00:41,557 - #49 6
+INFO  18:00:41,557 - #39 )
+INFO  18:00:41,558 - #36 ;
+INFO  18:00:41,559 - #43 }
+INFO  18:00:41,560 - #8 else
+INFO  18:00:41,562 - #42 {
+INFO  18:00:41,564 - #10 if
+INFO  18:00:41,565 - #38 (
+INFO  18:00:41,569 - #51 i
+INFO  18:00:41,569 - #24 ==
+INFO  18:00:41,570 - #49 3
+INFO  18:00:41,571 - #39 )
+INFO  18:00:41,572 - #3 print
+INFO  18:00:41,572 - #38 (
+INFO  18:00:41,573 - #49 7
+INFO  18:00:41,574 - #39 )
+INFO  18:00:41,574 - #36 ;
+INFO  18:00:41,575 - #8 else
+INFO  18:00:41,575 - #3 print
+INFO  18:00:41,576 - #38 (
+INFO  18:00:41,577 - #49 8
+INFO  18:00:41,577 - #39 )
+INFO  18:00:41,578 - #36 ;
+INFO  18:00:41,578 - #43 }
+INFO  18:00:41,579 - #43 }
+INFO  18:00:41,579 - #43 }
+INFO  18:00:41,591 - Program(
+  ProgramName(
+   TestIf
+  ) [ProgramName]
+  ConVarDeclListEpsilon(
+  ) [ConVarDeclListEpsilon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarEpsilon(
+        ) [MethodDeclVarEpsilon]
+        VarDeclList(
+          TypeIdent(
+           int
+          ) [TypeIdent]
+          ArraySquareIdent(
+           i
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListMultipleStatements(
+          StatementListEpsilon(
+          ) [StatementListEpsilon]
+          StatementWithDesignator(
+            DesignatorStatementAssign(
+              DesignatorIdent(
+               i
+              ) [DesignatorIdent]
+              AssignOp(
+              ) [AssignOp]
+              ExprSingleTerm(
+                TermFactor(
+                  FactorNum(
+                   3
+                  ) [FactorNum]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [DesignatorStatementAssign]
+          ) [StatementWithDesignator]
+        ) [StatementListMultipleStatements]
+        StatementIf(
+          IfCondition(
+            ConditionCondTerm(
+              CondTerm(
+                CondTermFact(
+                  CondFactDoubleExpr(
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorDesignator(
+                          DesignatorIdent(
+                           i
+                          ) [DesignatorIdent]
+                        ) [FactorDesignator]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                    RelopEquality(
+                    ) [RelopEquality]
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorNum(
+                         3
+                        ) [FactorNum]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                  ) [CondFactDoubleExpr]
+                ) [CondTermFact]
+              ) [CondTerm]
+            ) [ConditionCondTerm]
+          ) [IfCondition]
+          StatementStatementRecursive(
+            StatementListMultipleStatements(
+              StatementListEpsilon(
+              ) [StatementListEpsilon]
+              StatementIf(
+                IfCondition(
+                  ConditionCondTerm(
+                    CondTerm(
+                      CondTermFact(
+                        CondFactDoubleExpr(
+                          ExprSingleTerm(
+                            TermFactor(
+                              FactorDesignator(
+                                DesignatorIdent(
+                                 i
+                                ) [DesignatorIdent]
+                              ) [FactorDesignator]
+                            ) [TermFactor]
+                          ) [ExprSingleTerm]
+                          RelopEquality(
+                          ) [RelopEquality]
+                          ExprSingleTerm(
+                            TermFactor(
+                              FactorNum(
+                               4
+                              ) [FactorNum]
+                            ) [TermFactor]
+                          ) [ExprSingleTerm]
+                        ) [CondFactDoubleExpr]
+                      ) [CondTermFact]
+                    ) [CondTerm]
+                  ) [ConditionCondTerm]
+                ) [IfCondition]
+                StatementPrintExpr(
+                  ExprSingleTerm(
+                    TermFactor(
+                      FactorNum(
+                       5
+                      ) [FactorNum]
+                    ) [TermFactor]
+                  ) [ExprSingleTerm]
+                ) [StatementPrintExpr]
+                ElseConditionExists(
+                  Else(
+                  ) [Else]
+                  StatementPrintExpr(
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorNum(
+                         6
+                        ) [FactorNum]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                  ) [StatementPrintExpr]
+                ) [ElseConditionExists]
+              ) [StatementIf]
+            ) [StatementListMultipleStatements]
+          ) [StatementStatementRecursive]
+          ElseConditionExists(
+            Else(
+            ) [Else]
+            StatementStatementRecursive(
+              StatementListMultipleStatements(
+                StatementListEpsilon(
+                ) [StatementListEpsilon]
+                StatementIf(
+                  IfCondition(
+                    ConditionCondTerm(
+                      CondTerm(
+                        CondTermFact(
+                          CondFactDoubleExpr(
+                            ExprSingleTerm(
+                              TermFactor(
+                                FactorDesignator(
+                                  DesignatorIdent(
+                                   i
+                                  ) [DesignatorIdent]
+                                ) [FactorDesignator]
+                              ) [TermFactor]
+                            ) [ExprSingleTerm]
+                            RelopEquality(
+                            ) [RelopEquality]
+                            ExprSingleTerm(
+                              TermFactor(
+                                FactorNum(
+                                 3
+                                ) [FactorNum]
+                              ) [TermFactor]
+                            ) [ExprSingleTerm]
+                          ) [CondFactDoubleExpr]
+                        ) [CondTermFact]
+                      ) [CondTerm]
+                    ) [ConditionCondTerm]
+                  ) [IfCondition]
+                  StatementPrintExpr(
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorNum(
+                         7
+                        ) [FactorNum]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                  ) [StatementPrintExpr]
+                  ElseConditionExists(
+                    Else(
+                    ) [Else]
+                    StatementPrintExpr(
+                      ExprSingleTerm(
+                        TermFactor(
+                          FactorNum(
+                           8
+                          ) [FactorNum]
+                        ) [TermFactor]
+                      ) [ExprSingleTerm]
+                    ) [StatementPrintExpr]
+                  ) [ElseConditionExists]
+                ) [StatementIf]
+              ) [StatementListMultipleStatements]
+            ) [StatementStatementRecursive]
+          ) [ElseConditionExists]
+        ) [StatementIf]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  18:00:41,593 - ===================================
+INFO  18:00:41,639 - Deklarisana metoda main tipa void: na liniji 5
+INFO  18:00:41,640 - Deklarisana promenljiva: i na liniji 5
+INFO  18:00:41,641 - ===================================
+INFO  18:00:41,655 - Generisanje uspesno zavrseno!

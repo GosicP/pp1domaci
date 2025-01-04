@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/11/2024 21:44:27
+// 3/0/2025 17:43:41
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -15,8 +15,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(StatementList StatementList) { }
     public void visit(Addop Addop) { }
     public void visit(Factor Factor) { }
-    public void visit(CondTerm CondTerm) { }
     public void visit(FormParsVarOrArray FormParsVarOrArray) { }
+    public void visit(CondFactList CondFactList) { }
     public void visit(MethodTypeAndName MethodTypeAndName) { }
     public void visit(Designator Designator) { }
     public void visit(MethodName MethodName) { }
@@ -51,6 +51,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondFactSingleExpr CondFactSingleExpr) { visit(); }
     public void visit(CondTermRecursion CondTermRecursion) { visit(); }
     public void visit(CondTermFact CondTermFact) { visit(); }
+    public void visit(CondTerm CondTerm) { visit(); }
     public void visit(ConditionRecursion ConditionRecursion) { visit(); }
     public void visit(ConditionCondTerm ConditionCondTerm) { visit(); }
     public void visit(Setop Setop) { visit(); }
@@ -78,6 +79,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActParsEpsilon ActParsEpsilon) { visit(); }
     public void visit(ActParsExpr ActParsExpr) { visit(); }
     public void visit(AssignOp AssignOp) { visit(); }
+    public void visit(DesignatorArrayName DesignatorArrayName) { visit(); }
     public void visit(DesignatorListArray DesignatorListArray) { visit(); }
     public void visit(DesignatorListDot DesignatorListDot) { visit(); }
     public void visit(DesignatorIdent DesignatorIdent) { visit(); }
@@ -87,6 +89,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DesignatorStatementIncrement DesignatorStatementIncrement) { visit(); }
     public void visit(DesignatorStatementFunctionCall DesignatorStatementFunctionCall) { visit(); }
     public void visit(DesignatorStatementAssign DesignatorStatementAssign) { visit(); }
+    public void visit(Else Else) { visit(); }
     public void visit(ElseConditionEpsilon ElseConditionEpsilon) { visit(); }
     public void visit(ElseConditionExists ElseConditionExists) { visit(); }
     public void visit(WhileConditionsEpsilon WhileConditionsEpsilon) { visit(); }

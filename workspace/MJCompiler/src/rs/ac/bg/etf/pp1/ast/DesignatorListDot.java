@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 23/11/2024 21:44:27
+// 3/0/2025 17:43:41
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignatorListDot extends Designator {
 
-    private Designator Designator;
+    private DesignatorArrayName DesignatorArrayName;
     private String I2;
 
-    public DesignatorListDot (Designator Designator, String I2) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
+    public DesignatorListDot (DesignatorArrayName DesignatorArrayName, String I2) {
+        this.DesignatorArrayName=DesignatorArrayName;
+        if(DesignatorArrayName!=null) DesignatorArrayName.setParent(this);
         this.I2=I2;
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public DesignatorArrayName getDesignatorArrayName() {
+        return DesignatorArrayName;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
+    public void setDesignatorArrayName(DesignatorArrayName DesignatorArrayName) {
+        this.DesignatorArrayName=DesignatorArrayName;
     }
 
     public String getI2() {
@@ -37,16 +37,16 @@ public class DesignatorListDot extends Designator {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -55,8 +55,8 @@ public class DesignatorListDot extends Designator {
         buffer.append(tab);
         buffer.append("DesignatorListDot(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
+        if(DesignatorArrayName!=null)
+            buffer.append(DesignatorArrayName.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

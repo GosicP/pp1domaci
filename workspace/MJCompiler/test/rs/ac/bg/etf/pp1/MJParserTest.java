@@ -2,6 +2,7 @@ package rs.ac.bg.etf.pp1;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -13,6 +14,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
+import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
@@ -107,7 +109,17 @@ public class MJParserTest {
 			// ispis prepoznatih programskih konstrukcija
 			
 			if(!p.errorDetected && sa.passed()){
-				log.info("Parsiranje uspesno zavrseno!");
+				/* Generisanje koda */ 
+				File objFile = new File("test/program.obj");
+				if(objFile.exists()) objFile.delete();
+				
+				CodeGenerator cg = new CodeGenerator();
+				prog.traverseBottomUp(cg);
+				Code.dataSize = sa.nVars;
+				Code.mainPc = cg.getmainPc();
+				Code.write(new FileOutputStream(objFile));
+				
+				log.info("Generisanje uspesno zavrseno!");
 			}else{
 				log.error("Parsiranje NIJE uspesno zavrseno!");
 			}

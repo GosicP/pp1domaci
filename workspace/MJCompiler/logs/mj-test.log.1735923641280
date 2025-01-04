@@ -1,0 +1,135 @@
+INFO  17:52:32,313 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  17:52:32,542 - #2 program
+INFO  17:52:32,543 - #51 TestIf
+INFO  17:52:32,544 - #42 {
+INFO  17:52:32,549 - #5 void
+INFO  17:52:32,551 - #51 main
+INFO  17:52:32,551 - #38 (
+INFO  17:52:32,553 - #39 )
+INFO  17:52:32,554 - #51 int
+INFO  17:52:32,560 - #51 i
+INFO  17:52:32,560 - #36 ;
+INFO  17:52:32,564 - #42 {
+INFO  17:52:32,568 - #51 i
+INFO  17:52:32,571 - #20 =
+INFO  17:52:32,572 - #49 3
+INFO  17:52:32,574 - #36 ;
+INFO  17:52:32,576 - #10 if
+INFO  17:52:32,577 - #38 (
+INFO  17:52:32,577 - #50 0
+INFO  17:52:32,578 - #39 )
+INFO  17:52:32,582 - #3 print
+INFO  17:52:32,585 - #38 (
+INFO  17:52:32,585 - #49 1
+INFO  17:52:32,587 - #39 )
+INFO  17:52:32,587 - #36 ;
+INFO  17:52:32,587 - #8 else
+INFO  17:52:32,588 - #3 print
+INFO  17:52:32,591 - #38 (
+INFO  17:52:32,591 - #49 2
+INFO  17:52:32,592 - #39 )
+INFO  17:52:32,592 - #36 ;
+INFO  17:52:32,593 - #43 }
+INFO  17:52:32,594 - #43 }
+INFO  17:52:32,603 - Program(
+  ProgramName(
+   TestIf
+  ) [ProgramName]
+  ConVarDeclListEpsilon(
+  ) [ConVarDeclListEpsilon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarEpsilon(
+        ) [MethodDeclVarEpsilon]
+        VarDeclList(
+          TypeIdent(
+           int
+          ) [TypeIdent]
+          ArraySquareIdent(
+           i
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListMultipleStatements(
+          StatementListEpsilon(
+          ) [StatementListEpsilon]
+          StatementWithDesignator(
+            DesignatorStatementAssign(
+              DesignatorIdent(
+               i
+              ) [DesignatorIdent]
+              AssignOp(
+              ) [AssignOp]
+              ExprSingleTerm(
+                TermFactor(
+                  FactorNum(
+                   3
+                  ) [FactorNum]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [DesignatorStatementAssign]
+          ) [StatementWithDesignator]
+        ) [StatementListMultipleStatements]
+        StatementIf(
+          IfCondition(
+            ConditionCondTerm(
+              CondTerm(
+                CondTermFact(
+                  CondFactSingleExpr(
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorBool(
+                         0
+                        ) [FactorBool]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                  ) [CondFactSingleExpr]
+                ) [CondTermFact]
+              ) [CondTerm]
+            ) [ConditionCondTerm]
+          ) [IfCondition]
+          StatementPrintExpr(
+            ExprSingleTerm(
+              TermFactor(
+                FactorNum(
+                 1
+                ) [FactorNum]
+              ) [TermFactor]
+            ) [ExprSingleTerm]
+          ) [StatementPrintExpr]
+          ElseConditionExists(
+            Else(
+            ) [Else]
+            StatementPrintExpr(
+              ExprSingleTerm(
+                TermFactor(
+                  FactorNum(
+                   2
+                  ) [FactorNum]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [StatementPrintExpr]
+          ) [ElseConditionExists]
+        ) [StatementIf]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  17:52:32,605 - ===================================
+INFO  17:52:32,636 - Deklarisana metoda main tipa void: na liniji 5
+INFO  17:52:32,637 - Deklarisana promenljiva: i na liniji 5
+INFO  17:52:32,637 - ===================================
+INFO  17:52:32,654 - Generisanje uspesno zavrseno!
