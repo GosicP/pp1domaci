@@ -588,7 +588,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(CondTermRecursion condTermRecursion) {
-		if(condTermRecursion.getCondFact().struct != boolType || condTermRecursion.getCondTerm().struct != boolType) {
+		if(condTermRecursion.getCondFact().struct != boolType || condTermRecursion.getCondFactList().struct != boolType) {
 			report_error("Prilikom koriscenja AND oba tipa moraju biti tipa bool" , condTermRecursion);
 			condTermRecursion.struct = Tab.noType;
 		}else {

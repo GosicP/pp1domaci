@@ -11,6 +11,10 @@ import rs.etf.pp1.symboltable.concepts.Struct;
 public class CodeGenerator extends VisitorAdaptor {
 	
 	private int mainPC;
+	private boolean isWhileWithStatement = false;
+	
+	CodeGenerator() {
+	}
 	
 	public int getmainPc() {
 		return this.mainPC;
@@ -152,6 +156,8 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	@Override
 	public void visit(DesignatorStatementIncrement designatorStatementIncrement) {
+		System.out.println("Usao sam u Inkrement");
+		System.out.println(Code.pc);
 		Designator des = designatorStatementIncrement.getDesignator();
 		if(des.obj.getKind() == Obj.Elem) { // obj 10. snimak impl 11:00
 			//kada vracamo vrednost u store, moramo da imamo i adresu niza, koja se gubi u narednim instrukcijama
@@ -174,6 +180,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.loadConst(1);
 		Code.put(Code.sub);
 		Code.store(des.obj);
+		
 	}
 	
 	@Override
@@ -230,7 +237,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 			
 	}
-	
+
 	//NAUCI OVO I ISPROGRAMIRAJ SAM
 	
 	//promeni imena promenljivih
@@ -241,30 +248,46 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(CondFactSingleExpr condFactSingleExpr) {
+		System.out.println("Usao sam u condFactSingleExpr");
+		System.out.println(Code.pc);
 		Code.loadConst(0); //false vrednost
 		//netacna
 		Code.putFalseJump(Code.ne, 0); //inverz od COde.ne je eq, skacem ukoliko su ekvivalentni (sa false vrednoscu)
 		skipCondFact.push(Code.pc - 2); //ako je vrednost ekv sa nulom,ja skacem
 		//tacna
-		
 	}
 	
 	@Override
 	public void visit(CondFactDoubleExpr condFactDoubleExpr) {
+		System.out.println("Usao sam u condFactDoubleExpr");
+		System.out.println(Code.pc);
 		//netacna
-		Code.putFalseJump(returnRelOp(condFactDoubleExpr.getRelop()), 0); //inverz od COde.ne je eq, skacem ukoliko su ekvivalentni
+		Code.putFalseJump(returnRelOp(condFactDoubleExpr.getRelop()), 0); //inverz od COde.ne je eq, skacem ukoliko su      
+		//ekvivalentni
 		skipCondFact.push(Code.pc - 2); //ako je vrednost ekv sa nulom,ja skacem
 		//tacna		
 	}
 	
 	@Override
+	public void visit(CondTermRecursion condTermRecursion) {
+		
+	}
+	
+	@Override
 	public void visit(CondTerm condTerm) {
-		//tacne
-		Code.putJump(0); //tacne bacamo na THEN, skaceom na then
-		skipCondition.push(Code.pc - 2); //pamtimo tacne
-		//ovde vracam netacne
-		while(!skipCondFact.empty()) {
-			Code.fixup(skipCondFact.pop());
+		System.out.println("Usao sam u condTerm");
+		System.out.println(Code.pc);
+		System.out.println("Moja trenutna vrednost isWhileWithStatement je ");
+		System.out.println(isWhileWithStatement);
+		if(isWhileWithStatement == false) { //zbog ovoga ne radi && u ifu, moze da se stavi neki dummy na ifu tako da on
+			//postavi vrednost ovoga na false, i onda vrati na true?
+			//tacne
+			Code.putJump(0); //tacne bacamo na THEN, skaceom na then
+			skipCondition.push(Code.pc - 2); //pamtimo tacne
+			//ovde vracam netacne
+			while(!skipCondFact.empty()) {
+				Code.fixup(skipCondFact.pop());
+			}
 		}
 		//netacne nastavljaju na ostatak orova
 	}
@@ -279,7 +302,15 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.fixup(skipCondition.pop());
 		}
 		//tacne
+	}
+	
+	@Override
+	public void visit(IfStartDummy ifStartDummy) {
+		System.out.println("USAO SAM U IFSTARTDUMMY");
 		
+		//OVO MI NE TREBA JER ja postavljam onaj true ili false tek kada dodjem do conditiona, i zato on izgenerise kod za if bez problema
+		//ne znam kako radi bez ovog isWhileWithStatement na false
+		//isWhileWithStatement = false;
 	}
 	
 	@Override
@@ -296,7 +327,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		skipElse.push(Code.pc - 2); //adresa svih niti koje preskacu else
 		Code.fixup(skipThen.pop());
 		//netacne
-		
 	}
 	
 	@Override
@@ -311,8 +341,12 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(DoWhileStartDummy doWhileStartDummy) {
+		System.out.println("Usao sam u doWhileStartDummy");
+		System.out.println(Code.pc);
 		doBegin.push(Code.pc);
 	}
+	
+	//ovde treba da napravis i onaj drugi while
 	
 	@Override
 	public void visit(WhileConditionsNoStatement whileConditionsNoStatement) {
@@ -327,9 +361,46 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	@Override
+	public void visit(WhileConditionsStatement whileConditionsStatement) {
+		//netacni
+		System.out.println("Usao sam u whileConditionsStatement");
+		System.out.println(Code.pc);
+		Code.putJump(0); //netacni idu na else
+		skipThen.push(Code.pc - 2);
+		//THEN
+		while(!skipCondition.empty()) {
+			Code.fixup(skipCondition.pop());
+		}
+		//tacne
+	}
+	
+	@Override
 	public void visit(StatementWhile statementWhile) {
+		System.out.println("Usao sam u statementWhile");
+		System.out.println(Code.pc);
 		Code.putJump(doBegin.pop());
 		Code.fixup(skipThen.pop());
+		isWhileWithStatement = false;
 	}
+	
+	@Override
+	public void visit(DesStmtDummyTerminal desStmtDummyTerminal) {
+		System.out.println("Usao sam u desStmtDummyTerminal");
+		System.out.println(Code.pc);
+		Code.putJump(0); //tacne bacamo na THEN, skaceom na then
+		skipCondition.push(Code.pc - 2); //pamtimo tacne
+		while(!skipCondFact.empty()) {
+			Code.fixup(skipCondFact.pop());
+		}
+	}
+	
+	@Override
+	public void visit(StartConditionDummy startConditionDummy) {
+		System.out.println("Usao sam u startConditionDummy");
+		System.out.println(Code.pc);
+		isWhileWithStatement = true; //ovo sve sto radim sa isWhileWithStatement i desStmtDummyTerminal je
+		//neki workaround da bi mi while(i<3; i++) radio
+	}
+
 	
 }

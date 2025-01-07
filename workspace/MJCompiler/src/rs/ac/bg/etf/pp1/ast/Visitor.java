@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/0/2025 17:43:41
+// 7/0/2025 22:9:55
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -92,10 +92,13 @@ public interface Visitor {
     public void visit(Else Else);
     public void visit(ElseConditionEpsilon ElseConditionEpsilon);
     public void visit(ElseConditionExists ElseConditionExists);
+    public void visit(DesStmtDummyTerminal DesStmtDummyTerminal);
     public void visit(WhileConditionsEpsilon WhileConditionsEpsilon);
     public void visit(WhileConditionsStatement WhileConditionsStatement);
     public void visit(WhileConditionsNoStatement WhileConditionsNoStatement);
+    public void visit(StartConditionDummy StartConditionDummy);
     public void visit(DoWhileStartDummy DoWhileStartDummy);
+    public void visit(IfStartDummy IfStartDummy);
     public void visit(IfCondition IfCondition);
     public void visit(StatementStatementRecursive StatementStatementRecursive);
     public void visit(StatementWhile StatementWhile);

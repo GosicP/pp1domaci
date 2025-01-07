@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/0/2025 17:43:41
+// 7/0/2025 22:9:55
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class CondTermRecursion extends CondFactList {
 
-    private CondTerm CondTerm;
+    private CondFactList CondFactList;
     private CondFact CondFact;
 
-    public CondTermRecursion (CondTerm CondTerm, CondFact CondFact) {
-        this.CondTerm=CondTerm;
-        if(CondTerm!=null) CondTerm.setParent(this);
+    public CondTermRecursion (CondFactList CondFactList, CondFact CondFact) {
+        this.CondFactList=CondFactList;
+        if(CondFactList!=null) CondFactList.setParent(this);
         this.CondFact=CondFact;
         if(CondFact!=null) CondFact.setParent(this);
     }
 
-    public CondTerm getCondTerm() {
-        return CondTerm;
+    public CondFactList getCondFactList() {
+        return CondFactList;
     }
 
-    public void setCondTerm(CondTerm CondTerm) {
-        this.CondTerm=CondTerm;
+    public void setCondFactList(CondFactList CondFactList) {
+        this.CondFactList=CondFactList;
     }
 
     public CondFact getCondFact() {
@@ -38,18 +38,18 @@ public class CondTermRecursion extends CondFactList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(CondTerm!=null) CondTerm.accept(visitor);
+        if(CondFactList!=null) CondFactList.accept(visitor);
         if(CondFact!=null) CondFact.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
+        if(CondFactList!=null) CondFactList.traverseTopDown(visitor);
         if(CondFact!=null) CondFact.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
+        if(CondFactList!=null) CondFactList.traverseBottomUp(visitor);
         if(CondFact!=null) CondFact.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,8 +59,8 @@ public class CondTermRecursion extends CondFactList {
         buffer.append(tab);
         buffer.append("CondTermRecursion(\n");
 
-        if(CondTerm!=null)
-            buffer.append(CondTerm.toString("  "+tab));
+        if(CondFactList!=null)
+            buffer.append(CondFactList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

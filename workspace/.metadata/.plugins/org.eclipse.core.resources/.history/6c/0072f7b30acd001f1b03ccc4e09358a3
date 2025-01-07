@@ -1,0 +1,304 @@
+
+
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+
+	boolean errorDetected;
+
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+	errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+
+
+:}
+
+init with {:
+    errorDetected = false;
+:}
+
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+terminal PROG, PRINT, RETURN, VOID, BREAK, CLASS, ELSE, CONST, IF, NEW, READ, RANGE, EXTENDS, CONTINUE, FOR, STATIC;
+terminal PLUS, MINUS, ASSIGN, MULTIPLY, DIV, MOD, EQUALITY, INEQUALITY, GREATER, GREATEREQUAL, LESS, LESSEQUAL, AND, OR, INC, DEC;
+terminal DOUBLEDOT, DOT, SEMI, COMMA, LPAREN, RPAREN, LSQUARE, RSQUARE, LBRACE, RBRACE;
+terminal DO, WHILE, MAP, UNION, INTERFACE;
+terminal Integer NUMBER, BOOL;
+terminal String IDENT;
+terminal Character CHARACTER;
+terminal COLON;
+
+nonterminal Program, ConVarDeclList, ConDecList, ConDecl, Constant, ConDeclMore;
+nonterminal VarDeclMore, VarDecl, VarDeclList, ArraySquare;
+nonterminal MethodDeclList, MethodDecl, MethodDeclVar, MethodSignature;
+nonterminal FormPars, FormParsMore, FormParsVarOrArray;
+nonterminal Statement, StatementList;
+nonterminal DesignatorStatement, DesignatorMore;
+nonterminal AssignOp;
+nonterminal ActPars, ActParsList;
+nonterminal Mulop, Setop, Relop;
+nonterminal Addop;
+nonterminal Label;
+nonterminal ElseCondition, WhileConditions;
+nonterminal ProgramName, MethodName;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, Term, Expr, CondFact, CondTerm, CondFactList, Type, Condition;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, MethodTypeAndName, DesignatorArrayName;
+nonterminal Unary;
+nonterminal FunctionName;
+nonterminal IfCondition;
+nonterminal DoWhileStartDummy, DesStmtDummyTerminal, StartConditionDummy;
+nonterminal Else;
+
+precedence left ELSE;
+
+Program ::= (Program) PROG ProgramName ConVarDeclList LBRACE MethodDeclList RBRACE;
+
+ProgramName ::= (ProgramName) IDENT;
+		
+ConVarDeclList ::= 	(ConVarDeclListCon) ConVarDeclList ConDecList
+			|
+			(ConVarDeclListVar) ConVarDeclList VarDeclList
+			|
+			(ConVarDeclListEpsilon) /* epsilon */
+			;		
+
+ConDecList ::= (ConDecList) CONST Type ConDecl ConDeclMore SEMI;
+
+ConDecl ::= (ConDecl) IDENT ASSIGN Constant;
+
+ConDeclMore ::= (ConDeclMoreComma) ConDeclMore COMMA ConDecl /* Mozda ovde treba desna rekurzija */
+		|
+		(ConDeclMoreEpsilon)
+		;
+
+Constant ::= (ConstantN) NUMBER
+		|
+		(ConstantC) CHARACTER
+		|
+		(ConstantB) BOOL
+		;
+
+Type ::= (TypeIdent) IDENT;
+
+VarDeclList ::= (VarDeclList) Type ArraySquare VarDeclMore SEMI;
+
+VarDeclMore ::= (VarDeclMoreWithSquares) VarDeclMore COMMA ArraySquare /*mozda ovde treba desna smena*/
+		|
+		(VarDeclMoreEpsilon)
+		;
+
+ArraySquare ::= (ArraySquareIdent) IDENT
+		|
+		(ArraySquarePresent) IDENT LSQUARE RSQUARE
+		;
+		
+MethodSignature ::= (MethodSignature) MethodTypeAndName LPAREN FormPars RPAREN; 
+
+MethodDeclList ::= (MethodDeclAppend) MethodDeclList MethodDecl
+		|
+		(MethodDeclEpsilon);
+
+MethodDecl ::= (MethodDecl) MethodSignature MethodDeclVar LBRACE StatementList RBRACE;
+
+MethodDeclVar ::= (MethodDeclVarList) MethodDeclVar VarDeclList
+			|
+			(MethodDeclVarEpsilon) /* epsilon */
+			;	
+
+MethodTypeAndName ::= (MethodTypeAndNameVoid) VOID IDENT
+		|
+		(MethodTypeAndNameNonVoid) Type IDENT
+		;
+		
+FormPars ::= (FormParsPresent) FormParsVarOrArray FormParsMore
+			|
+			(FormParsEpsilon)
+			;
+			
+FormParsVarOrArray ::= (FormParsVarOrArrayVar) Type IDENT
+					|
+					(FormParsVarOrArraySquares) Type IDENT LSQUARE RSQUARE;
+
+FormParsMore ::= (FormParsMoreSquares) FormParsMore COMMA FormParsVarOrArray /* mozda desna rekurzija */
+				|
+				(FormParsMoreEpsilon)
+				;
+				
+StatementList ::= (StatementListMultipleStatements) StatementList Statement
+				|
+				(StatementListEpsilon);
+				
+Statement ::= (StatementWithDesignator) DesignatorStatement SEMI
+			|
+			(StatementIf) IfCondition Statement ElseCondition
+			|
+			(StatementBreak) BREAK SEMI
+			|
+			(StatementContinue) CONTINUE SEMI
+			|
+			(StatementReturnExpr) RETURN Expr SEMI
+			|
+			(StatementReturn) RETURN SEMI
+			|
+			(StatementRead) READ LPAREN Designator RPAREN SEMI
+			|
+			(StatementPrintExpr) PRINT LPAREN Expr RPAREN SEMI
+			|
+			(StatementPrintSet) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
+			|
+			(StatementWhile) DO DoWhileStartDummy Statement WHILE StartConditionDummy LPAREN WhileConditions DesStmtDummyTerminal RPAREN SEMI
+			|
+			(StatementStatementRecursive) LBRACE StatementList RBRACE;
+			
+IfCondition ::= (IfCondition) IF LPAREN Condition RPAREN;
+
+DoWhileStartDummy ::= (DoWhileStartDummy) /* epsilon */;
+
+StartConditionDummy ::= (StartConditionDummy) ;
+			
+WhileConditions ::= (WhileConditionsNoStatement) Condition
+				|
+				(WhileConditionsStatement) Condition COMMA DesignatorStatement 
+				|
+				(WhileConditionsEpsilon)
+				; 
+				
+DesStmtDummyTerminal ::= (DesStmtDummyTerminal) ; 				
+
+ElseCondition ::= (ElseConditionExists) Else Statement
+				|
+				(ElseConditionEpsilon);
+				
+Else ::= (Else) ELSE;
+
+DesignatorStatement ::= (DesignatorStatementAssign) Designator AssignOp Expr 
+					|
+					(DesignatorStatementFunctionCall) FunctionName LPAREN ActPars RPAREN /*Ovaj ActPars je trenutno los jer moze da bude ili nula ili 1, a meni je 1*/
+					|
+					(DesignatorStatementIncrement) Designator INC
+					|
+					(DesignatorStatementDecrement) Designator DEC
+					|
+					(DesignatorStatementAssignop) Designator AssignOp Designator Setop Designator;
+					
+FunctionName ::= (FunctionName) Designator;
+
+Designator ::= (DesignatorIdent) IDENT:identName
+			|
+			(DesignatorListDot) DesignatorArrayName DOT IDENT /* Ovde bi isto trebao DesignatorArrayName ali ga ne koristim */
+			|
+			(DesignatorListArray) DesignatorArrayName LSQUARE Expr RSQUARE; 
+			
+DesignatorArrayName ::= (DesignatorArrayName) Designator;
+			
+AssignOp ::= (AssignOp) ASSIGN;		
+
+ActPars ::= (ActParsExpr) ActParsList
+			|
+			(ActParsEpsilon)
+			;
+
+ActParsList ::= (ActParsListExpr) Expr
+				|
+				(ActParsListExprRecursion) ActParsList COMMA Expr;
+				
+Expr ::= (ExprMultipleTerm) Expr Addop Term
+		|
+		(ExprSingleTerm) Term
+		|
+		(ExprSingleTermMinus) MINUS Term
+		|
+		(ExprDesignator) Designator MAP Designator;
+
+Term ::= (TermMul) Term Mulop Factor
+				|
+				(TermFactor) Factor
+				;
+				
+Factor ::= (FactorDesignator) Designator
+			|
+			(FactorDesignatorMethod) FunctionName LPAREN ActPars RPAREN
+			|
+			(FactorNum) NUMBER
+			|
+			(FactorChar) CHARACTER
+			|
+			(FactorBool) BOOL
+			|
+			(FactorNewArray) NEW Type LSQUARE Expr RSQUARE
+			|
+			(FactorNewClass) NEW Type LPAREN ActPars RPAREN /* OVO SAMO TREBA ZA C */
+			|
+			(FactorExpr) LPAREN Expr RPAREN;
+
+Mulop ::= (MulopMultiply) MULTIPLY
+		|
+		(MulopDiv) DIV
+		|
+		(MulopMod) MOD;
+		
+Addop ::= (AddopAdd) PLUS
+		|
+		(AddopSubtract) MINUS;
+		
+Setop ::= (Setop) UNION;
+
+Condition ::= (ConditionCondTerm) CondTerm
+			|
+			(ConditionRecursion) Condition OR CondTerm;
+			
+CondTerm ::= (CondTerm) CondFactList;
+		
+CondFactList ::= (CondTermFact) CondFact 
+			|
+			(CondTermRecursion) CondTerm AND CondFact;
+			
+CondFact ::= (CondFactSingleExpr) Expr
+			|
+			(CondFactDoubleExpr) Expr Relop Expr;
+		
+Label ::= (Label) IDENT;
+
+Relop ::= (RelopEquality) EQUALITY
+		|
+		(RelopInequality) INEQUALITY
+		|
+		(RelopGreater) GREATER
+		|
+		(RelopGreaterEqual) GREATEREQUAL
+		|
+		(RelopLess) LESS
+		|
+		(RelopLessEqual) LESSEQUAL;

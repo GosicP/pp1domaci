@@ -1,0 +1,29 @@
+program TestIf
+
+
+
+{
+
+
+	void main() int i, j, niz[]; bool ibool;{
+
+		niz = new int[3];
+		niz[0] = 5;
+		niz[1] = 6;
+		niz[2] = 7;
+		i=3;
+		j=4;
+		if(i == 3 && j!=4) print(-4);
+		
+		i = 1;
+		if(i == 2 && i<=2 || i == 3)
+			{
+				print(123);
+			}
+		
+		i = 0;
+
+
+	}
+
+}

@@ -78,7 +78,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, MethodTypeAndName, D
 nonterminal Unary;
 nonterminal FunctionName;
 nonterminal IfCondition;
-nonterminal DoWhileStartDummy;
+nonterminal DoWhileStartDummy, DesStmtDummyTerminal, StartConditionDummy, IfStartDummy;
 nonterminal Else;
 
 precedence left ELSE;
@@ -178,20 +178,26 @@ Statement ::= (StatementWithDesignator) DesignatorStatement SEMI
 			|
 			(StatementPrintSet) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
 			|
-			(StatementWhile) DO DoWhileStartDummy Statement WHILE LPAREN WhileConditions RPAREN SEMI
+			(StatementWhile) DO DoWhileStartDummy Statement WHILE StartConditionDummy LPAREN WhileConditions RPAREN SEMI
 			|
 			(StatementStatementRecursive) LBRACE StatementList RBRACE;
 			
-IfCondition ::= (IfCondition) IF LPAREN Condition RPAREN;
+IfCondition ::= (IfCondition) IF IfStartDummy LPAREN Condition RPAREN;
+
+IfStartDummy ::= (IfStartDummy) ;
 
 DoWhileStartDummy ::= (DoWhileStartDummy) /* epsilon */;
+
+StartConditionDummy ::= (StartConditionDummy) ;
 			
-WhileConditions ::= (WhileConditionsNoStatement) Condition
+WhileConditions ::= (WhileConditionsNoStatement) Condition DesStmtDummyTerminal
 				|
-				(WhileConditionsStatement) Condition COMMA DesignatorStatement
+				(WhileConditionsStatement) Condition COMMA DesignatorStatement DesStmtDummyTerminal
 				|
 				(WhileConditionsEpsilon)
 				; 
+				
+DesStmtDummyTerminal ::= (DesStmtDummyTerminal) ; 				
 
 ElseCondition ::= (ElseConditionExists) Else Statement
 				|
@@ -279,7 +285,7 @@ CondTerm ::= (CondTerm) CondFactList;
 		
 CondFactList ::= (CondTermFact) CondFact 
 			|
-			(CondTermRecursion) CondTerm AND CondFact;
+			(CondTermRecursion) CondFactList AND CondFact;
 			
 CondFact ::= (CondFactSingleExpr) Expr
 			|

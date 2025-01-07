@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/0/2025 17:43:41
+// 7/0/2025 22:9:55
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -92,10 +92,13 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Else Else) { visit(); }
     public void visit(ElseConditionEpsilon ElseConditionEpsilon) { visit(); }
     public void visit(ElseConditionExists ElseConditionExists) { visit(); }
+    public void visit(DesStmtDummyTerminal DesStmtDummyTerminal) { visit(); }
     public void visit(WhileConditionsEpsilon WhileConditionsEpsilon) { visit(); }
     public void visit(WhileConditionsStatement WhileConditionsStatement) { visit(); }
     public void visit(WhileConditionsNoStatement WhileConditionsNoStatement) { visit(); }
+    public void visit(StartConditionDummy StartConditionDummy) { visit(); }
     public void visit(DoWhileStartDummy DoWhileStartDummy) { visit(); }
+    public void visit(IfStartDummy IfStartDummy) { visit(); }
     public void visit(IfCondition IfCondition) { visit(); }
     public void visit(StatementStatementRecursive StatementStatementRecursive) { visit(); }
     public void visit(StatementWhile StatementWhile) { visit(); }
