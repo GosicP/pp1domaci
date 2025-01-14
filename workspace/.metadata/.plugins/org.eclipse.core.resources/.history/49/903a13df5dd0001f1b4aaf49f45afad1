@@ -1,0 +1,46 @@
+program TestIf
+
+
+
+{
+
+	void setF(int arr[], int a) int i, arrlength, curr_free;{
+		//fali ti da proveris da li je curr_free slucajno veci od arraysize
+		curr_free = arr[arrlength-1];
+		i = 0;
+		do{
+			if(arr[i] == a) return;
+			i++;
+		}while(i<curr_free);
+		arr[curr_free] = a; //dodaj rojac prvog slobodnog mesta da bude prvi/poslednji elem u nizu
+		arr[arrlength-1]++;
+	}
+	
+	void mojprint(int set1[]) int i;{
+		i = 0;
+		do{
+			print(set1[i]);
+			i++;
+		}while(i<set1[3]); // ovo je set1[arraylength-1]
+	}
+
+	void main() int i, j, niz[]; bool ibool; set set1;{
+		
+		set1 = new set[3];
+		
+		niz = new int[3];
+		niz[2] = 12;
+		print(niz[2]);
+		//nestomoje(niz, 1);
+		
+		add(set1, 1);
+		add(set1, 5);
+		add(set1, 2);
+		
+		//i = set1[2];
+		
+		//add(set1, i);
+
+	}
+
+}

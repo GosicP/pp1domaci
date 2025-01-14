@@ -1,0 +1,183 @@
+INFO  15:38:40,151 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  15:38:40,303 - #2 program
+INFO  15:38:40,304 - #51 TestIf
+INFO  15:38:40,304 - #42 {
+INFO  15:38:40,310 - #5 void
+INFO  15:38:40,312 - #51 main
+INFO  15:38:40,313 - #38 (
+INFO  15:38:40,314 - #39 )
+INFO  15:38:40,317 - #51 int
+INFO  15:38:40,322 - #51 i
+INFO  15:38:40,324 - #37 ,
+INFO  15:38:40,327 - #51 j
+INFO  15:38:40,328 - #37 ,
+INFO  15:38:40,329 - #51 niz
+INFO  15:38:40,330 - #40 [
+INFO  15:38:40,331 - #41 ]
+INFO  15:38:40,331 - #36 ;
+INFO  15:38:40,332 - #51 bool
+INFO  15:38:40,336 - #51 ibool
+INFO  15:38:40,336 - #36 ;
+INFO  15:38:40,337 - #51 set
+INFO  15:38:40,338 - #51 set1
+INFO  15:38:40,340 - #36 ;
+INFO  15:38:40,341 - #42 {
+INFO  15:38:40,342 - #51 set1
+INFO  15:38:40,344 - #20 =
+INFO  15:38:40,344 - #11 new
+INFO  15:38:40,347 - #51 set
+INFO  15:38:40,347 - #40 [
+INFO  15:38:40,348 - #49 3
+INFO  15:38:40,348 - #41 ]
+INFO  15:38:40,350 - #36 ;
+INFO  15:38:40,351 - #51 add
+INFO  15:38:40,352 - #38 (
+INFO  15:38:40,359 - #51 set1
+INFO  15:38:40,360 - #37 ,
+INFO  15:38:40,361 - #49 1
+INFO  15:38:40,362 - #39 )
+INFO  15:38:40,363 - #36 ;
+INFO  15:38:40,364 - #43 }
+INFO  15:38:40,365 - #43 }
+INFO  15:38:40,382 - Program(
+  ProgramName(
+   TestIf
+  ) [ProgramName]
+  ConVarDeclListEpsilon(
+  ) [ConVarDeclListEpsilon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarList(
+            MethodDeclVarEpsilon(
+            ) [MethodDeclVarEpsilon]
+            VarDeclList(
+              TypeIdent(
+               int
+              ) [TypeIdent]
+              ArraySquareIdent(
+               i
+              ) [ArraySquareIdent]
+              VarDeclMoreWithSquares(
+                VarDeclMoreWithSquares(
+                  VarDeclMoreEpsilon(
+                  ) [VarDeclMoreEpsilon]
+                  ArraySquareIdent(
+                   j
+                  ) [ArraySquareIdent]
+                ) [VarDeclMoreWithSquares]
+                ArraySquarePresent(
+                 niz
+                ) [ArraySquarePresent]
+              ) [VarDeclMoreWithSquares]
+            ) [VarDeclList]
+          ) [MethodDeclVarList]
+          VarDeclList(
+            TypeIdent(
+             bool
+            ) [TypeIdent]
+            ArraySquareIdent(
+             ibool
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          TypeIdent(
+           set
+          ) [TypeIdent]
+          ArraySquareIdent(
+           set1
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListMultipleStatements(
+          StatementListEpsilon(
+          ) [StatementListEpsilon]
+          StatementWithDesignator(
+            DesignatorStatementAssign(
+              DesignatorIdent(
+               set1
+              ) [DesignatorIdent]
+              AssignOp(
+              ) [AssignOp]
+              ExprSingleTerm(
+                TermFactor(
+                  FactorNewArray(
+                    TypeIdent(
+                     set
+                    ) [TypeIdent]
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorNum(
+                         3
+                        ) [FactorNum]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                  ) [FactorNewArray]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [DesignatorStatementAssign]
+          ) [StatementWithDesignator]
+        ) [StatementListMultipleStatements]
+        StatementWithDesignator(
+          DesignatorStatementFunctionCall(
+            FunctionName(
+              DesignatorIdent(
+               add
+              ) [DesignatorIdent]
+            ) [FunctionName]
+            ActParsExpr(
+              ActParsListExprRecursion(
+                ActParsListExpr(
+                  ExprSingleTerm(
+                    TermFactor(
+                      FactorDesignator(
+                        DesignatorIdent(
+                         set1
+                        ) [DesignatorIdent]
+                      ) [FactorDesignator]
+                    ) [TermFactor]
+                  ) [ExprSingleTerm]
+                ) [ActParsListExpr]
+                ExprSingleTerm(
+                  TermFactor(
+                    FactorNum(
+                     1
+                    ) [FactorNum]
+                  ) [TermFactor]
+                ) [ExprSingleTerm]
+              ) [ActParsListExprRecursion]
+            ) [ActParsExpr]
+          ) [DesignatorStatementFunctionCall]
+        ) [StatementWithDesignator]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  15:38:40,385 - ===================================
+INFO  15:38:40,416 - Deklarisana metoda main tipa void: na liniji 8
+INFO  15:38:40,417 - Deklarisana promenljiva: i na liniji 8
+INFO  15:38:40,417 - Deklarisana promenljiva: j na liniji 8
+INFO  15:38:40,417 - Deklarisan niz: niz na liniji 8
+INFO  15:38:40,418 - Deklarisana promenljiva: ibool na liniji 8
+INFO  15:38:40,418 - Deklarisana promenljiva: set1 na liniji 8
+INFO  15:38:40,419 - argument funkcije tipa 6 je ocitan  na liniji 14
+INFO  15:38:40,419 - argument funkcije tipa 1 je ocitan  na liniji 14
+INFO  15:38:40,419 - Poziv funkcije: add na liniji 14
+INFO  15:38:40,420 - ===================================
+INFO  15:38:40,441 - Generisanje uspesno zavrseno!

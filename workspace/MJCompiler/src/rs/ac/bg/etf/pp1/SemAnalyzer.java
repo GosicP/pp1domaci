@@ -220,13 +220,13 @@ public class SemAnalyzer extends VisitorAdaptor {
 		}else {
 			varObj = Tab.currentScope.findSymbol(formParsVarOrArrayVar.getI2());
 		}
-		
+		//System.out.println(" objekat " + varObj);
 		//System.out.println(" za metodu " + currentMethod.getName() + " dosao sam do var " );
 		if(varObj == null || varObj == Tab.noObj) {
 			varObj = Tab.insert(Obj.Var, formParsVarOrArrayVar.getI2(), currentType);
 			varObj.setFpPos(1);
-			//System.out.println(" za metodu " + currentMethod.getName() + " broj parametara je " + currentMethod.getLevel());
 			currentMethod.setLevel(currentMethod.getLevel() + 1);
+			//System.out.println(" za metodu " + currentMethod.getName() + " broj parametara je " + currentMethod.getLevel());
 		}else {
 			report_error("Dvostruka definicija form parametra: " + formParsVarOrArrayVar.getI2(), formParsVarOrArrayVar);
 		}
@@ -240,12 +240,13 @@ public class SemAnalyzer extends VisitorAdaptor {
 		}else {
 			varObj = Tab.currentScope.findSymbol(formParsVarOrArraySquares.getI2());
 		}
+		//System.out.println(" objekat " + varObj);
 		//System.out.println(" za metodu " + currentMethod.getName() + " dosao sam do var " );
 		if(varObj == null || varObj == Tab.noObj) {
-			varObj = Tab.insert(Obj.Var, formParsVarOrArraySquares.getI2(), currentType);
+			varObj = Tab.insert(Obj.Var, formParsVarOrArraySquares.getI2(), new Struct(Struct.Array, currentType));
 			varObj.setFpPos(1);
-			//System.out.println(" za metodu " + currentMethod.getName() + " broj parametara je " + currentMethod.getLevel());
 			currentMethod.setLevel(currentMethod.getLevel() + 1);
+			//System.out.println(" za metodu " + currentMethod.getName() + " broj parametara je " + currentMethod.getLevel());
 		}else {
 			report_error("Dvostruka definicija form parametra: " + formParsVarOrArraySquares.getI2(), formParsVarOrArraySquares);
 		}
@@ -348,7 +349,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(DesignatorListArray designatorListArray) {
 		Obj arrayElem = designatorListArray.getDesignatorArrayName().getDesignator().obj;
 		//System.out.print("Tip ovog niza je: " + arrayElem.getKind());
-		if(arrayElem.getType().getKind() != Struct.Array) {
+		if(arrayElem.getType().getKind() != Struct.Array || designatorListArray.getDesignatorArrayName().getDesignator().obj.getType() == setType) {
 			report_error("Promenljiva mora biti nizovskog tipa ", designatorListArray);
 			designatorListArray.obj = new Obj(Obj.Elem, arrayElem.getName(), Tab.noType);
 			return;

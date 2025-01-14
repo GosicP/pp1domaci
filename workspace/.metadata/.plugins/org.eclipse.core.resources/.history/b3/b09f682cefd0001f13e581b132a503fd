@@ -1,0 +1,41 @@
+program TestIf
+
+
+
+{
+
+	void addAllMoj(set set1, int arr[]) int i, arrlength;{
+		i = 0;
+		do{
+			add(set1, arr[i]);
+			i++;
+		}while(i<arrlength);
+	}
+
+	void main() int i, j, niz[]; bool ibool; set set1;{
+		
+		set1 = new set[3];
+		
+		niz = new int[3];
+		niz[2] = 12;
+		//niz[1] = 5;
+		//niz[0] = 1;
+		//print(niz[2]);
+		//print(eol);
+		//nestomoje(niz, 1);
+		
+		add(set1, 1);
+		add(set1, 5);
+		add(set1, 4);
+		
+		//addAll(set1, niz);
+		
+		print(set1);
+		
+		//i = set1[2];
+		
+		//add(set1, i);
+
+	}
+
+}

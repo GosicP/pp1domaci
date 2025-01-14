@@ -1,5 +1,7 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 import rs.ac.bg.etf.pp1.ast.*;
@@ -12,8 +14,335 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	private int mainPC;
 	private boolean isWhileWithStatement = false;
+	private Map<String, Integer> mapa = new HashMap<>();
+	private int currArrLength;
+	private Struct setType = Tab.find("set").getType();
+	Obj printMeth;
+	Obj unionAddAllMeth;
+	
+	private void initBuiltInMethods() {
+		Obj ordMeth = Tab.find("ord");
+		Obj chrMeth = Tab.find("chr");
+		Obj lenMeth = Tab.find("len");
+		Obj addMeth = Tab.find("add");
+		printMeth = Tab.find("printSetInternalMeth");
+		Obj addAllMeth = Tab.find("addAll");
+		unionAddAllMeth = Tab.find("unionAddAllInternalMethod");
+		
+		ordMeth.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		chrMeth.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		lenMeth.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.arraylength);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		
+//		void setF(int arr[], int a) int i, arrlength, curr_free;{
+//			//fali ti da proveris da li je curr_free slucajno veci od arraysize
+//			curr_free = arr[arrlength-1];
+//			i = 0;
+//			do{
+//				if(arr[i] == a) return;
+//				i++;
+//			}while(i<curr_free);
+//			arr[curr_free] = a; //dodaj rojac prvog slobodnog mesta da bude prvi/poslednji elem u nizu
+//			arr[arrlength-1]++;
+//		}
+		
+		addMeth.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(2);
+		Code.put(5);
+		//var 0 je set(arr), var 1 je broj koji se dodaje, var 2 je i(cnt), var 3 je arr length
+		Code.put(Code.load_n); // potrebno za arraylength
+		Code.put(Code.arraylength); // skidam arrayLength
+		Code.put(Code.store_3); //storuj u trecu varijablu (arrayLength)
+		//U TRECOJ VARIJABLI JE ARR LENGTH
+		//kod za print:
+//		Code.put(Code.load_3);
+//		Code.loadConst(0);
+//		Code.put(Code.print);
+		
+		//curr_free = arr[arrlength-1];
+		Code.put(Code.load_n);
+		Code.put(Code.load_3);
+		Code.put(Code.const_1);
+		Code.put(Code.sub);
+		Code.put(Code.aload);
+		Code.put(Code.store);
+		Code.put(4);
+		
+		//i = 0
+		Code.loadConst(0);
+		Code.put(Code.store_2);
+		
+//		do {
+//			if(set[i] == br) return;
+//			i++
+//		}while(i<curr_free);
+		//set[i] == br
+		Code.put(Code.load_n);
+		Code.put(Code.load_2);
+		Code.put(Code.aload);
+		Code.put(Code.load_1);
+		//Code.put(Code.jcc + Code.inverse[Code.eq]); Code.put2(6); 
+		//if
+		Code.putFalseJump(Code.eq, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 5);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		//i++
+		Code.put(Code.load_2);          
+		Code.put(Code.const_1);         
+		Code.put(Code.add);             
+		Code.put(Code.store_2);   
+		
+		//while(i<curr_free)
+		Code.put(Code.load_2);          
+		Code.put(Code.load);
+		Code.put(4);
+		Code.putFalseJump(Code.lt, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc - 31);
+		
+		//arr[arrlength] = a;
+		Code.put(Code.load_n);    
+		Code.put(Code.load);
+		Code.put(4); 
+		Code.put(Code.load_1);   
+		Code.put(Code.astore);   
+		
+		Code.put(Code.load_n);
+		Code.put(Code.load_3);
+		Code.put(Code.const_1);
+		Code.put(Code.sub);
+		Code.put(Code.dup2);
+		Code.put(Code.aload);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		Code.put(Code.astore);
+
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		
+//		void mojprint(int set1[]) int i, arraylength;{
+//			i = 0;
+//			do{
+//				print(set1[i]);
+//				i++;
+//			}while(i<set1[arraylength]); // ovo je set1[arraylength-1]
+//		}
+		
+		printMeth.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(3);
+		Code.put(Code.load_n); // potrebno za arraylength
+		Code.put(Code.arraylength); // skidam arrayLength
+		//ovde nalazimo arraylength - 1 jer nam je to potrebno da pristupimo onom nasem brojacu
+		Code.put(Code.const_1);
+		Code.put(Code.sub);
+		Code.put(Code.store_2); //storuj u drugu varijablu (arrayLength)
+		//i = 0
+		Code.put(Code.const_n);
+		Code.put(Code.store_1);
+		//print(set1[i]);
+		Code.put(Code.load_n);
+		Code.put(Code.load_1);
+		Code.put(Code.aload);
+		Code.put(Code.const_n);
+		Code.put(Code.print);
+		//i++;
+		Code.put(Code.load_1);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		Code.put(Code.store_1);
+		//while(i<set1[arraylength]);
+		Code.put(Code.load_1);
+		Code.put(Code.load_n);
+		Code.put(Code.load_2);
+		Code.put(Code.aload);
+		//while jump
+		Code.putFalseJump(Code.lt, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc - 22);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		
+//		void addAllMoj(set set1, int arr[]) int i, arrlength;{
+//			i = 0;
+//			do{
+//				add(set1, arr[i]);
+//				i++;
+//			}while(i<arrlength);
+//		}
+		
+		addAllMeth.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(2);
+		Code.put(4);
+		//var 0 je set(arr), var 1 je niz koji se dodaje, var 2 je i(cnt), var 3 je arr length
+		Code.put(Code.load_1); // potrebno za arraylength
+		Code.put(Code.arraylength); // skidam arrayLength
+		Code.put(Code.store_3); //storuj u trecu varijablu (arrayLength)
+		
+		//i=0
+		Code.put(Code.const_n);
+		Code.put(Code.store_2);
+		
+		//add(set1, arr[i]);
+		Code.put(Code.load_n);
+		Code.put(Code.load_1);
+		Code.put(Code.load_2);
+		Code.put(Code.aload);
+		int adr = addMeth.getAdr();
+		int offset = adr - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+		//i++
+		Code.put(Code.load_2);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		//while(i<arrlength);
+		Code.put(Code.store_2);
+		Code.put(Code.load_2);
+		Code.put(Code.load_3);
+		Code.putFalseJump(Code.lt, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc - 22);
+
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+//		void addAllUnion(set set3, int set1[], int set2[]) int i, arrlength;{
+//			i = 0;
+//			do{
+//				add(set3, set1[i]);
+//				i++;
+//			}while(i<set1[arrlength - 1]);
+//			
+//			i = 0;
+//			do{
+//				add(set3, set2[i]);
+//				i++;
+//			}while(i<set2[arrlength - 1]);
+//		}
+
+		
+		unionAddAllMeth.setAdr(Code.pc);		
+		Code.put(Code.enter);
+		Code.put(3);
+		Code.put(5);
+		//var 0 je set(arr), var 1 je niz koji se dodaje, var 2 je i(cnt), var 3 je arr length
+		Code.put(Code.load_1); // potrebno za arraylength
+		Code.put(Code.arraylength); // skidam arrayLength
+		//ovde nalazimo arraylength - 1 jer nam je to potrebno da pristupimo onom nasem brojacu
+		Code.put(Code.const_1);
+		Code.put(Code.sub);
+		Code.put(Code.store); //storuj u trecu varijablu (arrayLength)
+		Code.put(4);
+
+		//i=0
+		Code.put(Code.const_n);
+		Code.put(Code.store_3);
+		
+		//add(set3, arr[i]);
+		Code.put(Code.load_n);
+		Code.put(Code.load_1);
+		Code.put(Code.load_3);
+		Code.put(Code.aload);
+		adr = addMeth.getAdr();
+		offset = adr - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+		//i++
+		Code.put(Code.load_3);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		//while(i<set1[arrlength - 1]);
+		Code.put(Code.store_3);
+		Code.put(Code.load_3);
+		Code.put(Code.load_1);
+		Code.put(Code.load);
+		Code.put(4);
+		Code.put(Code.aload);
+		Code.putFalseJump(Code.lt, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc - 25);
+		
+		//ubacujem u arraylength velicinu set2
+		Code.put(Code.load_2); // potrebno za arraylength
+		Code.put(Code.arraylength); // skidam arrayLength
+		//ovde nalazimo arraylength - 1 jer nam je to potrebno da pristupimo onom nasem brojacu
+		Code.put(Code.const_1);
+		Code.put(Code.sub);
+		Code.put(Code.store); //storuj u trecu varijablu (arrayLength)
+		Code.put(4);
+
+		
+		//i=0
+		Code.put(Code.const_n);
+		Code.put(Code.store_3);
+		
+		//add(set3, arr[i]);
+		Code.put(Code.load_n);
+		Code.put(Code.load_2);
+		Code.put(Code.load_3);
+		Code.put(Code.aload);
+		adr = addMeth.getAdr();
+		offset = adr - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+		//i++
+		Code.put(Code.load_3);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		//while(i<set1[arrlength - 1]);
+		Code.put(Code.store_3);
+		Code.put(Code.load_3);
+		Code.put(Code.load_2);
+		Code.put(Code.load);
+		Code.put(4);
+		Code.put(Code.aload);
+		Code.putFalseJump(Code.lt, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc - 25);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
 	
 	CodeGenerator() {
+		initBuiltInMethods();
 	}
 	
 	public int getmainPc() {
@@ -55,11 +384,18 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(StatementPrintExpr statementPrintExpr) {
-		Code.loadConst(0);
-		if(statementPrintExpr.getExpr().struct.equals(Tab.charType)) {
-			Code.put(Code.bprint);
+		if(statementPrintExpr.getExpr().struct != setType) {
+			Code.loadConst(0);
+			if(statementPrintExpr.getExpr().struct.equals(Tab.charType)) {
+				Code.put(Code.bprint);
+			}else {
+				Code.put(Code.print);
+			}
 		}else {
-			Code.put(Code.print);
+			int adr = printMeth.getAdr();
+			int offset = adr - Code.pc;
+			Code.put(Code.call);
+			Code.put2(offset);
 		}
 	}
 	
@@ -103,13 +439,21 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(FactorNewArray factorNewArray) {
-		Code.put(Code.newarray);
-		Type tip = factorNewArray.getType();
-		if(tip.struct.equals(Tab.charType)) {
-			Code.put(0);
+		if(factorNewArray.struct != setType) {
+			Code.put(Code.newarray);
+			Type tip = factorNewArray.getType();
+			if(tip.struct.equals(Tab.charType)) {
+				Code.put(0);
+			}else {
+				Code.put(1);
+			}
 		}else {
+			Code.loadConst(1);
+			Code.put(Code.add);
+			Code.put(Code.newarray);
 			Code.put(1);
-		}		
+		}
+		
 	}
 	
 	@Override
@@ -216,6 +560,23 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.read);
 		}
 		Code.store(statementRead.getDesignator().obj);
+	}
+	
+	@Override
+	public void visit(DesignatorStatementAssignop designatorStatementAssignop) {
+		Obj setDestination = designatorStatementAssignop.getDesignator().obj;
+		Obj set1stOperand = designatorStatementAssignop.getDesignator1().obj;
+		Obj set2ndOperand = designatorStatementAssignop.getDesignator2().obj;
+		
+		
+		Code.load(setDestination);
+		Code.load(set1stOperand);
+		Code.load(set2ndOperand);
+		
+		int adr = unionAddAllMeth.getAdr(); //promeni ovo na drugu adresu
+		int offset = adr - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
 	}
 	
 	/* CONDITIONS */

@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 import java_cup.runtime.*;
 
@@ -66,13 +68,13 @@ public class MJParserTest {
 			boolObj.setAdr(-1); //ovo je jer tip nema offset
 			boolObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
 			
-			Struct setType = new Struct(Struct.Class); //sava je rekao da mogu i da prosirim klasu i da stavim broj 8
+			Struct setType = new Struct(Struct.Enum, Tab.intType); //sava je rekao da mogu i da prosirim klasu i da stavim broj 8
 			//ali realno ne moram to da radim 
 			Obj setObj = Tab.insert(Obj.Type, "set", setType);
 			setObj.setAdr(-1); //ovo je jer tip nema offset
 			setObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
 			
-			Obj addObj, addAllObj, varObj;
+			Obj addObj, addAllObj, varObj, printSetInternalMeth, unionAddAllInternalMethod;
 			addObj = Tab.insert(Obj.Meth, "add", Tab.noType);
 			addObj.setLevel(2);
 			Tab.openScope();
@@ -95,6 +97,38 @@ public class MJParserTest {
 			varObj.setLevel(1);
 			varObj.setFpPos(1);
 			Tab.chainLocalSymbols(addObj);
+			Tab.closeScope();
+			
+			List<String> built_in = new ArrayList<>();
+			built_in.add("chr");
+			built_in.add("ord");
+			built_in.add("len");
+			for(String meth: built_in)
+				for(Obj fp: Tab.find(meth).getLocalSymbols())
+					fp.setFpPos(1);
+			
+			printSetInternalMeth = Tab.insert(Obj.Meth, "printSetInternalMeth", Tab.noType);
+			printSetInternalMeth.setLevel(1);
+			Tab.openScope();
+			varObj = Tab.insert(Obj.Var, "a", setType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			Tab.chainLocalSymbols(printSetInternalMeth);
+			Tab.closeScope();
+			
+			unionAddAllInternalMethod = Tab.insert(Obj.Meth, "unionAddAllInternalMethod", Tab.noType);
+			unionAddAllInternalMethod.setLevel(3);
+			Tab.openScope();
+			varObj = Tab.insert(Obj.Var, "a", setType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			varObj = Tab.insert(Obj.Var, "b", setType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			varObj = Tab.insert(Obj.Var, "c", setType);
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			Tab.chainLocalSymbols(unionAddAllInternalMethod);
 			Tab.closeScope();
 			
 			/* Semanticka analiza */

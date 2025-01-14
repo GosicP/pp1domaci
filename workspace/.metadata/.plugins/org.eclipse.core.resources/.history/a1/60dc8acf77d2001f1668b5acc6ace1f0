@@ -1,0 +1,49 @@
+program TestIf
+
+
+
+{
+
+		void addAllUnion(set set1, int set2[]) int i, arrlength;{
+			i = 0;
+			do{
+				add(set1, set2[i]);
+				i++;
+			}while(i<set2[arrlength - 1]);
+		}
+
+	void main() int i, j, niz[]; bool ibool; set set1, set2;{
+		
+		set1 = new set[3];
+		
+		set2 = new set[3];
+		
+		niz = new int[3];
+		niz[0] = 12;
+		niz[1] = 5;
+		niz[2] = 1;
+		//print(niz[2]);
+		//print(eol);
+		//nestomoje(niz, 1);
+		
+		add(set2, 1);
+		add(set2, 5);
+		add(set2, 4);
+		
+		
+		
+		//addAll(set1, niz);
+		
+		//unionAddAllInternalMethod(set1, set2);
+		
+		//print(set1);
+				
+		print(set2);
+		
+		//i = set1[2];
+		
+		//add(set1, i);
+
+	}
+
+}

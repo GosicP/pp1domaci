@@ -1,0 +1,185 @@
+INFO  15:38:30,369 - Compiling source file: C:\pp1domaci\workspace\MJCompiler\test\program.mj
+INFO  15:38:30,468 - #2 program
+INFO  15:38:30,469 - #51 TestIf
+INFO  15:38:30,469 - #42 {
+INFO  15:38:30,471 - #5 void
+INFO  15:38:30,473 - #51 main
+INFO  15:38:30,473 - #38 (
+INFO  15:38:30,473 - #39 )
+INFO  15:38:30,475 - #51 int
+INFO  15:38:30,478 - #51 i
+INFO  15:38:30,478 - #37 ,
+INFO  15:38:30,480 - #51 j
+INFO  15:38:30,480 - #37 ,
+INFO  15:38:30,482 - #51 niz
+INFO  15:38:30,482 - #40 [
+INFO  15:38:30,482 - #41 ]
+INFO  15:38:30,482 - #36 ;
+INFO  15:38:30,483 - #51 bool
+INFO  15:38:30,484 - #51 ibool
+INFO  15:38:30,484 - #36 ;
+INFO  15:38:30,484 - #51 set
+INFO  15:38:30,485 - #51 set1
+INFO  15:38:30,485 - #36 ;
+INFO  15:38:30,486 - #42 {
+INFO  15:38:30,486 - #51 set1
+INFO  15:38:30,488 - #20 =
+INFO  15:38:30,488 - #11 new
+INFO  15:38:30,489 - #51 set
+INFO  15:38:30,489 - #40 [
+INFO  15:38:30,490 - #49 3
+INFO  15:38:30,490 - #41 ]
+INFO  15:38:30,491 - #36 ;
+INFO  15:38:30,491 - #51 add
+INFO  15:38:30,491 - #38 (
+INFO  15:38:30,493 - #51 set1
+INFO  15:38:30,493 - #37 ,
+INFO  15:38:30,493 - #51 i
+INFO  15:38:30,494 - #39 )
+INFO  15:38:30,494 - #36 ;
+INFO  15:38:30,495 - #43 }
+INFO  15:38:30,495 - #43 }
+INFO  15:38:30,501 - Program(
+  ProgramName(
+   TestIf
+  ) [ProgramName]
+  ConVarDeclListEpsilon(
+  ) [ConVarDeclListEpsilon]
+  MethodDeclAppend(
+    MethodDeclEpsilon(
+    ) [MethodDeclEpsilon]
+    MethodDecl(
+      MethodSignature(
+        MethodTypeAndNameVoid(
+         main
+        ) [MethodTypeAndNameVoid]
+        FormParsEpsilon(
+        ) [FormParsEpsilon]
+      ) [MethodSignature]
+      MethodDeclVarList(
+        MethodDeclVarList(
+          MethodDeclVarList(
+            MethodDeclVarEpsilon(
+            ) [MethodDeclVarEpsilon]
+            VarDeclList(
+              TypeIdent(
+               int
+              ) [TypeIdent]
+              ArraySquareIdent(
+               i
+              ) [ArraySquareIdent]
+              VarDeclMoreWithSquares(
+                VarDeclMoreWithSquares(
+                  VarDeclMoreEpsilon(
+                  ) [VarDeclMoreEpsilon]
+                  ArraySquareIdent(
+                   j
+                  ) [ArraySquareIdent]
+                ) [VarDeclMoreWithSquares]
+                ArraySquarePresent(
+                 niz
+                ) [ArraySquarePresent]
+              ) [VarDeclMoreWithSquares]
+            ) [VarDeclList]
+          ) [MethodDeclVarList]
+          VarDeclList(
+            TypeIdent(
+             bool
+            ) [TypeIdent]
+            ArraySquareIdent(
+             ibool
+            ) [ArraySquareIdent]
+            VarDeclMoreEpsilon(
+            ) [VarDeclMoreEpsilon]
+          ) [VarDeclList]
+        ) [MethodDeclVarList]
+        VarDeclList(
+          TypeIdent(
+           set
+          ) [TypeIdent]
+          ArraySquareIdent(
+           set1
+          ) [ArraySquareIdent]
+          VarDeclMoreEpsilon(
+          ) [VarDeclMoreEpsilon]
+        ) [VarDeclList]
+      ) [MethodDeclVarList]
+      StatementListMultipleStatements(
+        StatementListMultipleStatements(
+          StatementListEpsilon(
+          ) [StatementListEpsilon]
+          StatementWithDesignator(
+            DesignatorStatementAssign(
+              DesignatorIdent(
+               set1
+              ) [DesignatorIdent]
+              AssignOp(
+              ) [AssignOp]
+              ExprSingleTerm(
+                TermFactor(
+                  FactorNewArray(
+                    TypeIdent(
+                     set
+                    ) [TypeIdent]
+                    ExprSingleTerm(
+                      TermFactor(
+                        FactorNum(
+                         3
+                        ) [FactorNum]
+                      ) [TermFactor]
+                    ) [ExprSingleTerm]
+                  ) [FactorNewArray]
+                ) [TermFactor]
+              ) [ExprSingleTerm]
+            ) [DesignatorStatementAssign]
+          ) [StatementWithDesignator]
+        ) [StatementListMultipleStatements]
+        StatementWithDesignator(
+          DesignatorStatementFunctionCall(
+            FunctionName(
+              DesignatorIdent(
+               add
+              ) [DesignatorIdent]
+            ) [FunctionName]
+            ActParsExpr(
+              ActParsListExprRecursion(
+                ActParsListExpr(
+                  ExprSingleTerm(
+                    TermFactor(
+                      FactorDesignator(
+                        DesignatorIdent(
+                         set1
+                        ) [DesignatorIdent]
+                      ) [FactorDesignator]
+                    ) [TermFactor]
+                  ) [ExprSingleTerm]
+                ) [ActParsListExpr]
+                ExprSingleTerm(
+                  TermFactor(
+                    FactorDesignator(
+                      DesignatorIdent(
+                       i
+                      ) [DesignatorIdent]
+                    ) [FactorDesignator]
+                  ) [TermFactor]
+                ) [ExprSingleTerm]
+              ) [ActParsListExprRecursion]
+            ) [ActParsExpr]
+          ) [DesignatorStatementFunctionCall]
+        ) [StatementWithDesignator]
+      ) [StatementListMultipleStatements]
+    ) [MethodDecl]
+  ) [MethodDeclAppend]
+) [Program]
+INFO  15:38:30,503 - ===================================
+INFO  15:38:30,523 - Deklarisana metoda main tipa void: na liniji 8
+INFO  15:38:30,523 - Deklarisana promenljiva: i na liniji 8
+INFO  15:38:30,524 - Deklarisana promenljiva: j na liniji 8
+INFO  15:38:30,524 - Deklarisan niz: niz na liniji 8
+INFO  15:38:30,524 - Deklarisana promenljiva: ibool na liniji 8
+INFO  15:38:30,525 - Deklarisana promenljiva: set1 na liniji 8
+INFO  15:38:30,525 - argument funkcije tipa 6 je ocitan  na liniji 14
+INFO  15:38:30,526 - argument funkcije tipa 1 je ocitan  na liniji 14
+INFO  15:38:30,526 - Poziv funkcije: add na liniji 14
+INFO  15:38:30,527 - ===================================
+INFO  15:38:30,542 - Generisanje uspesno zavrseno!
