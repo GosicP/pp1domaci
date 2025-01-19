@@ -1,20 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 7/0/2025 22:9:55
+// 19/0/2025 19:3:33
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ExprDesignator extends Expr {
 
+    private FunctionName FunctionName;
     private Designator Designator;
-    private Designator Designator1;
 
-    public ExprDesignator (Designator Designator, Designator Designator1) {
+    public ExprDesignator (FunctionName FunctionName, Designator Designator) {
+        this.FunctionName=FunctionName;
+        if(FunctionName!=null) FunctionName.setParent(this);
         this.Designator=Designator;
         if(Designator!=null) Designator.setParent(this);
-        this.Designator1=Designator1;
-        if(Designator1!=null) Designator1.setParent(this);
+    }
+
+    public FunctionName getFunctionName() {
+        return FunctionName;
+    }
+
+    public void setFunctionName(FunctionName FunctionName) {
+        this.FunctionName=FunctionName;
     }
 
     public Designator getDesignator() {
@@ -25,32 +33,24 @@ public class ExprDesignator extends Expr {
         this.Designator=Designator;
     }
 
-    public Designator getDesignator1() {
-        return Designator1;
-    }
-
-    public void setDesignator1(Designator Designator1) {
-        this.Designator1=Designator1;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(FunctionName!=null) FunctionName.accept(visitor);
         if(Designator!=null) Designator.accept(visitor);
-        if(Designator1!=null) Designator1.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(FunctionName!=null) FunctionName.traverseTopDown(visitor);
         if(Designator!=null) Designator.traverseTopDown(visitor);
-        if(Designator1!=null) Designator1.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(FunctionName!=null) FunctionName.traverseBottomUp(visitor);
         if(Designator!=null) Designator.traverseBottomUp(visitor);
-        if(Designator1!=null) Designator1.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +59,14 @@ public class ExprDesignator extends Expr {
         buffer.append(tab);
         buffer.append("ExprDesignator(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
+        if(FunctionName!=null)
+            buffer.append(FunctionName.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Designator1!=null)
-            buffer.append(Designator1.toString("  "+tab));
+        if(Designator!=null)
+            buffer.append(Designator.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

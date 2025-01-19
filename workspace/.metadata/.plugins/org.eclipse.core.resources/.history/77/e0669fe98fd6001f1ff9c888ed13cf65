@@ -1,0 +1,68 @@
+program TestIf
+
+
+
+{
+	
+
+	int f1(int arg){
+		print(arg); print(eol);
+		return arg * 2;
+	}
+	
+	void mojaMetoda(int niz[]) int i, arraylength; {
+		i=0;
+		do{
+			f1(niz[i]);
+			i++;
+		}while(i<arraylength);
+	}
+
+	void main() int i, j, niz[]; bool ibool; set set1, set2, set3;{
+		
+		//set1 = new set[3];
+		
+		//set2 = new set[3];
+		
+		//set3 = new set[6];
+		
+		niz = new int[3];
+		//niz[0] = 1;
+		//niz[1] = 2;
+		//niz[2] = 3;
+		//print(niz[2]);
+		//print(eol);
+		//nestomoje(niz, 1);
+		
+		//add(set2, 3);
+		//add(set2, 4);
+		//add(set2, 5);
+		
+		
+		
+		//addAll(set1, niz);
+		
+		//print(set1);
+		//print(eol);
+				
+		//print(set2);
+		//print(eol);
+		
+		//unionAddAllInternalMethod(set3, set1, set2);
+		
+		//set3 = set1 union set2;
+		
+		//print(set3);
+		//print(eol);
+		
+		//i = set1[2];
+		
+		//add(set1, i);
+		
+		niz[0] = 1; niz[1] = 2; niz[2] = 3;
+		i = f1 map niz; // 1 2 3 
+		print(i); print(eol); // 12
+
+	}
+
+}

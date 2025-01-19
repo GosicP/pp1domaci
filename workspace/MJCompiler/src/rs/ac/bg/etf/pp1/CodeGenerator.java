@@ -1,6 +1,8 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -19,6 +21,8 @@ public class CodeGenerator extends VisitorAdaptor {
 	private Struct setType = Tab.find("set").getType();
 	Obj printMeth;
 	Obj unionAddAllMeth;
+	Obj mapInternalMethod;
+	int patchMapAddr = 0;
 	
 	private void initBuiltInMethods() {
 		Obj ordMeth = Tab.find("ord");
@@ -28,6 +32,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		printMeth = Tab.find("printSetInternalMeth");
 		Obj addAllMeth = Tab.find("addAll");
 		unionAddAllMeth = Tab.find("unionAddAllInternalMethod");
+		mapInternalMethod = Tab.find("mapInternalMethod");
 		
 		ordMeth.setAdr(Code.pc);
 		Code.put(Code.enter);
@@ -336,6 +341,79 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.putJump(Code.pc + 6);
 		Code.putJump(Code.pc + 6);
 		Code.putJump(Code.pc - 25);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+//		int mojMap(int niz[]) int i, arraylength, sum, returnValue; {
+//			i=0;
+//			returnValue = 0;
+//			do{
+//				sum = f1(niz[i]);
+//				returnValue = returnValue + sum;
+//				i++;
+//			}while(i<arraylength);
+//			
+//			return returnValue;
+//		}
+		
+		mapInternalMethod.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(5);
+		
+		Code.put(Code.load_n); // potrebno za arraylength
+		Code.put(Code.arraylength); // skidam arrayLength
+		Code.put(Code.store_2); //storuj u drugu varijablu (arrayLength)
+		
+		//i = 0
+		Code.put(Code.const_n);
+		Code.put(Code.store_1);
+		
+		//returnValue = 0
+		Code.put(Code.const_n);
+		Code.put(Code.store);
+		Code.put(4);
+		
+		//f1(niz[i]); Samo ovde moram da uradim fixup
+		Code.put(Code.load_n);
+		Code.put(Code.load_1);
+		Code.put(Code.aload);
+		
+		Code.put(Code.call);
+		Code.put2(0);
+		patchMapAddr = Code.pc - 2;
+		
+		
+		//returnValue = returnValue + sum;
+		Code.put(Code.store_3);
+		Code.put(Code.load);
+		Code.put(4);
+		Code.put(Code.load_3);
+		Code.put(Code.add);
+		Code.put(Code.store);
+		Code.put(4);
+		
+		//i++
+		Code.put(Code.load_1);
+		Code.put(Code.const_1);
+		Code.put(Code.add);
+		Code.put(Code.store_1);
+		
+		//(i<arrayLength)
+		Code.put(Code.load_1);
+		Code.put(Code.load_2);
+		
+		Code.putFalseJump(Code.lt, Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc + 6);
+		Code.putJump(Code.pc - 28);
+		
+		Code.put(Code.load);
+		Code.put(4);
+		
+		Code.put(Code.exit);
+		Code.put(Code.return_);
 		
 		Code.put(Code.exit);
 		Code.put(Code.return_);
@@ -705,6 +783,8 @@ public class CodeGenerator extends VisitorAdaptor {
 		System.out.println("Usao sam u doWhileStartDummy");
 		System.out.println(Code.pc);
 		doBegin.push(Code.pc);
+		breakJumps.push(new ArrayList<Integer>());
+		continueJumps.push(new ArrayList<Integer>());
 	}
 	
 	//ovde treba da napravis i onaj drugi while
@@ -742,6 +822,11 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.putJump(doBegin.pop());
 		Code.fixup(skipThen.pop());
 		isWhileWithStatement = false;
+		
+		while(!breakJumps.peek().isEmpty()) {
+			Code.fixup(breakJumps.peek().remove(0));
+		}
+		breakJumps.pop();
 	}
 	
 	@Override
@@ -761,7 +846,48 @@ public class CodeGenerator extends VisitorAdaptor {
 		System.out.println(Code.pc);
 		isWhileWithStatement = true; //ovo sve sto radim sa isWhileWithStatement i desStmtDummyTerminal je
 		//neki workaround da bi mi while(i<3; i++) radio
+		
+		while(!continueJumps.peek().isEmpty()) {
+			Code.fixup(continueJumps.peek().remove(0));
+		}
+		continueJumps.pop();
 	}
-
 	
+	//BREAK I CONTINUE
+	
+	private Stack<List<Integer>> breakJumps = new Stack<>();
+	private Stack<List<Integer>> continueJumps = new Stack<>();
+
+	@Override
+	public void visit(StatementBreak statementBreak) {
+		Code.putJump(0);
+		breakJumps.peek().add(Code.pc - 2);
+	}	
+	
+	@Override
+	public void visit(StatementContinue statementContinue) {
+		Code.putJump(0);
+		continueJumps.peek().add(Code.pc - 2);
+	}	
+	
+	
+	@Override
+	public void visit(ExprDesignator exprDesignator) {
+		Obj mapFunction = exprDesignator.getFunctionName().getDesignator().obj;
+		Obj designatorArray = exprDesignator.getDesignator().obj;
+		
+		int adrToPatchMap = mapFunction.getAdr();
+		//KAKO DA FIXUPUJEM NA ADRESU KOJU JE U MAPFUNCTION
+		//Code.fixup(patchMapAddr);
+		System.out.println("patchMapAddr je " + patchMapAddr);
+		System.out.println("adrToPatchMap je" + adrToPatchMap);
+		Code.put2(patchMapAddr, (adrToPatchMap-patchMapAddr + 1));
+		
+		Code.load(designatorArray);
+		
+		int adr = mapInternalMethod.getAdr(); //promeni ovo na drugu adresu
+		int offset = adr - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+	}
 }

@@ -242,7 +242,7 @@ Expr ::= (ExprMultipleTerm) Expr Addop Term
 		|
 		(ExprSingleTermMinus) MINUS Term
 		|
-		(ExprDesignator) Designator MAP Designator;
+		(ExprDesignator) FunctionName MAP Designator;
 
 Term ::= (TermMul) Term Mulop Factor
 				|

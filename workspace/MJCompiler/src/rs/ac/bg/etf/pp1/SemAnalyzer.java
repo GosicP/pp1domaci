@@ -705,8 +705,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(ExprDesignator exprDesignator) {
-		Obj designatorLeft = exprDesignator.getDesignator().obj;
-		Obj designatorRight = exprDesignator.getDesignator1().obj;
+		Obj designatorRight = exprDesignator.getDesignator().obj;
+		Obj designatorLeft = exprDesignator.getFunctionName().getDesignator().obj;
 		
 		Collection<Obj> formalParameters = designatorLeft.getLocalSymbols();
 		List<Obj> formalParametersList = new ArrayList<>(formalParameters);

@@ -74,7 +74,7 @@ public class MJParserTest {
 			setObj.setAdr(-1); //ovo je jer tip nema offset
 			setObj.setLevel(-1); //ovo je da bi bio universe opseg, jer je on na -1
 			
-			Obj addObj, addAllObj, varObj, printSetInternalMeth, unionAddAllInternalMethod;
+			Obj addObj, addAllObj, varObj, printSetInternalMeth, unionAddAllInternalMethod, MapInternalMethod;
 			addObj = Tab.insert(Obj.Meth, "add", Tab.noType);
 			addObj.setLevel(2);
 			Tab.openScope();
@@ -129,6 +129,15 @@ public class MJParserTest {
 			varObj.setLevel(1);
 			varObj.setFpPos(1);
 			Tab.chainLocalSymbols(unionAddAllInternalMethod);
+			Tab.closeScope();
+			
+			MapInternalMethod = Tab.insert(Obj.Meth, "mapInternalMethod", Tab.intType);
+			MapInternalMethod.setLevel(1);
+			Tab.openScope();
+			varObj = Tab.insert(Obj.Var, "a", new Struct(Struct.Array, Tab.intType));
+			varObj.setLevel(1);
+			varObj.setFpPos(1);
+			Tab.chainLocalSymbols(MapInternalMethod);
 			Tab.closeScope();
 			
 			/* Semanticka analiza */
